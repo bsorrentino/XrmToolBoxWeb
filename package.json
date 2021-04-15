@@ -1,0 +1,30 @@
+{
+  "name": "xrmapi-samples",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build index.html",
+    "start": "parcel index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@azure/msal-browser": "^2.13.1",
+    "xrm-webapi-client": "^4.0.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.0.0-beta.2",
+    "typescript": "^4.2.4"
+  },
+  "targets": {
+    "main": false,
+    "default": {
+      "engines": {
+        "browsers": "> 0.25%"
+      }
+    }
+  }
+}
