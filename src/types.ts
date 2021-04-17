@@ -94,3 +94,12 @@ export enum DependentComponentType	{
     'Entity Image Configuration' = 432,
     
     }
+
+
+export enum EntityFilters {
+    Entity = 1, // Use this to retrieve only entity information.
+    Attributes = 2, // Use this to retrieve entity information plus attributes for the entity.
+    Privileges = 4, // Use this to retrieve entity information plus privileges for the entity.
+    Relationships = 8, // Use this to retrieve entity information plus entity relationships for the entity.
+    All = 15, // Use this to retrieve all data for an entity.
+}
