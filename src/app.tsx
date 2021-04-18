@@ -7,6 +7,7 @@ import {
     prepareWebApiRequest,
     whoAmIRequest,
 } from './webapi';
+import { Features } from "./features";
 
 export function App() {
     const { instance, accounts, inProgress } = useMsal();
@@ -14,8 +15,9 @@ export function App() {
     const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
 
     useEffect(() => {
-        console.log('in effect')
+        
         if (account) {
+            console.log( accounts )
             instance.acquireTokenSilent({
                 scopes: webapiScopes,
                 account: account
@@ -24,16 +26,15 @@ export function App() {
             .then( whoAmIRequest )
             ;
         }
-    }, [account, instance]);
+    }, [account?.localAccountId, instance]);
 
     if (accounts.length > 0) {
+        
         return (
-            <Stack horizontal>
-                <Text>
-                    There are currently {accounts.length} users signed in!
-                </Text>
-            </Stack>
-        );
+            <div>
+                <Features></Features>
+            </div>
+            );
     } else if (inProgress === "login") {
         return <span>Login is currently in progress!</span>
     } else {
