@@ -3,28 +3,38 @@ import { FocusZone } from '@fluentui/react/lib/FocusZone'
 import { List } from '@fluentui/react/lib/List'
 import { IRectangle } from '@fluentui/react/lib/Utilities'
 import { useConst } from '@fluentui/react-hooks'
+import { Text } from '@fluentui/react/lib/Text';
+import { Link } from '@fluentui/react/lib/Link'
+import { Icon } from '@fluentui/react/lib/Icon';
 
-import { getTheme, mergeStyleSets, FontSizes, DefaultEffects } from '@fluentui/react/lib/Styling'
+import { 
+  Stack, 
+  IStackStyles, 
+  IStackTokens 
+} from '@fluentui/react/lib/Stack';
+import { 
+  getTheme, 
+  mergeStyleSets, 
+  FontSizes, 
+  DefaultEffects 
+} from '@fluentui/react/lib/Styling'
+
 const theme = getTheme()
-const { palette, fonts } = theme
+const { palette } = theme
 
-const classNames = mergeStyleSets({
-    featureTile: {
-        //textAlign: 'center',
-        outline: 'none',
-        position: 'relative',
-        float: 'left',
-        background: palette.neutralLighter,
-        padding: '0px 10px 10px 10px',
-        margin: '10px',
-        boxShadow: DefaultEffects.elevation8,
-    },
-    featureDescription: {
-        'padding-top':'10px',
-        'padding-bottom':'10px',
-    }
-    
-})
+// Styles definition
+const stackStyles: IStackStyles = {
+  root: {
+    float: 'left',
+    background: palette.neutralLighter,
+    boxShadow: DefaultEffects.elevation8,
+    padding: '0px 10px 10px 10px',
+    margin: '10px',
+  },
+}
+
+const stackTokens: IStackTokens = { childrenGap: 10 }
+
 /*
 import { ITheme, getTheme, mergeStyleSets } from '@fluentui/react/lib/Styling';
 
@@ -103,13 +113,17 @@ export const Features: React.FunctionComponent = () => {
   
   const onRenderCell = React.useCallback((item?: FeatureItem, index?: number) => {
     return (
-        <div className={classNames.featureTile}>
-            <div style={{fontSize:FontSizes.size28}}>{item?.name}</div>
-            <div className={classNames.featureDescription}>
+        <Stack styles={stackStyles} tokens={stackTokens}>
+            <Stack horizontal verticalAlign="center" tokens={stackTokens}>
+              <Text variant="xxLarge">{item?.name}</Text>
+              <Icon iconName="BoxPlaySolid" style={{fontSize:'30px'}}></Icon>
+            </Stack>
+            
+            <Text variant={'large'} block>
                 {item?.description}
-            </div>
-            <a href={item?.docPage} target={item?.name}>documentation</a>
-        </div>
+            </Text>
+            <Link  href={item?.docPage} target={item?.name}>Documentation</Link>
+        </Stack>
     );
   }, []);
 
@@ -139,7 +153,6 @@ export const Features: React.FunctionComponent = () => {
   return (
     <FocusZone>
       <List
-        //className={classNames.listGridExample}
         items={items}
         getItemCountForPage={getItemCountForPage}
         getPageHeight={getPageHeight}

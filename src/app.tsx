@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react"
 import { useMsal, useAccount } from "@azure/msal-react";
 import { PrimaryButton, Stack, Text } from "@fluentui/react";
 import {  useBoolean } from '@fluentui/react-hooks';
+import { initializeIcons } from '@fluentui/font-icons-mdl2';
+
 import {  
     scopes as webapiScopes, 
     prepareWebApiRequest,
@@ -14,6 +16,7 @@ export function App() {
     const account = useAccount(accounts[0] || {});
     const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
 
+    initializeIcons();
     useEffect(() => {
         
         if (account) {
