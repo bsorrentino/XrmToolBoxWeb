@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "parcel build src/index.html",
-    "start": "parcel src/index.html",
+    "build": "parcel build src/**/*.html",
+    "start": "parcel src/index.html src/**/*.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "npx-run": "^2.1.2",
     "parcel": "^2.0.0-beta.2",
     "typescript": "^4.2.4"
   },

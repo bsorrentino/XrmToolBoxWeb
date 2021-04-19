@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import { MsalProvider } from "@azure/msal-react";
 
-import { PCA } from "./auth";
+import { PCA } from "../auth";
 import {App} from "./app";
 
 // Component

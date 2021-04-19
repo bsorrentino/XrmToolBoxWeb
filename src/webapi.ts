@@ -13,13 +13,14 @@ export const prepareWebApiRequest = ( auth:AuthenticationResult ) => {
     client.ClientUrl = POWERPLATFORM_ENV_URL
 }
 
-export const whoAmIRequest = () => {
-    
-    WebApiClient.Execute(WebApiClient.Requests.WhoAmIRequest)
-        .then( (response:any ) =>  console.log(response) )
-        .catch( (error:any) => console.error(error) )
-
+export interface WhoAmIResult {
+    BusinessUnitId: string
+    OrganizationId: string
+    UserId: string
 }
+export const WhoAmIRequest = () => 
+    WebApiClient.Execute<WhoAmIResult>(WebApiClient.Requests.WhoAmIRequest) as Promise<WhoAmIResult>
+        
 
 const retrieveDependenciesForDeleteRequest = ( params: { ObjectId:string, ComponentType:DependentComponentType} ) => 
     WebApiClient.Execute( WebApiClient.Requests.RetrieveDependenciesForDeleteRequest.with( {  urlParams: params } ) )

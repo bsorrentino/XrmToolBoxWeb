@@ -1,10 +1,14 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { useMsal, useAccount } from "@azure/msal-react";
 import { PrimaryButton, Stack, Text } from "@fluentui/react";
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
-import {  scopes as webapiScopes, } from './webapi';
 
-import { Features } from "./features";
+import {  
+    scopes as webapiScopes, 
+    prepareWebApiRequest,
+    WhoAmIRequest,
+    WhoAmIResult,
+} from '../webapi';
 
 initializeIcons();
 
@@ -13,16 +17,18 @@ export function App() {
     console.log( 'App' )
     const { instance, accounts, inProgress } = useMsal();
     const account = useAccount(accounts[0] || {});
-    //const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
+    const [result, setResult] = useState<Partial<WhoAmIResult>>( {} );
 
     useEffect(() => {
         
         if (account) {
-            //console.log( accounts )
             instance.acquireTokenSilent({
                 scopes: webapiScopes,
                 account: account
             })
+            .then( prepareWebApiRequest ) 
+            .then( WhoAmIRequest )
+            .then( setResult )
             ;
         }
     }, [account?.localAccountId, instance]);
@@ -31,7 +37,11 @@ export function App() {
         
         return (
             <div>
-                <Features></Features>
+                <Stack>
+                    <Text>UserId: {result.UserId}</Text>
+                    <Text>BusinessUnitId: {result.BusinessUnitId}</Text>
+                    <Text>OrganizationId: {result.OrganizationId}</Text>
+                </Stack>
             </div>
             );
     } else if (inProgress === "login") {
