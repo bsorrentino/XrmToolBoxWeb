@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "@types/xrm": "^9.0.38",
     "npx-run": "^2.1.2",
     "parcel": "^2.0.0-beta.2",
     "typescript": "^4.2.4"
