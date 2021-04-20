@@ -118,7 +118,7 @@ export const Features: React.FunctionComponent = () => {
         <Stack styles={stackStyles} tokens={stackTokens}>
             <Stack horizontal verticalAlign="center" tokens={stackTokens}>
               <Text variant="xxLarge">{item?.name}</Text>
-              <DefaultButton href={item?.testPage} target="_new" title="test it!" iconProps={play}>
+              <DefaultButton href={item?.testPage} target={item?.name + 'Request'} title="test it!" iconProps={play}>
                 {
                 //<Icon iconName="BoxPlaySolid" style={{fontSize:'30px'}}></Icon>
                 }
@@ -128,7 +128,7 @@ export const Features: React.FunctionComponent = () => {
             <Text variant={'large'} block>
                 {item?.description}
             </Text>
-            <Link  href={item?.docPage} target={item?.name}>Documentation</Link>
+            <Link  href={item?.docPage} target={item?.name + 'Doc'}>Documentation</Link>
         </Stack>
     );
   }, []);
@@ -143,7 +143,8 @@ export const Features: React.FunctionComponent = () => {
       }, 
       { name: 'RetrieveAllEntities', 
         description:'Retrieves metadata information about all the entities.', 
-        docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/retrieveallentities?view=dynamics-ce-odata-9' 
+        docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/retrieveallentities?view=dynamics-ce-odata-9',
+        testPage:'/RetrieveAllEntities/RetrieveAllEntities.html'
       }, 
   ])
 

@@ -7,7 +7,7 @@ import {
     scopes as webapiScopes, 
     prepareWebApiRequest,
     WhoAmIRequest,
-    WhoAmIResult,
+    WhoAmIResponse,
 } from '../webapi';
 
 initializeIcons();
@@ -17,7 +17,7 @@ export function App() {
     console.log( 'App' )
     const { instance, accounts, inProgress } = useMsal();
     const account = useAccount(accounts[0] || {});
-    const [result, setResult] = useState<Partial<WhoAmIResult>>( {} );
+    const [result, setResult] = useState<Partial<WhoAmIResponse>>( {} );
 
     useEffect(() => {
         

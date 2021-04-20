@@ -203,7 +203,7 @@ declare module WebApiClient {
             urlParams?: object;
             async?: boolean;
 
-            static with(param: RequestParameters): this; 
+            static with(param: RequestParameters): Request; 
         }
 
         class CalculateRollupFieldRequest extends Request { }
