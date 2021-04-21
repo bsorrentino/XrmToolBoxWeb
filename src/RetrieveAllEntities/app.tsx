@@ -58,6 +58,7 @@ const exampleChildClass = mergeStyles({
     const columns: IColumn[] = [
         { key: 'column1', name: 'Name', fieldName: 'LogicalName', minWidth: 100, maxWidth: 200, isResizable: true },
         { key: 'column2', name: 'Plural Name', fieldName: 'LogicalCollectionName', minWidth: 100, maxWidth: 200, isResizable: true },
+        { key: 'column3', name: 'Primary Name', fieldName: 'PrimaryIdAttribute', minWidth: 100, maxWidth: 200, isResizable: true },
     ]
 
 
