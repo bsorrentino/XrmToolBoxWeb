@@ -1,9 +1,9 @@
 
-## XRM WebApi Sample
+## XrmToolBoxWeb
 
-Access to **Microsoft Dynamics CRM WebApi** from a Single Page Application
+XrmToolBoxWeb is a Web application that connects to Microsoft Dataverse.
 
-
+Idea is to create an "alter ego" of amazing window tool [XrmToolBox](https://www.xrmtoolbox.com)
 
 ## Reference
 
