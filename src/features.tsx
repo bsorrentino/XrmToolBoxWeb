@@ -146,6 +146,11 @@ export const Features: React.FunctionComponent = () => {
         docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/retrieveallentities?view=dynamics-ce-odata-9',
         testPage:'/RetrieveAllEntities/RetrieveAllEntities.html'
       }, 
+      { name: 'RetrieveTotalRecordCount', 
+        description:'Returns data on the total number of records for specific entities.', 
+        docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/retrievetotalrecordcount?view=dynamics-ce-odata-9',
+        testPage:'/RetrieveTotalRecordCount/RetrieveTotalRecordCount.html'
+      }, 
   ])
 
   const getItemCountForPage = React.useCallback((itemIndex?: number, surfaceRect?: IRectangle) => {

@@ -155,5 +155,30 @@ export const RetrieveAllEntities = ( params: { EntityFilters:EntityFiltersEnum, 
 const retrieveDependenciesForDeleteRequest = ( params: { ObjectId:string, ComponentType:DependentComponentType} ) => 
 WebApiClient.Execute<Xrm.Metadata.EntityMetadata>( WebApiClient.Requests.RetrieveDependenciesForDeleteRequest.with( {  urlParams: params } ) )
 
+export class RetrieveTotalRecordCountRequest extends WebApiClient.Requests.Request {
+    method = 'GET'
+    name = 'RetrieveTotalRecordCount'
+
+    constructor( EntityNames:Array<string> ) {
+        super()
+        this.urlParams = { EntityNames:JSON.stringify(EntityNames) }
+    }
+}
+
+export interface RetrieveTotalRecordCountResponse {
+    "@odata.context":string
+    EntityRecordCountCollection: {
+        Count: number,
+        IsReadOnly: boolean,
+        Keys: Array<string>
+        Values: Array<number>
+    }
+}
 
 
+export const RetrieveTotalRecordCount = ( EntityNames:Array<string> ) => {
+
+    const req = new RetrieveTotalRecordCountRequest( EntityNames )
+    return WebApiClient.Execute<RetrieveTotalRecordCountResponse>( req ) as Promise<RetrieveTotalRecordCountResponse>
+
+}
