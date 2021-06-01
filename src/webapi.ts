@@ -155,7 +155,7 @@ export const RetrieveAllEntities = ( params: { EntityFilters:EntityFiltersEnum, 
 const retrieveDependenciesForDeleteRequest = ( params: { ObjectId:string, ComponentType:DependentComponentType} ) => 
 WebApiClient.Execute<Xrm.Metadata.EntityMetadata>( WebApiClient.Requests.RetrieveDependenciesForDeleteRequest.with( {  urlParams: params } ) )
 
-export class RetrieveTotalRecordCountRequest extends WebApiClient.Requests.Request {
+class RetrieveTotalRecordCountRequest extends WebApiClient.Requests.Request {
     method = 'GET'
     name = 'RetrieveTotalRecordCount'
 
