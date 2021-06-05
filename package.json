@@ -12,17 +12,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@azure/msal-browser": "^2.13.1",
-    "@azure/msal-react": "*",
-    "@fluentui/react": "^8.11.0",
+    "@azure/msal-browser": "^2.14.2",
+    "@azure/msal-react": "^1.0.0",
+    "@fluentui/react": "^8.17.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "xrm-webapi-client": "^4.0.0"
   },
   "devDependencies": {
-    "@types/react": "^17.0.3",
-    "@types/react-dom": "^17.0.3",
-    "@types/xrm": "^9.0.38",
+    "@types/react": "^17.0.9",
+    "@types/react-dom": "^17.0.6",
+    "@types/xrm": "^9.0.39",
     "npx-run": "^2.1.2",
     "parcel": "^2.0.0-beta.2",
     "typescript": "^4.2.4"
