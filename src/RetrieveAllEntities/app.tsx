@@ -18,6 +18,8 @@ import {
     RetrieveAllEntitiesResponse,
     EntityFiltersEnum
 } from '../webapi';
+import { Icon } from "@fluentui/react/lib/Icon"
+import { ShimmeredDetailsList } from "@fluentui/react/lib/ShimmeredDetailsList"
 
 initializeIcons();
 
@@ -44,10 +46,12 @@ const exampleChildClass = mergeStyles({
    * @param items 
    * @returns 
    */
-  function EntityMetadataList( params:{ metadata?:Array<Xrm.Metadata.EntityMetadata> } ) {
+  function EntityMetadataList( params:{ 
+      metadata?:Array<Xrm.Metadata.EntityMetadata>,
+      loading:boolean
+    }) 
+    {
     
-    const items = params.metadata || [] 
-
     const selection = new Selection({
         onSelectionChanged: () => {
             //this.setState({ selectionDetails: this._getSelectionDetails() }
@@ -55,10 +59,52 @@ const exampleChildClass = mergeStyles({
         },
     });
 
+    const copyToClipboard = ( text:string ) => {
+        if( navigator.clipboard ) {
+            navigator.clipboard.writeText(text)
+            .then( () => console.log( `text '${text}' copied to clipboard`))
+            .catch( err => console.error( 'error coping to clipboard', err ))
+        }
+    }
+
+    const renderer = ( item: Record<string,any>, index?:number, col?:IColumn) => {
+
+        return ( 
+            <Stack horizontal verticalAlign="center" >
+                <div>{item[col!.fieldName!]}</div>
+                <Icon  iconName="Copy" styles={{root:{ paddingLeft:5 }}} onClick={ () => copyToClipboard(item[col!.fieldName!]) } />
+            </Stack> 
+        )
+
+    }
     const columns: IColumn[] = [
-        { key: 'column1', name: 'Name', fieldName: 'LogicalName', minWidth: 100, maxWidth: 200, isResizable: true },
-        { key: 'column2', name: 'Plural Name', fieldName: 'LogicalCollectionName', minWidth: 100, maxWidth: 200, isResizable: true },
-        { key: 'column3', name: 'Primary Name', fieldName: 'PrimaryIdAttribute', minWidth: 100, maxWidth: 200, isResizable: true },
+        {   
+            key: 'column1', 
+            name: 'Name', 
+            fieldName: 'LogicalName', 
+            minWidth: 100, 
+            maxWidth: 200, 
+            isResizable: true,
+            onRender:renderer,
+        },
+        { 
+            key: 'column2', 
+            name: 'Plural Name', 
+            fieldName: 'LogicalCollectionName', 
+            minWidth: 100, 
+            maxWidth: 200, 
+            isResizable: true,
+            onRender:renderer,
+        },
+        { 
+            key: 'column3', 
+            name: 'Primary Name', 
+            fieldName: 'PrimaryIdAttribute', 
+            minWidth: 100, 
+            maxWidth: 200, 
+            isResizable: true,
+            onRender:renderer,
+        },
     ]
 
 
@@ -79,17 +125,21 @@ const exampleChildClass = mergeStyles({
         }
     }
   
+    const items = params.metadata ?? []
     return (
         <div>
+          {/*  
           <Text>
             Note: While focusing a row, pressing enter or double clicking will execute onItemInvoked, which in this
             example will show an alert.
           </Text>
+          */}
           <Announced message={`Number of items: ${items.length}.`} />
           <MarqueeSelection selection={selection}>
-            <DetailsList
+            <ShimmeredDetailsList
               items={items}
               columns={columns}
+              enableShimmer={params.loading}
               setKey="set"
               layoutMode={DetailsListLayoutMode.justified}
               selection={selection}
@@ -126,9 +176,10 @@ function enumToGroups( enumObject:object):Array<IChoiceGroupOption>  {
  * @returns 
  */
 function Main() {
-    const [selectedKey, setSelectedKey] = useState(String(EntityFiltersEnum.All));
+    const [selectedKey, setSelectedKey] = useState(String(EntityFiltersEnum.Entity));
     const [result, setResult] = useState<Partial<RetrieveAllEntitiesResponse>>( { EntityMetadata: [] } );
     const [items, setItems] = useState<Array<Xrm.Metadata.EntityMetadata>>( [] );
+    const [loading, setLoading] = useState<boolean>( false )
 
     const onChange = useCallback((ev?:React.SyntheticEvent<HTMLElement>, option?:IChoiceGroupOption) => {
         if( option ) setSelectedKey(option.key);
@@ -138,12 +189,17 @@ function Main() {
 
     const execute = () => {
         const filter:any = selectedKey
+        setLoading(true)
         RetrieveAllEntities( { EntityFilters: filter, RetrieveAsIfPublished:false })
             .then( metadata => {
                 setResult(metadata)
                 setItems(metadata.EntityMetadata) 
+                setLoading(false)
             })
-            .catch( error => console.error( error) )
+            .catch( error => {
+                console.error( error)
+                setLoading(false) 
+            })
     }
 
     const onFilter = (ev?: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>, text?: string): void => {
@@ -159,7 +215,7 @@ function Main() {
             <Stack horizontal>          
                 <ChoiceGroup 
                     styles={{flexContainer: { display: "flex" } }}
-                    defaultSelectedKey={EntityFiltersEnum.All}
+                    defaultSelectedKey={EntityFiltersEnum.Entity}
                     options={options} 
                     onChange={onChange} 
                     label="Set Metadata Filter" 
@@ -173,7 +229,7 @@ function Main() {
                 onChange={onFilter}
                 styles={textFieldStyles}
             />
-            <EntityMetadataList metadata={items}/>
+            <EntityMetadataList metadata={items} loading={loading}/>
         </Stack>
         );
 
