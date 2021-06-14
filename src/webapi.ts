@@ -155,6 +155,12 @@ export const RetrieveAllEntities = ( params: { EntityFilters:EntityFiltersEnum, 
 const retrieveDependenciesForDeleteRequest = ( params: { ObjectId:string, ComponentType:DependentComponentType} ) => 
 WebApiClient.Execute<Xrm.Metadata.EntityMetadata>( WebApiClient.Requests.RetrieveDependenciesForDeleteRequest.with( {  urlParams: params } ) )
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// RetrieveTotalRecordCount
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 class RetrieveTotalRecordCountRequest extends WebApiClient.Requests.Request {
     method = 'GET'
     name = 'RetrieveTotalRecordCount'
@@ -182,3 +188,57 @@ export const RetrieveTotalRecordCount = ( EntityNames:Array<string> ) => {
     return WebApiClient.Execute<RetrieveTotalRecordCountResponse>( req ) as Promise<RetrieveTotalRecordCountResponse>
 
 }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// GlobalOptionSetDefinitions
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+export namespace GlobalOptionSetDefinitions {
+
+    class Request extends WebApiClient.Requests.Request {
+        method = 'GET'
+        name = 'GlobalOptionSetDefinitions'
+    
+        constructor() {
+            super()
+        }
+
+        buildUrl() {
+            return super.buildUrl()
+            // + '?$select=Name,OptionSetType'
+        }
+    }
+
+    type OptionSetType = 'Picklist' | 'Boolean' | string
+
+    type OptionSetMetadata = {
+        "@odata.type":          '#Microsoft.Dynamics.CRM.OptionSetMetadata',
+        ParentOptionSetName:    string|null,
+        IsCustomOptionSet:      boolean,
+        IsGlobal:               boolean,
+        IsManaged:              boolean,
+        Name:                   string,
+        ExternalTypeName:       string|null,
+        OptionSetType:          OptionSetType,
+        IntroducedVersion:      string,
+        MetadataId:             string,
+        HasChanged:             boolean|null,
+        Options:                Array<Xrm.Metadata.OptionMetadata>  
+    }
+
+    export type Response = { 
+        "@odata.context":string 
+        value:Array<OptionSetMetadata>
+    } 
+        
+    export const Invoke = () => {
+
+        const req = new Request()
+        return WebApiClient.Execute<Response>( req ) as Promise<Response>
+    
+    }
+}
+
+
+
+

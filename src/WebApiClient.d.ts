@@ -202,7 +202,9 @@ declare module WebApiClient {
             headers?: Array<Header>;
             urlParams?: object;
             async?: boolean;
-
+            
+            buildUrl():string
+            
             static with(param: RequestParameters): Request; 
         }
 
