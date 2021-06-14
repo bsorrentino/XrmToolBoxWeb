@@ -209,9 +209,9 @@ export namespace GlobalOptionSetDefinitions {
         }
     }
 
-    type OptionSetType = 'Picklist' | 'Boolean' | string
+    export type OptionSetType = 'Picklist' | 'Boolean' | string
 
-    type OptionSetMetadata = {
+    export type Metadata = {
         "@odata.type":          '#Microsoft.Dynamics.CRM.OptionSetMetadata',
         ParentOptionSetName:    string|null,
         IsCustomOptionSet:      boolean,
@@ -228,7 +228,7 @@ export namespace GlobalOptionSetDefinitions {
 
     export type Response = { 
         "@odata.context":string 
-        value:Array<OptionSetMetadata>
+        value:Array<Metadata>
     } 
         
     export const Invoke = () => {
