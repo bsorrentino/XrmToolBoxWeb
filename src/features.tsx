@@ -151,6 +151,11 @@ export const Features: React.FunctionComponent = () => {
         docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/retrievetotalrecordcount?view=dynamics-ce-odata-9',
         testPage:'/RetrieveTotalRecordCount/RetrieveTotalRecordCount.html'
       }, 
+      { name: 'GlobalOptionSetDefinitions', 
+        description:'fetch Global OptionSets.', 
+        docPage:'https://crmtipoftheday.com/532/retrieving-global-optionsets-using-web-api/',
+        testPage:'/GlobalOptionSetDefinitions/GlobalOptionSetDefinitions.html'
+      }, 
   ])
 
   const getItemCountForPage = React.useCallback((itemIndex?: number, surfaceRect?: IRectangle) => {
