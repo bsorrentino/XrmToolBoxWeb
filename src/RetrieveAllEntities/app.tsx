@@ -1,16 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react"
-import { useMsal, useAccount } from "@azure/msal-react"
-import { DetailsList, DetailsListLayoutMode, Selection, IColumn } from '@fluentui/react/lib/DetailsList'
+import { useAccount } from "@azure/msal-react"
+import { DetailsListLayoutMode, Selection, IColumn } from '@fluentui/react/lib/DetailsList'
 import { MarqueeSelection } from '@fluentui/react/lib/MarqueeSelection'
 import { mergeStyles } from '@fluentui/react/lib/Styling'
-import { Text } from '@fluentui/react/lib/Text'
 import { TextField, ITextFieldStyles } from '@fluentui/react/lib/TextField'
 import { ChoiceGroup, IChoiceGroupOption } from '@fluentui/react/lib/ChoiceGroup'
 import { Announced } from '@fluentui/react/lib/Announced'
 import { PrimaryButton } from '@fluentui/react/lib/Button'
 import { Stack } from '@fluentui/react/lib/Stack';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
-
+import { useRenderAfterLogin } from "../auth";
 import {  
     scopes as webapiScopes, 
     prepareWebApiRequest,
@@ -112,18 +111,6 @@ const exampleChildClass = mergeStyles({
         alert(`Item invoked: ${item.name}`);
     };
   
-    const getSelectionDetails = () => {
-        const selectionCount = selection.getSelectedCount();
-    
-        switch (selectionCount) {
-          case 0:
-            return 'No items selected';
-          case 1:
-            return `1 item selected: ' + ${(selection.getSelection()[0] as IDetailsListBasicExampleItem).name}`;
-          default:
-            return `${selectionCount} items selected`;
-        }
-    }
   
     const items = params.metadata ?? []
     return (
@@ -241,7 +228,7 @@ function Main() {
  */
 export function App() {
 
-    const { instance, accounts, inProgress } = useMsal();
+    const { instance, accounts, renderAfterLogin } = useRenderAfterLogin();
     const account = useAccount(accounts[0] || {});
 
     useEffect(() => {
@@ -259,18 +246,5 @@ export function App() {
         }
     }, [account?.localAccountId, instance]);
 
-    if (accounts.length > 0) {   
-
-        return ( <div><Main/></div> )
-    
-    } else if (inProgress === "login") {
-        return <span>Login is currently in progress!</span>
-    } else {
-        return (
-            <Stack horizontal>
-                <Text>There are currently no users signed in!</Text>
-                <PrimaryButton text="Login" onClick={() => instance.loginPopup()} />
-            </Stack>
-        );
-    }
+    return renderAfterLogin( () => ( <div><Main/></div> ))
 }

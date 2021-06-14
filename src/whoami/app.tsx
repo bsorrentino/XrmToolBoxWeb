@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { useMsal, useAccount } from "@azure/msal-react";
-import { PrimaryButton, Stack, Text } from "@fluentui/react";
+import { useAccount } from "@azure/msal-react";
+import { Stack, Text } from "@fluentui/react";
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
+import { useRenderAfterLogin } from "../auth";
 
 import {  
     scopes as webapiScopes, 
@@ -14,8 +15,7 @@ initializeIcons();
 
 export function App() {
 
-    console.log( 'App' )
-    const { instance, accounts, inProgress } = useMsal();
+    const { instance, accounts, renderAfterLogin } = useRenderAfterLogin();
     const account = useAccount(accounts[0] || {});
     const [result, setResult] = useState<Partial<WhoAmIResponse>>( {} );
 
@@ -33,25 +33,12 @@ export function App() {
         }
     }, [account?.localAccountId, instance]);
 
-    if (accounts.length > 0) {
-        
-        return (
-            <div>
-                <Stack>
-                    <Text>UserId: {result.UserId}</Text>
-                    <Text>BusinessUnitId: {result.BusinessUnitId}</Text>
-                    <Text>OrganizationId: {result.OrganizationId}</Text>
-                </Stack>
-            </div>
-            );
-    } else if (inProgress === "login") {
-        return <span>Login is currently in progress!</span>
-    } else {
-        return (
-            <Stack horizontal>
-                <Text>There are currently no users signed in!</Text>
-                <PrimaryButton text="Login" onClick={() => instance.loginPopup()} />
+    return renderAfterLogin( () => 
+        (<div>
+            <Stack>
+                <Text>UserId: {result.UserId}</Text>
+                <Text>BusinessUnitId: {result.BusinessUnitId}</Text>
+                <Text>OrganizationId: {result.OrganizationId}</Text>
             </Stack>
-        );
-    }
+        </div>))
 }

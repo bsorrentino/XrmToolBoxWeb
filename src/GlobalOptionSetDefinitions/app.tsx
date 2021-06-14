@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { useMsal, useAccount, IMsalContext } from "@azure/msal-react"
+import { useAccount } from "@azure/msal-react"
 
 import {  
     scopes as webapiScopes, 
@@ -8,41 +8,14 @@ import {
 } from '../webapi';
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import { Stack } from "@fluentui/react/lib/Stack";
-import { PrimaryButton } from "@fluentui/react/lib/Button";
 import { Text } from "@fluentui/react/lib/Text";
 import { List } from "@fluentui/react/lib/List";
-import { DetailsList, DetailsListLayoutMode, IColumn, SelectionMode, Selection } from "@fluentui/react/lib/DetailsList";
-import { ScrollablePane, ScrollbarVisibility } from "@fluentui/react/lib/ScrollablePane";
+import { DetailsList, DetailsListLayoutMode, IColumn, SelectionMode } from "@fluentui/react/lib/DetailsList";
+import { useRenderAfterLogin } from "../auth";
 
 initializeIcons()
 
 const EMPTY_RESULT = { value:[] }
-
-type RenderAfterLogin = IMsalContext & { renderAfterLogin:( render:() => JSX.Element) => JSX.Element } 
-
-const useRenderAfterLogin = ():RenderAfterLogin =>  {
-
-    const msalContext = useMsal()
-
-    return { 
-        renderAfterLogin : ( render:() => JSX.Element) =>  { 
-            if (msalContext.accounts.length > 0) {   
-                return render()    
-            } 
-            else if (msalContext.inProgress === "login") {
-                return <span>Login is currently in progress!</span>
-            } else {
-            return (
-                <Stack horizontal>
-                    <Text>There are currently no users signed in!</Text>
-                    <PrimaryButton text="Login" onClick={() => msalContext.instance.loginPopup()} />
-                </Stack>
-                )
-            }
-    }, ...msalContext}
-
-}
-
 
 const _optionsColumns:IColumn[] = [
     { key:'label',name:'Label', minWidth:100, isResizable: true, 
