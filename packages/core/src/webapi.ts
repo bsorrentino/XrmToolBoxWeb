@@ -1,5 +1,7 @@
 import { AuthenticationResult } from "@azure/msal-browser";
-import WebApiClient, {  } from "xrm-webapi-client";
+import WebApiClient from 'xrm-webapi-client'
+
+
 const POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com'
 
 export const scopes = [ `${POWERPLATFORM_ENV_URL}/user_impersonation` ]
@@ -121,19 +123,10 @@ export enum EntityFiltersEnum {
     All = 'All', // Use this to retrieve all data for an entity.
 }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// REQUEST
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
 
 const retrieveDependenciesForDeleteRequest = ( params: { ObjectId:string, ComponentType:DependentComponentType} ) => 
 WebApiClient.Execute<Xrm.Metadata.EntityMetadata>( WebApiClient.Requests.RetrieveDependenciesForDeleteRequest.with( {  urlParams: params } ) )
 
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// RetrieveTotalRecordCount
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
