@@ -1,8 +1,9 @@
-import { PublicClientApplication, AuthenticationResult } from "@azure/msal-browser";
+import { AccountInfo, PublicClientApplication, AuthenticationResult } from "@azure/msal-browser";
 import { IMsalContext } from "@azure/msal-react";
 export const PCA: PublicClientApplication;
 type RenderAfterLogin = IMsalContext & {
     renderAfterLogin: (render: () => JSX.Element) => JSX.Element;
+    account: AccountInfo | null;
 };
 export const useRenderAfterLogin: () => RenderAfterLogin;
 export const scopes: string[];
@@ -106,11 +107,3 @@ export enum EntityFiltersEnum {
     Relationships = "Relationships",
     All = "All"
 }
-export interface RetrieveAllEntitiesResponse {
-    EntityMetadata: Array<Xrm.Metadata.EntityMetadata>;
-    Timestamp: String;
-}
-export const RetrieveAllEntities: (params: {
-    EntityFilters: EntityFiltersEnum;
-    RetrieveAsIfPublished: Boolean;
-}) => Promise<RetrieveAllEntitiesResponse>;

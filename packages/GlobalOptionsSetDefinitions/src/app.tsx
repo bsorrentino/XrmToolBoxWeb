@@ -39,9 +39,8 @@ const sortCriteria = (a:GlobalOptionSetDefinitions.Metadata, b:GlobalOptionSetDe
  */
 export function App() {
 
-    const { instance, accounts, renderAfterLogin } = useRenderAfterLogin()
+    const { instance, account, renderAfterLogin } = useRenderAfterLogin()
 
-    const account = useAccount(accounts[0] ?? {});
     const [result, setResult] = useState<Partial<GlobalOptionSetDefinitions.Response>>(EMPTY_RESULT);
 
     useEffect(() => {

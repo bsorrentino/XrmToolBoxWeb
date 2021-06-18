@@ -4,9 +4,6 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "parcel build src/index.html src/**/*.html",
-    "start": "parcel src/index.html src/**/*.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -14,20 +11,19 @@
   "dependencies": {
     "@azure/msal-browser": "^2.14.2",
     "@azure/msal-react": "^1.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.14.5",
-    "@babel/plugin-proposal-private-methods": "^7.14.5",
     "@fluentui/react": "^8.17.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "xrm-webapi-client": "^4.0.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-proposal-private-methods": "^7.14.5",
     "@parcel/transformer-typescript-types": "2.0.0-beta.2",
     "@types/react": "^17.0.9",
     "@types/react-dom": "^17.0.6",
     "@types/xrm": "^9.0.39",
     "lerna": "^4.0.0",
-    "npx-run": "^2.1.2",
     "parcel": "2.0.0-beta.2",
     "typescript": "^4.2.4"
   },

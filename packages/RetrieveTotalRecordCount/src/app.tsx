@@ -26,8 +26,7 @@ const play: IIconProps = { iconName: 'BoxPlaySolid' };
  */
 export function App() {
 
-    const { instance, accounts, renderAfterLogin } = useRenderAfterLogin();
-    const account = useAccount(accounts[0] || {});
+    const { instance, account, renderAfterLogin } = useRenderAfterLogin();
     const [result, setResult] = useState<Partial<RetrieveTotalRecordCount.Response>>();
     const [entityName, setEntityName] = useState( '' )
 

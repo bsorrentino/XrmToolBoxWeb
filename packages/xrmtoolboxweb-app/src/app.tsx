@@ -10,9 +10,8 @@ initializeIcons();
 
 export function App() {
 
-    const { instance, accounts, renderAfterLogin } = useRenderAfterLogin();
+    const { instance, account, renderAfterLogin } = useRenderAfterLogin();
     
-    const account = useAccount(accounts[0] || {});
     //const [isModalOpen, { setTrue: showModal, setFalse: hideModal }] = useBoolean(false);
 
     useEffect(() => {

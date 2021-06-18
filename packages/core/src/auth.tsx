@@ -1,5 +1,5 @@
-import { Configuration,  PublicClientApplication } from "@azure/msal-browser";
-import { IMsalContext, useMsal } from "@azure/msal-react";
+import { AccountInfo, Configuration,  PublicClientApplication } from "@azure/msal-browser";
+import { IMsalContext, useMsal, useAccount } from "@azure/msal-react";
 import { PrimaryButton } from "@fluentui/react/lib/Button";
 import { Stack } from "@fluentui/react/lib/Stack";
 import { Text } from "@fluentui/react/lib/Text";
@@ -21,12 +21,15 @@ const configuration : Configuration = {
 
 export const PCA = new PublicClientApplication(configuration);
 
-
-type RenderAfterLogin = IMsalContext & { renderAfterLogin:( render:() => JSX.Element) => JSX.Element } 
+type RenderAfterLogin = IMsalContext & { 
+    renderAfterLogin:( render:() => JSX.Element) => JSX.Element,
+    account: AccountInfo|null
+} 
 
 export const useRenderAfterLogin = ():RenderAfterLogin =>  {
 
     const msalContext = useMsal()
+    const account = useAccount(msalContext.accounts[0] ?? {});
 
     return { 
         renderAfterLogin : ( render:() => JSX.Element) =>  { 
@@ -43,6 +46,6 @@ export const useRenderAfterLogin = ():RenderAfterLogin =>  {
                 </Stack>
                 )
             }
-    }, ...msalContext}
+    }, account:account, ...msalContext}
 
 }
