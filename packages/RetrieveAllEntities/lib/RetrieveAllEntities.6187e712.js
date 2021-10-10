@@ -87264,11 +87264,10 @@ _parcelHelpers.export(exports, "RetrieveAllEntities", function () {
   return RetrieveAllEntities;
 });
 var _xrmWebapiClient = require("xrm-webapi-client");
-var _xrmWebapiClientDefault = _parcelHelpers.interopDefault(_xrmWebapiClient);
 let RetrieveAllEntities;
 (function (_RetrieveAllEntities) {
   const Invoke = _RetrieveAllEntities.Invoke = params => {
-    const req = _xrmWebapiClientDefault.default.Requests.RetrieveAllEntitiesRequest.with({
+    const req = _xrmWebapiClient.Requests.RetrieveAllEntitiesRequest.with({
       urlParams: {
         EntityFilters: `Microsoft.Dynamics.CRM.EntityFilters'${params.EntityFilters}'`,
         RetrieveAsIfPublished: false
@@ -87287,7 +87286,7 @@ let RetrieveAllEntities;
         value: 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
       }]
     });
-    return _xrmWebapiClientDefault.default.Execute(req);
+    return _xrmWebapiClient.Execute(req);
   };
 })(RetrieveAllEntities || (RetrieveAllEntities = {}));
 
