@@ -1,5 +1,4 @@
-import WebApiClient from "xrm-webapi-client"
-import { EntityFiltersEnum } from 'xrmtoolboxweb-core';
+import * as WebApiClient from "xrm-webapi-client";
 
 export namespace RetrieveAllEntities {
 
@@ -8,7 +7,7 @@ export namespace RetrieveAllEntities {
         Timestamp: String
     }
 
-    export const Invoke = ( params: { EntityFilters:EntityFiltersEnum, RetrieveAsIfPublished:Boolean}) => { 
+    export const Invoke = ( params: { EntityFilters:string, RetrieveAsIfPublished:Boolean}) => { 
         
         const req = WebApiClient.Requests.RetrieveAllEntitiesRequest.with( 
             {  urlParams: { EntityFilters:`Microsoft.Dynamics.CRM.EntityFilters'${params.EntityFilters}'`, RetrieveAsIfPublished:false},
