@@ -37429,92 +37429,70 @@ exports.UrlString = UrlString;
 exports.stubbedPublicClientApplication = stubbedPublicClientApplication;
 
 },{}],"3kFhw":[function(require,module,exports) {
-"use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __exportStar = (this && this.__exportStar) || function(m, exports) {
-    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./auth"), exports);
-__exportStar(require("./webapi"), exports);
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+var _auth = require('./auth');
+_parcelHelpers.exportAll(_auth, exports);
+var _webapi = require('./webapi');
+_parcelHelpers.exportAll(_webapi, exports);
 
-},{"./auth":"1m9wh","./webapi":"7dAS5"}],"1m9wh":[function(require,module,exports) {
-"use strict";
+},{"./auth":"1m9wh","./webapi":"7dAS5","@parcel/transformer-js/lib/esmodule-helpers.js":"wxgmP"}],"1m9wh":[function(require,module,exports) {
 var helpers = require("../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
 helpers.prelude(module);
 try {
-  var __assign = this && this.__assign || (function () {
-    __assign = Object.assign || (function (t) {
-      for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p)) t[p] = s[p];
-      }
-      return t;
-    });
-    return __assign.apply(this, arguments);
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  _parcelHelpers.export(exports, "PCA", function () {
+    return PCA;
   });
-  var __importDefault = this && this.__importDefault || (function (mod) {
-    return mod && mod.__esModule ? mod : {
-      "default": mod
-    };
+  _parcelHelpers.export(exports, "useRenderAfterLogin", function () {
+    return useRenderAfterLogin;
   });
-  Object.defineProperty(exports, "__esModule", {
-    value: true
-  });
-  exports.useRenderAfterLogin = exports.PCA = void 0;
-  var msal_browser_1 = require("@azure/msal-browser");
-  var msal_react_1 = require("@azure/msal-react");
-  var Button_1 = require("@fluentui/react/lib/Button");
-  var Stack_1 = require("@fluentui/react/lib/Stack");
-  var Text_1 = require("@fluentui/react/lib/Text");
-  var react_1 = __importDefault(require("react"));
-  var configuration = {
+  var _azureMsalBrowser = require("@azure/msal-browser");
+  var _azureMsalReact = require("@azure/msal-react");
+  var _fluentuiReactLibButton = require("@fluentui/react/lib/Button");
+  var _fluentuiReactLibStack = require("@fluentui/react/lib/Stack");
+  var _fluentuiReactLibText = require("@fluentui/react/lib/Text");
+  var _react = require("react");
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  const configuration = {
     auth: {
       clientId: 'c43d3729-2e9c-4254-bd68-fbbe4a45301b',
       redirectUri: 'http://localhost:1234'
     }
   };
-  exports.PCA = new msal_browser_1.PublicClientApplication(configuration);
-  var useRenderAfterLogin = function () {
+  const PCA = new _azureMsalBrowser.PublicClientApplication(configuration);
+  const useRenderAfterLogin = () => {
     var _a;
-    var msalContext = msal_react_1.useMsal();
-    var account = msal_react_1.useAccount((_a = msalContext.accounts[0]) !== null && _a !== void 0 ? _a : {});
-    return __assign({
-      renderAfterLogin: function (render) {
+    const msalContext = _azureMsalReact.useMsal();
+    const account = _azureMsalReact.useAccount((_a = msalContext.accounts[0]) !== null && _a !== void 0 ? _a : {});
+    return Object.assign({
+      renderAfterLogin: render => {
         if (msalContext.accounts.length > 0) {
           return render();
         } else if (msalContext.inProgress === "login") {
-          return react_1.default.createElement("span", null, "Login is currently in progress!");
+          return _reactDefault.default.createElement("span", null, "Login is currently in progress!");
         } else {
-          return react_1.default.createElement(Stack_1.Stack, {
+          return _reactDefault.default.createElement(_fluentuiReactLibStack.Stack, {
             horizontal: true
-          }, react_1.default.createElement(Text_1.Text, null, "There are currently no users signed in!"), react_1.default.createElement(Button_1.PrimaryButton, {
+          }, _reactDefault.default.createElement(_fluentuiReactLibText.Text, null, "There are currently no users signed in!"), _reactDefault.default.createElement(_fluentuiReactLibButton.PrimaryButton, {
             text: "Login",
-            onClick: function () {
-              return msalContext.instance.loginPopup();
-            }
+            onClick: () => msalContext.instance.loginPopup()
           }));
         }
       },
       account: account
     }, msalContext);
   };
-  exports.useRenderAfterLogin = useRenderAfterLogin;
   helpers.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"@azure/msal-browser":"YsMQ8","@azure/msal-react":"5gJEu","@fluentui/react/lib/Button":"3XFof","@fluentui/react/lib/Stack":"4PdoP","@fluentui/react/lib/Text":"7IQ0G","react":"4g1R3","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"Q8h6l"}],"3XFof":[function(require,module,exports) {
+},{"@azure/msal-browser":"YsMQ8","@azure/msal-react":"5gJEu","@fluentui/react/lib/Button":"3XFof","@fluentui/react/lib/Stack":"4PdoP","@fluentui/react/lib/Text":"7IQ0G","react":"4g1R3","@parcel/transformer-js/lib/esmodule-helpers.js":"wxgmP","../../../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"Q8h6l"}],"3XFof":[function(require,module,exports) {
 var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
 _parcelHelpers.defineInteropFlag(exports);
 var _componentsButtonIndex = require('./components/Button/index');
@@ -62555,127 +62533,135 @@ if ("development" !== "production") {
 }
 
 },{}],"7dAS5":[function(require,module,exports) {
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+_parcelHelpers.defineInteropFlag(exports);
+_parcelHelpers.export(exports, "scopes", function () {
+  return scopes;
+});
+_parcelHelpers.export(exports, "prepareWebApiRequest", function () {
+  return prepareWebApiRequest;
+});
+_parcelHelpers.export(exports, "DependentComponentType", function () {
+  return DependentComponentType;
+});
+_parcelHelpers.export(exports, "EntityFiltersEnum", function () {
+  return EntityFiltersEnum;
+});
+var _xrmWebapiClient = require('xrm-webapi-client');
+var _xrmWebapiClientDefault = _parcelHelpers.interopDefault(_xrmWebapiClient);
+const POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com';
+const scopes = [`${POWERPLATFORM_ENV_URL}/user_impersonation`];
+const prepareWebApiRequest = auth => {
+  let client = _xrmWebapiClientDefault.default;
+  client.ApiVersion = '9.1';
+  client.Token = auth.accessToken;
+  client.ClientUrl = POWERPLATFORM_ENV_URL;
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.EntityFiltersEnum = exports.DependentComponentType = exports.prepareWebApiRequest = exports.scopes = void 0;
-var xrm_webapi_client_1 = __importDefault(require("xrm-webapi-client"));
-var POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com';
-exports.scopes = [POWERPLATFORM_ENV_URL + "/user_impersonation"];
-var prepareWebApiRequest = function (auth) {
-    var client = xrm_webapi_client_1.default;
-    client.ApiVersion = '9.1';
-    client.Token = auth.accessToken;
-    client.ClientUrl = POWERPLATFORM_ENV_URL;
-};
-exports.prepareWebApiRequest = prepareWebApiRequest;
 var DependentComponentType;
 (function (DependentComponentType) {
-    DependentComponentType[DependentComponentType["Entity"] = 1] = "Entity";
-    DependentComponentType[DependentComponentType["Attribute"] = 2] = "Attribute";
-    DependentComponentType[DependentComponentType["Relationship"] = 3] = "Relationship";
-    DependentComponentType[DependentComponentType["Attribute Picklist Value"] = 4] = "Attribute Picklist Value";
-    DependentComponentType[DependentComponentType["Attribute Lookup Value"] = 5] = "Attribute Lookup Value";
-    DependentComponentType[DependentComponentType["View Attribute"] = 6] = "View Attribute";
-    DependentComponentType[DependentComponentType["Localized Label"] = 7] = "Localized Label";
-    DependentComponentType[DependentComponentType["Relationship Extra Condition"] = 8] = "Relationship Extra Condition";
-    DependentComponentType[DependentComponentType["Option Set"] = 9] = "Option Set";
-    DependentComponentType[DependentComponentType["Entity Relationship"] = 10] = "Entity Relationship";
-    DependentComponentType[DependentComponentType["Entity Relationship Role"] = 11] = "Entity Relationship Role";
-    DependentComponentType[DependentComponentType["Entity Relationship Relationships"] = 12] = "Entity Relationship Relationships";
-    DependentComponentType[DependentComponentType["Managed Property"] = 13] = "Managed Property";
-    DependentComponentType[DependentComponentType["Entity Key"] = 14] = "Entity Key";
-    DependentComponentType[DependentComponentType["Privilege"] = 16] = "Privilege";
-    DependentComponentType[DependentComponentType["PrivilegeObjectTypeCode"] = 17] = "PrivilegeObjectTypeCode";
-    DependentComponentType[DependentComponentType["Role"] = 20] = "Role";
-    DependentComponentType[DependentComponentType["Role Privilege"] = 21] = "Role Privilege";
-    DependentComponentType[DependentComponentType["Display String"] = 22] = "Display String";
-    DependentComponentType[DependentComponentType["Display String Map"] = 23] = "Display String Map";
-    DependentComponentType[DependentComponentType["Form"] = 24] = "Form";
-    DependentComponentType[DependentComponentType["Organization"] = 25] = "Organization";
-    DependentComponentType[DependentComponentType["Saved Query"] = 26] = "Saved Query";
-    DependentComponentType[DependentComponentType["Workflow"] = 29] = "Workflow";
-    DependentComponentType[DependentComponentType["Report"] = 31] = "Report";
-    DependentComponentType[DependentComponentType["Report Entity"] = 32] = "Report Entity";
-    DependentComponentType[DependentComponentType["Report Category"] = 33] = "Report Category";
-    DependentComponentType[DependentComponentType["Report Visibility"] = 34] = "Report Visibility";
-    DependentComponentType[DependentComponentType["Attachment"] = 35] = "Attachment";
-    DependentComponentType[DependentComponentType["Email Template"] = 36] = "Email Template";
-    DependentComponentType[DependentComponentType["Contract Template"] = 37] = "Contract Template";
-    DependentComponentType[DependentComponentType["KB Article Template"] = 38] = "KB Article Template";
-    DependentComponentType[DependentComponentType["Mail Merge Template"] = 39] = "Mail Merge Template";
-    DependentComponentType[DependentComponentType["Duplicate Rule"] = 44] = "Duplicate Rule";
-    DependentComponentType[DependentComponentType["Duplicate Rule Condition"] = 45] = "Duplicate Rule Condition";
-    DependentComponentType[DependentComponentType["Entity Map"] = 46] = "Entity Map";
-    DependentComponentType[DependentComponentType["Attribute Map"] = 47] = "Attribute Map";
-    DependentComponentType[DependentComponentType["Ribbon Command"] = 48] = "Ribbon Command";
-    DependentComponentType[DependentComponentType["Ribbon Context Group"] = 49] = "Ribbon Context Group";
-    DependentComponentType[DependentComponentType["Ribbon Customization"] = 50] = "Ribbon Customization";
-    DependentComponentType[DependentComponentType["Ribbon Rule"] = 52] = "Ribbon Rule";
-    DependentComponentType[DependentComponentType["Ribbon Tab To Command Map"] = 53] = "Ribbon Tab To Command Map";
-    DependentComponentType[DependentComponentType["Ribbon Diff"] = 55] = "Ribbon Diff";
-    DependentComponentType[DependentComponentType["Saved Query Visualization"] = 59] = "Saved Query Visualization";
-    DependentComponentType[DependentComponentType["System Form"] = 60] = "System Form";
-    DependentComponentType[DependentComponentType["Web Resource"] = 61] = "Web Resource";
-    DependentComponentType[DependentComponentType["Site Map"] = 62] = "Site Map";
-    DependentComponentType[DependentComponentType["Connection Role"] = 63] = "Connection Role";
-    DependentComponentType[DependentComponentType["Complex Control"] = 64] = "Complex Control";
-    DependentComponentType[DependentComponentType["Field Security Profile"] = 70] = "Field Security Profile";
-    DependentComponentType[DependentComponentType["Field Permission"] = 71] = "Field Permission";
-    DependentComponentType[DependentComponentType["Plugin Type"] = 90] = "Plugin Type";
-    DependentComponentType[DependentComponentType["Plugin Assembly"] = 91] = "Plugin Assembly";
-    DependentComponentType[DependentComponentType["SDK Message Processing Step"] = 92] = "SDK Message Processing Step";
-    DependentComponentType[DependentComponentType["SDK Message Processing Step Image"] = 93] = "SDK Message Processing Step Image";
-    DependentComponentType[DependentComponentType["Service Endpoint"] = 95] = "Service Endpoint";
-    DependentComponentType[DependentComponentType["Routing Rule"] = 150] = "Routing Rule";
-    DependentComponentType[DependentComponentType["Routing Rule Item"] = 151] = "Routing Rule Item";
-    DependentComponentType[DependentComponentType["SLA"] = 152] = "SLA";
-    DependentComponentType[DependentComponentType["SLA Item"] = 153] = "SLA Item";
-    DependentComponentType[DependentComponentType["Convert Rule"] = 154] = "Convert Rule";
-    DependentComponentType[DependentComponentType["Convert Rule Item"] = 155] = "Convert Rule Item";
-    DependentComponentType[DependentComponentType["Hierarchy Rule"] = 65] = "Hierarchy Rule";
-    DependentComponentType[DependentComponentType["Mobile Offline Profile"] = 161] = "Mobile Offline Profile";
-    DependentComponentType[DependentComponentType["Mobile Offline Profile Item"] = 162] = "Mobile Offline Profile Item";
-    DependentComponentType[DependentComponentType["Similarity Rule"] = 165] = "Similarity Rule";
-    DependentComponentType[DependentComponentType["Custom Control"] = 66] = "Custom Control";
-    DependentComponentType[DependentComponentType["Custom Control Default Config"] = 68] = "Custom Control Default Config";
-    DependentComponentType[DependentComponentType["Data Source Mapping"] = 166] = "Data Source Mapping";
-    DependentComponentType[DependentComponentType["SDKMessage"] = 201] = "SDKMessage";
-    DependentComponentType[DependentComponentType["SDKMessageFilter"] = 202] = "SDKMessageFilter";
-    DependentComponentType[DependentComponentType["SdkMessagePair"] = 203] = "SdkMessagePair";
-    DependentComponentType[DependentComponentType["SdkMessageRequest"] = 204] = "SdkMessageRequest";
-    DependentComponentType[DependentComponentType["SdkMessageRequestField"] = 205] = "SdkMessageRequestField";
-    DependentComponentType[DependentComponentType["SdkMessageResponse"] = 206] = "SdkMessageResponse";
-    DependentComponentType[DependentComponentType["SdkMessageResponseField"] = 207] = "SdkMessageResponseField";
-    DependentComponentType[DependentComponentType["WebWizard"] = 210] = "WebWizard";
-    DependentComponentType[DependentComponentType["Index"] = 18] = "Index";
-    DependentComponentType[DependentComponentType["Import Map"] = 208] = "Import Map";
-    DependentComponentType[DependentComponentType["Canvas App"] = 300] = "Canvas App";
-    DependentComponentType[DependentComponentType["Connector1"] = 371] = "Connector1";
-    DependentComponentType[DependentComponentType["Connector2"] = 372] = "Connector2";
-    DependentComponentType[DependentComponentType["Environment Variable Definition"] = 380] = "Environment Variable Definition";
-    DependentComponentType[DependentComponentType["Environment Variable Value"] = 381] = "Environment Variable Value";
-    DependentComponentType[DependentComponentType["AI Project Type"] = 400] = "AI Project Type";
-    DependentComponentType[DependentComponentType["AI Project"] = 401] = "AI Project";
-    DependentComponentType[DependentComponentType["AI Configuration"] = 402] = "AI Configuration";
-    DependentComponentType[DependentComponentType["Entity Analytics Configuration"] = 430] = "Entity Analytics Configuration";
-    DependentComponentType[DependentComponentType["Attribute Image Configuration"] = 431] = "Attribute Image Configuration";
-    DependentComponentType[DependentComponentType["Entity Image Configuration"] = 432] = "Entity Image Configuration";
-})(DependentComponentType = exports.DependentComponentType || (exports.DependentComponentType = {}));
-exports.EntityFiltersEnum = {
-    Entity: 'Entity',
-    Attributes: 'Attributes',
-    Privileges: 'Privileges',
-    Relationships: 'Relationships',
-    All: 'All',
+  DependentComponentType[DependentComponentType["Entity"] = 1] = "Entity";
+  DependentComponentType[DependentComponentType["Attribute"] = 2] = "Attribute";
+  DependentComponentType[DependentComponentType["Relationship"] = 3] = "Relationship";
+  DependentComponentType[DependentComponentType["Attribute Picklist Value"] = 4] = "Attribute Picklist Value";
+  DependentComponentType[DependentComponentType["Attribute Lookup Value"] = 5] = "Attribute Lookup Value";
+  DependentComponentType[DependentComponentType["View Attribute"] = 6] = "View Attribute";
+  DependentComponentType[DependentComponentType["Localized Label"] = 7] = "Localized Label";
+  DependentComponentType[DependentComponentType["Relationship Extra Condition"] = 8] = "Relationship Extra Condition";
+  DependentComponentType[DependentComponentType["Option Set"] = 9] = "Option Set";
+  DependentComponentType[DependentComponentType["Entity Relationship"] = 10] = "Entity Relationship";
+  DependentComponentType[DependentComponentType["Entity Relationship Role"] = 11] = "Entity Relationship Role";
+  DependentComponentType[DependentComponentType["Entity Relationship Relationships"] = 12] = "Entity Relationship Relationships";
+  DependentComponentType[DependentComponentType["Managed Property"] = 13] = "Managed Property";
+  DependentComponentType[DependentComponentType["Entity Key"] = 14] = "Entity Key";
+  DependentComponentType[DependentComponentType["Privilege"] = 16] = "Privilege";
+  DependentComponentType[DependentComponentType["PrivilegeObjectTypeCode"] = 17] = "PrivilegeObjectTypeCode";
+  DependentComponentType[DependentComponentType["Role"] = 20] = "Role";
+  DependentComponentType[DependentComponentType["Role Privilege"] = 21] = "Role Privilege";
+  DependentComponentType[DependentComponentType["Display String"] = 22] = "Display String";
+  DependentComponentType[DependentComponentType["Display String Map"] = 23] = "Display String Map";
+  DependentComponentType[DependentComponentType["Form"] = 24] = "Form";
+  DependentComponentType[DependentComponentType["Organization"] = 25] = "Organization";
+  DependentComponentType[DependentComponentType["Saved Query"] = 26] = "Saved Query";
+  DependentComponentType[DependentComponentType["Workflow"] = 29] = "Workflow";
+  DependentComponentType[DependentComponentType["Report"] = 31] = "Report";
+  DependentComponentType[DependentComponentType["Report Entity"] = 32] = "Report Entity";
+  DependentComponentType[DependentComponentType["Report Category"] = 33] = "Report Category";
+  DependentComponentType[DependentComponentType["Report Visibility"] = 34] = "Report Visibility";
+  DependentComponentType[DependentComponentType["Attachment"] = 35] = "Attachment";
+  DependentComponentType[DependentComponentType["Email Template"] = 36] = "Email Template";
+  DependentComponentType[DependentComponentType["Contract Template"] = 37] = "Contract Template";
+  DependentComponentType[DependentComponentType["KB Article Template"] = 38] = "KB Article Template";
+  DependentComponentType[DependentComponentType["Mail Merge Template"] = 39] = "Mail Merge Template";
+  DependentComponentType[DependentComponentType["Duplicate Rule"] = 44] = "Duplicate Rule";
+  DependentComponentType[DependentComponentType["Duplicate Rule Condition"] = 45] = "Duplicate Rule Condition";
+  DependentComponentType[DependentComponentType["Entity Map"] = 46] = "Entity Map";
+  DependentComponentType[DependentComponentType["Attribute Map"] = 47] = "Attribute Map";
+  DependentComponentType[DependentComponentType["Ribbon Command"] = 48] = "Ribbon Command";
+  DependentComponentType[DependentComponentType["Ribbon Context Group"] = 49] = "Ribbon Context Group";
+  DependentComponentType[DependentComponentType["Ribbon Customization"] = 50] = "Ribbon Customization";
+  DependentComponentType[DependentComponentType["Ribbon Rule"] = 52] = "Ribbon Rule";
+  DependentComponentType[DependentComponentType["Ribbon Tab To Command Map"] = 53] = "Ribbon Tab To Command Map";
+  DependentComponentType[DependentComponentType["Ribbon Diff"] = 55] = "Ribbon Diff";
+  DependentComponentType[DependentComponentType["Saved Query Visualization"] = 59] = "Saved Query Visualization";
+  DependentComponentType[DependentComponentType["System Form"] = 60] = "System Form";
+  DependentComponentType[DependentComponentType["Web Resource"] = 61] = "Web Resource";
+  DependentComponentType[DependentComponentType["Site Map"] = 62] = "Site Map";
+  DependentComponentType[DependentComponentType["Connection Role"] = 63] = "Connection Role";
+  DependentComponentType[DependentComponentType["Complex Control"] = 64] = "Complex Control";
+  DependentComponentType[DependentComponentType["Field Security Profile"] = 70] = "Field Security Profile";
+  DependentComponentType[DependentComponentType["Field Permission"] = 71] = "Field Permission";
+  DependentComponentType[DependentComponentType["Plugin Type"] = 90] = "Plugin Type";
+  DependentComponentType[DependentComponentType["Plugin Assembly"] = 91] = "Plugin Assembly";
+  DependentComponentType[DependentComponentType["SDK Message Processing Step"] = 92] = "SDK Message Processing Step";
+  DependentComponentType[DependentComponentType["SDK Message Processing Step Image"] = 93] = "SDK Message Processing Step Image";
+  DependentComponentType[DependentComponentType["Service Endpoint"] = 95] = "Service Endpoint";
+  DependentComponentType[DependentComponentType["Routing Rule"] = 150] = "Routing Rule";
+  DependentComponentType[DependentComponentType["Routing Rule Item"] = 151] = "Routing Rule Item";
+  DependentComponentType[DependentComponentType["SLA"] = 152] = "SLA";
+  DependentComponentType[DependentComponentType["SLA Item"] = 153] = "SLA Item";
+  DependentComponentType[DependentComponentType["Convert Rule"] = 154] = "Convert Rule";
+  DependentComponentType[DependentComponentType["Convert Rule Item"] = 155] = "Convert Rule Item";
+  DependentComponentType[DependentComponentType["Hierarchy Rule"] = 65] = "Hierarchy Rule";
+  DependentComponentType[DependentComponentType["Mobile Offline Profile"] = 161] = "Mobile Offline Profile";
+  DependentComponentType[DependentComponentType["Mobile Offline Profile Item"] = 162] = "Mobile Offline Profile Item";
+  DependentComponentType[DependentComponentType["Similarity Rule"] = 165] = "Similarity Rule";
+  DependentComponentType[DependentComponentType["Custom Control"] = 66] = "Custom Control";
+  DependentComponentType[DependentComponentType["Custom Control Default Config"] = 68] = "Custom Control Default Config";
+  DependentComponentType[DependentComponentType["Data Source Mapping"] = 166] = "Data Source Mapping";
+  DependentComponentType[DependentComponentType["SDKMessage"] = 201] = "SDKMessage";
+  DependentComponentType[DependentComponentType["SDKMessageFilter"] = 202] = "SDKMessageFilter";
+  DependentComponentType[DependentComponentType["SdkMessagePair"] = 203] = "SdkMessagePair";
+  DependentComponentType[DependentComponentType["SdkMessageRequest"] = 204] = "SdkMessageRequest";
+  DependentComponentType[DependentComponentType["SdkMessageRequestField"] = 205] = "SdkMessageRequestField";
+  DependentComponentType[DependentComponentType["SdkMessageResponse"] = 206] = "SdkMessageResponse";
+  DependentComponentType[DependentComponentType["SdkMessageResponseField"] = 207] = "SdkMessageResponseField";
+  DependentComponentType[DependentComponentType["WebWizard"] = 210] = "WebWizard";
+  DependentComponentType[DependentComponentType["Index"] = 18] = "Index";
+  DependentComponentType[DependentComponentType["Import Map"] = 208] = "Import Map";
+  DependentComponentType[DependentComponentType["Canvas App"] = 300] = "Canvas App";
+  DependentComponentType[DependentComponentType["Connector1"] = 371] = "Connector1";
+  DependentComponentType[DependentComponentType["Connector2"] = 372] = "Connector2";
+  DependentComponentType[DependentComponentType["Environment Variable Definition"] = 380] = "Environment Variable Definition";
+  DependentComponentType[DependentComponentType["Environment Variable Value"] = 381] = "Environment Variable Value";
+  DependentComponentType[DependentComponentType["AI Project Type"] = 400] = "AI Project Type";
+  DependentComponentType[DependentComponentType["AI Project"] = 401] = "AI Project";
+  DependentComponentType[DependentComponentType["AI Configuration"] = 402] = "AI Configuration";
+  DependentComponentType[DependentComponentType["Entity Analytics Configuration"] = 430] = "Entity Analytics Configuration";
+  DependentComponentType[DependentComponentType["Attribute Image Configuration"] = 431] = "Attribute Image Configuration";
+  DependentComponentType[DependentComponentType["Entity Image Configuration"] = 432] = "Entity Image Configuration";
+})(DependentComponentType || (DependentComponentType = {}));
+const EntityFiltersEnum = {
+  Entity: 'Entity',
+  Attributes: 'Attributes',
+  Privileges: 'Privileges',
+  Relationships: 'Relationships',
+  All: 'All'
 };
-var retrieveDependenciesForDeleteRequest = function (params) {
-    return xrm_webapi_client_1.default.Execute(xrm_webapi_client_1.default.Requests.RetrieveDependenciesForDeleteRequest.with({ urlParams: params }));
-};
+const retrieveDependenciesForDeleteRequest = params => _xrmWebapiClientDefault.default.Execute(_xrmWebapiClientDefault.default.Requests.RetrieveDependenciesForDeleteRequest.with({
+  urlParams: params
+}));
 
-},{"xrm-webapi-client":"3LRkV"}],"3LRkV":[function(require,module,exports) {
+},{"xrm-webapi-client":"3LRkV","@parcel/transformer-js/lib/esmodule-helpers.js":"wxgmP"}],"3LRkV":[function(require,module,exports) {
 var define;
 var global = arguments[3];
 (function (f) {

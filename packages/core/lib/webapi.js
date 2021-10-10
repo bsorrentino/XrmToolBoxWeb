@@ -1,20 +1,13 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.EntityFiltersEnum = exports.DependentComponentType = exports.prepareWebApiRequest = exports.scopes = void 0;
-var xrm_webapi_client_1 = __importDefault(require("xrm-webapi-client"));
-var POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com';
-exports.scopes = [POWERPLATFORM_ENV_URL + "/user_impersonation"];
-var prepareWebApiRequest = function (auth) {
-    var client = xrm_webapi_client_1.default;
+import WebApiClient from 'xrm-webapi-client';
+const POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com';
+export const scopes = [`${POWERPLATFORM_ENV_URL}/user_impersonation`];
+export const prepareWebApiRequest = (auth) => {
+    let client = WebApiClient;
     client.ApiVersion = '9.1';
     client.Token = auth.accessToken;
     client.ClientUrl = POWERPLATFORM_ENV_URL;
 };
-exports.prepareWebApiRequest = prepareWebApiRequest;
-var DependentComponentType;
+export var DependentComponentType;
 (function (DependentComponentType) {
     DependentComponentType[DependentComponentType["Entity"] = 1] = "Entity";
     DependentComponentType[DependentComponentType["Attribute"] = 2] = "Attribute";
@@ -106,14 +99,12 @@ var DependentComponentType;
     DependentComponentType[DependentComponentType["Entity Analytics Configuration"] = 430] = "Entity Analytics Configuration";
     DependentComponentType[DependentComponentType["Attribute Image Configuration"] = 431] = "Attribute Image Configuration";
     DependentComponentType[DependentComponentType["Entity Image Configuration"] = 432] = "Entity Image Configuration";
-})(DependentComponentType = exports.DependentComponentType || (exports.DependentComponentType = {}));
-exports.EntityFiltersEnum = {
+})(DependentComponentType || (DependentComponentType = {}));
+export const EntityFiltersEnum = {
     Entity: 'Entity',
     Attributes: 'Attributes',
     Privileges: 'Privileges',
     Relationships: 'Relationships',
     All: 'All',
 };
-var retrieveDependenciesForDeleteRequest = function (params) {
-    return xrm_webapi_client_1.default.Execute(xrm_webapi_client_1.default.Requests.RetrieveDependenciesForDeleteRequest.with({ urlParams: params }));
-};
+const retrieveDependenciesForDeleteRequest = (params) => WebApiClient.Execute(WebApiClient.Requests.RetrieveDependenciesForDeleteRequest.with({ urlParams: params }));
