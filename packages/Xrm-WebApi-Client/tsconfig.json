@@ -1,15 +1,9 @@
 {
+    "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "outDir": "./Publish",
-        "allowJs": true,
-        "target": "es5",
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "noImplicitThis": true,
-        "noEmitOnError": true,
-        "module": "commonjs"
-    },
-    "include": [
-        "./src/js/*"
-    ]
-}
+        "outDir": "./lib",         /* Redirect output structure to the directory. */
+        "rootDir": "./src",        /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "declaration": true,           /* Generates corresponding '.d.ts' file. */
+
+    }
+  }
