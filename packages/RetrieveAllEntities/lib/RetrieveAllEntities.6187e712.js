@@ -455,7 +455,7 @@ try {
   var _azureMsalReact = require("@azure/msal-react");
   var _xrmtoolboxwebCore = require("xrmtoolboxweb-core");
   var _app = require("./app");
-  var _jsxFileName = "/Users/bsorrentino/WORKSPACES/GITHUB.me/MSFT/XrmToolBoxWeb/packages/RetrieveAllEntities/src/index.tsx";
+  var _jsxFileName = "/Users/softphone/WORKSPACES/GITHUB.me/MSFT/XrmToolboxWeb/packages/RetrieveAllEntities/src/index.tsx";
   // Component
   const AppProvider = () => /*#__PURE__*/_reactDefault.default.createElement(_azureMsalReact.MsalProvider, {
     instance: _xrmtoolboxwebCore.PCA,
@@ -73832,7 +73832,7 @@ try {
   var _fluentuiReactLibIcon = require("@fluentui/react/lib/Icon");
   var _fluentuiReactLibShimmeredDetailsList = require("@fluentui/react/lib/ShimmeredDetailsList");
   var _webapi = require('./webapi');
-  var _jsxFileName = "/Users/bsorrentino/WORKSPACES/GITHUB.me/MSFT/XrmToolBoxWeb/packages/RetrieveAllEntities/src/app.tsx";
+  var _jsxFileName = "/Users/softphone/WORKSPACES/GITHUB.me/MSFT/XrmToolboxWeb/packages/RetrieveAllEntities/src/app.tsx";
   _fluentuiFontIconsMdl.initializeIcons();
   const exampleChildClass = _fluentuiReactLibStyling.mergeStyles({
     display: 'block',
