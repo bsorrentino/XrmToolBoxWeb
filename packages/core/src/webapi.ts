@@ -115,12 +115,12 @@ export enum DependentComponentType	{
     
     }
 
-export enum EntityFiltersEnum {
-    Entity = 'Entity', // Use this to retrieve only entity information.
-    Attributes = 'Attributes', // Use this to retrieve entity information plus attributes for the entity.
-    Privileges = 'Privileges', // Use this to retrieve entity information plus privileges for the entity.
-    Relationships = 'Relationships', // Use this to retrieve entity information plus entity relationships for the entity.
-    All = 'All', // Use this to retrieve all data for an entity.
+export const EntityFiltersEnum = {
+    Entity: 'Entity', // Use this to retrieve only entity information.
+    Attributes: 'Attributes', // Use this to retrieve entity information plus attributes for the entity.
+    Privileges: 'Privileges', // Use this to retrieve entity information plus privileges for the entity.
+    Relationships: 'Relationships', // Use this to retrieve entity information plus entity relationships for the entity.
+    All: 'All', // Use this to retrieve all data for an entity.
 }
 
 

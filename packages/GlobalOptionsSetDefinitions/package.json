@@ -5,7 +5,6 @@
   "keywords": [],
   "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
   "license": "ISC",
-  "main": "lib/index.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -19,8 +18,10 @@
   },
   "scripts": {
     "start": "parcel serve src/GlobalOptionSetDefinitions.html --dist-dir lib --no-source-maps",
+    "prebuild": "npm run clean",
     "build": "parcel build src/GlobalOptionSetDefinitions.html --dist-dir lib --no-source-maps",
-    "clean": "rm -rf lib",
+    "postbuild": "zx ../postbuild.mjs",
+    "clean": "zx ../clean.mjs",
     "test": "jest --config ../../jest.config.js"
   },
   "bugs": {

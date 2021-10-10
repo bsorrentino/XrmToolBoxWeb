@@ -139,22 +139,22 @@ export const Features: React.FunctionComponent = () => {
       { name: 'WhoAmI', 
         description:'Retrieves the system user ID for the currently logged on user or the user under whose context the code is running.', 
         docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/whoami?view=dynamics-ce-odata-9', 
-        testPage:'/whoami/whoami.html'
+        testPage:'/whoami.html'
       }, 
       { name: 'RetrieveAllEntities', 
         description:'Retrieves metadata information about all the entities.', 
         docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/retrieveallentities?view=dynamics-ce-odata-9',
-        testPage:'/RetrieveAllEntities/RetrieveAllEntities.html'
+        testPage:'/RetrieveAllEntities.html'
       }, 
       { name: 'RetrieveTotalRecordCount', 
         description:'Returns data on the total number of records for specific entities.', 
         docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/retrievetotalrecordcount?view=dynamics-ce-odata-9',
-        testPage:'/RetrieveTotalRecordCount/RetrieveTotalRecordCount.html'
+        testPage:'/RetrieveTotalRecordCount.html'
       }, 
       { name: 'GlobalOptionSetDefinitions', 
         description:'fetch Global OptionSets.', 
         docPage:'https://crmtipoftheday.com/532/retrieving-global-optionsets-using-web-api/',
-        testPage:'/GlobalOptionSetDefinitions/GlobalOptionSetDefinitions.html'
+        testPage:'/GlobalOptionSetDefinitions.html'
       }, 
   ])
 
