@@ -100,10 +100,10 @@ export enum DependentComponentType {
     'Attribute Image Configuration' = 431,
     'Entity Image Configuration' = 432
 }
-export enum EntityFiltersEnum {
-    Entity = "Entity",
-    Attributes = "Attributes",
-    Privileges = "Privileges",
-    Relationships = "Relationships",
-    All = "All"
-}
+export const EntityFiltersEnum: {
+    Entity: string;
+    Attributes: string;
+    Privileges: string;
+    Relationships: string;
+    All: string;
+};
