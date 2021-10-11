@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { useAccount } from "@azure/msal-react"
 
 import {  
     scopes as webapiScopes, 
@@ -12,7 +11,7 @@ import { Text } from "@fluentui/react/lib/Text";
 import { List } from "@fluentui/react/lib/List";
 import { DetailsList, DetailsListLayoutMode, IColumn, SelectionMode } from "@fluentui/react/lib/DetailsList";
 
-import { GlobalOptionSetDefinitions } from './webapi'
+import * as GlobalOptionSetDefinitions from './webapi'
 
 initializeIcons()
 

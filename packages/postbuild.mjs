@@ -5,6 +5,6 @@
 
 const { fs, path } = require("zx");
 
-const destDir = path.join( '..', 'xrmtoolboxweb-app', '/dist')
+const destDir = path.join( '..', 'App', 'lib')
 await fs.ensureDir( destDir) 
 await fs.copy( 'lib', destDir )

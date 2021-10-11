@@ -14,7 +14,7 @@ import { TextField } from "@fluentui/react/lib/TextField";
 import { IIconProps } from "@fluentui/react/lib/Icon";
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 
-import { RetrieveTotalRecordCount } from './webapi'
+import * as RetrieveTotalRecordCount from './webapi'
 
 initializeIcons()
 

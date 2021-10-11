@@ -53,11 +53,11 @@ declare class WebApiClientClass {
     Create(params: EntityParameters & SendParameters & {
         entity: any;
     }): Promise<any> | any;
-    Retrieve(params: EntityParameters & SendParameters): Promise<any> | any;
-    Update(params: EntityParameters & SendParameters & {
+    Retrieve<T = any>(params: EntityParameters & SendParameters): Promise<T> | T | BatchRequest;
+    Update<T = any>(params: EntityParameters & SendParameters & {
         entity: any;
-    }): Promise<any> | any;
-    Delete(params: EntityParameters & SendParameters): Promise<any> | any;
+    }): Promise<T> | T | BatchRequest;
+    Delete<T = any>(params: EntityParameters & SendParameters): Promise<T> | T | BatchRequest;
     Associate<T = any>(params: {
         relationShip: string;
         source: EntityParameters;

@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react"
-import { useAccount } from "@azure/msal-react";
 import { Stack, Text } from "@fluentui/react";
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
 
@@ -9,7 +8,7 @@ import {
     useRenderAfterLogin 
 } from "xrmtoolboxweb-core";
 
-import { WhoAmI } from './webapi'
+import * as WhoAmI from './webapi'
 
 initializeIcons();
 
