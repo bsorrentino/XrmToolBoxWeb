@@ -2,7 +2,7 @@ import * as WebApiClient from 'xrmtoolboxweb-webapiclient';
 const POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com';
 export const scopes = [`${POWERPLATFORM_ENV_URL}/user_impersonation`];
 export const prepareWebApiRequest = (auth) => {
-    let client = WebApiClient;
+    let client = WebApiClient.Instance;
     client.ApiVersion = '9.1';
     client.Token = auth.accessToken;
     client.ClientUrl = POWERPLATFORM_ENV_URL;

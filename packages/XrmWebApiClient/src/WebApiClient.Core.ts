@@ -32,33 +32,33 @@ import { BatchResponse } from './WebApiClient.BatchResponse'
 import { BatchRequest } from './WebApiClient.BatchRequest'
 
 export type SendParameters = {
-    returnAllPages?:boolean, 
-    isOverLengthGet?:boolean, 
-    _previousResponse?:any, 
-    fetchXml?:string,
-    headers?:Array<Header>    
+    returnAllPages?: boolean,
+    isOverLengthGet?: boolean,
+    _previousResponse?: any,
+    fetchXml?: string,
+    headers?: Array<Header>
 }
 
-export type EntityParameters<Body = any> = { 
-    entityName?:string, 
-    overriddenSetName?:string, 
-    entityId?:string, 
-    alternateKey?:Array<Key>,
-    queryParams?:string
+export type EntityParameters<Body = any> = {
+    entityName?: string,
+    overriddenSetName?: string,
+    entityId?: string,
+    alternateKey?: Array<Key>,
+    queryParams?: string
 }
 
-export type SendRequestEntityParameters =  SendParameters & EntityParameters & { 
-    asBatch?:boolean, 
-    async?:boolean 
+export type SendRequestEntityParameters = SendParameters & EntityParameters & {
+    asBatch?: boolean,
+    async?: boolean
 }
 
 export interface IWebApiClient {
     ApiVersion: string,
-    ReturnAllPages:boolean,
-    PrettifyErrors:boolean,
-    Async:boolean,
-    ClientUrl?:string,
-    Token?:string;
+    ReturnAllPages: boolean,
+    PrettifyErrors: boolean,
+    Async: boolean,
+    ClientUrl?: string,
+    Token?: string;
 }
 
 /**
@@ -67,45 +67,45 @@ export interface IWebApiClient {
  * @module WebApiClient
  */
 class WebApiClientClass {
-	/**
+    /**
      * @description The API version that will be used when sending requests. Default is "8.0"
      * @param {String}
      * @memberof module:WebApiClient
      */
-     ApiVersion = "8.0";
+    ApiVersion = "8.0";
     /**
      * @description Checks for more pages when retrieving results. If set to true, all pages will be retrieved, if set to false, only the first page will be retrieved.
      * @param {boolean}
      * @memberof module:WebApiClient
      */
-     ReturnAllPages = false;
+    ReturnAllPages = false;
     /**
      * @description Set to true for retrieving formatted error in style 'xhr.statusText: xhr.error.Message'. If set to false, error json will be returned.
      * @param {boolean}
      * @memberof module:WebApiClient
      */
-     PrettifyErrors = true;
+    PrettifyErrors = true;
     /**
      * @description Set to false for sending all requests synchronously. True by default.
      * @param {boolean}
      * @memberof module:WebApiClient
      */
-     Async = true;
+    Async = true;
     /**
      * @description Connection to use when being used in a single page app.
      * @param {String}
      * @memberof module:WebApiClient
      */
-     ClientUrl?:string;
+    ClientUrl?: string;
     /**
      * @description Token to use for authenticating when being used in a single page app.
      * @param {String}
      * @memberof module:WebApiClient
      */
-     Token?:string;
+    Token?: string;
 
 
-     private DefaultHeaders:Array<Header> = [
+    private DefaultHeaders: Array<Header> = [
         { key: "Accept", value: "application/json" },
         { key: "OData-Version", value: "4.0" },
         { key: "OData-MaxVersion", value: "4.0" },
@@ -114,10 +114,10 @@ class WebApiClientClass {
         { key: "Content-Type", value: "application/json; charset=utf-8" }
     ];
 
-     private GetClientUrl():string {
+    private GetClientUrl(): string {
         const context = GetCrmContext();
 
-        if(context){
+        if (context) {
             return context.getClientUrl();
         }
 
@@ -135,17 +135,16 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {String}
      */
-     GetSetName(entityName?:string, overriddenSetName?:string):string {
+    GetSetName(entityName?: string, overriddenSetName?: string): string {
         if (overriddenSetName) {
             return overriddenSetName;
         }
 
-        if( !entityName ) throw new Error( 'neither entityName and overriddenSetName has been provided!')
-        
+        if (!entityName) throw new Error('neither entityName and overriddenSetName has been provided!')
+
         const ending = entityName.slice(-1);
 
-        switch(ending)
-        {
+        switch (ending) {
             case 's':
                 return entityName + "es";
             case 'y':
@@ -161,7 +160,7 @@ class WebApiClientClass {
      * @return {Array<{key: String, value:String}>}
      * @memberof module:WebApiClient
      */
-    GetDefaultHeaders():Array<Header> {
+    GetDefaultHeaders(): Array<Header> {
         return this.DefaultHeaders;
     };
 
@@ -172,12 +171,12 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {void}
      */
-     AppendToDefaultHeaders(...headers:Header[]):void {
+    AppendToDefaultHeaders(...headers: Header[]): void {
         if (!headers.length) {
             return;
         }
 
-        for(var i = 0; i < headers.length; i++) {
+        for (var i = 0; i < headers.length; i++) {
             const argument = headers[i];
 
             VerifyHeader(argument);
@@ -186,13 +185,12 @@ class WebApiClientClass {
         }
     }
 
-    private GetRecordUrl( params: { 
-                entityName?:string, 
-                overriddenSetName?:string,
-                entityId?:string,
-                alternateKey?:Array<Key>
-            }):string
-    {
+    private GetRecordUrl(params: {
+        entityName?: string,
+        overriddenSetName?: string,
+        entityId?: string,
+        alternateKey?: Array<Key>
+    }): string {
 
         if ((!params.entityName && !params.overriddenSetName) || (!params.entityId && !params.alternateKey)) {
             throw new Error("Need entity name or overridden set name and entity id or alternate key for getting record url!");
@@ -209,20 +207,20 @@ class WebApiClientClass {
         return url;
     }
 
-    private FormatError (xhr:XMLHttpRequest):string {
+    private FormatError(xhr: XMLHttpRequest): string {
         if (xhr && xhr.response) {
-			var response = ParseResponse(xhr);
+            var response = ParseResponse(xhr);
 
-			if (response instanceof BatchResponse) {
-				let errors = "";
-				if (response.errors.length > 0) {
-					errors = response.errors.map( e  => 
+            if (response instanceof BatchResponse) {
+                let errors = "";
+                if (response.errors.length > 0) {
+                    errors = response.errors.map(e =>
                         e.code + ": " + e.message
-					).join("\n\r");
-				}
+                    ).join("\n\r");
+                }
 
-				return xhr.status + " - " + errors;
-			}
+                return xhr.status + " - " + errors;
+            }
 
             var json = JSON.parse(xhr.response);
 
@@ -245,25 +243,24 @@ class WebApiClientClass {
     }
 
 
-    SendAsync(method:string, url:string, payload:string|null, 
-        parameters: EntityParameters & SendParameters ):Promise<any> 
-    {
-        const { 
-            returnAllPages, 
-            isOverLengthGet, 
+    SendAsync(method: string, url: string, payload: string | null,
+        parameters: EntityParameters & SendParameters): Promise<any> {
+        const {
+            returnAllPages,
+            isOverLengthGet,
             _previousResponse,
-            headers:pHeaders = []
+            headers: pHeaders = []
         } = parameters
 
         const xhr = new XMLHttpRequest();
 
-        const promise = new Promise( (resolve, reject) => {
+        const promise = new Promise((resolve, reject) => {
             xhr.onload = () => {
-                if(xhr.readyState !== 4) {
+                if (xhr.readyState !== 4) {
                     return;
                 }
 
-                if(xhr.status === 200){
+                if (xhr.status === 200) {
                     let response = ParseResponse(xhr);
 
                     if (response instanceof BatchResponse) {
@@ -291,7 +288,7 @@ class WebApiClientClass {
                     if (moreRecords && nextLink && (this.ReturnAllPages || returnAllPages)) {
                         SetPreviousResponse(parameters, response);
 
-                        resolve( this.SendAsync("GET", nextLink, null, parameters) );
+                        resolve(this.SendAsync("GET", nextLink, null, parameters));
                     }
                     else if (parameters.fetchXml && moreRecords && pagingCookie && (this.ReturnAllPages || returnAllPages)) {
                         var nextPageFetch = SetCookie(pagingCookie, parameters);
@@ -319,11 +316,11 @@ class WebApiClientClass {
                     }
                 }
                 else {
-                    reject( new Error(this.FormatError(xhr)) );
+                    reject(new Error(this.FormatError(xhr)));
                 }
             };
-            xhr.onerror = () => reject(new Error(this.FormatError(xhr))) ;
-        
+            xhr.onerror = () => reject(new Error(this.FormatError(xhr)));
+
         });
 
         if (IsOverlengthGet(method, url)) {
@@ -350,11 +347,11 @@ class WebApiClientClass {
         // Bugfix for IE. If payload is undefined, IE would send "undefined" as request body
         if (payload) {
             // For batch requests, we just want to send a string body
-            if (typeof(payload) === "string") {
+            if (typeof (payload) === "string") {
                 xhr.send(payload);
             }
             else {
-              xhr.send(JSON.stringify(payload));
+                xhr.send(JSON.stringify(payload));
             }
         } else {
             xhr.send();
@@ -362,20 +359,19 @@ class WebApiClientClass {
 
         return promise;
     }
-    
-    SendSync(method:string, url:string, payload:any|null, 
-        params: EntityParameters & SendParameters ):any|undefined
-    {
-        const { 
+
+    SendSync(method: string, url: string, payload: any | null,
+        params: EntityParameters & SendParameters): any | undefined {
+        const {
             returnAllPages,
             isOverLengthGet,
             _previousResponse,
             fetchXml,
-            headers:pHeaders = []
+            headers: pHeaders = []
         } = params
 
         const xhr = new XMLHttpRequest();
-        let response:any;
+        let response: any;
         let headers = Array<Header>();
 
         if (IsOverlengthGet(method, url)) {
@@ -402,27 +398,27 @@ class WebApiClientClass {
         // Bugfix for IE. If payload is undefined, IE would send "undefined" as request body
         if (payload) {
             // For batch requests, we just want to send a string body
-            if (typeof(payload) === "string") {
+            if (typeof (payload) === "string") {
                 xhr.send(payload);
             }
             else {
-              xhr.send(JSON.stringify(payload));
+                xhr.send(JSON.stringify(payload));
             }
         } else {
             xhr.send();
         }
 
-        if(xhr.readyState !== 4) {
+        if (xhr.readyState !== 4) {
             return;
         }
 
-        if(xhr.status === 200){
+        if (xhr.status === 200) {
             response = ParseResponse(xhr);
 
             // If we received multiple responses, it was a custom batch. Just resolve all matches
             if (response instanceof BatchResponse) {
-              // If it was an overlength fetchXml, that was sent as batch automatically, we don't want it to behave as a batch
-              if (isOverLengthGet) {
+                // If it was an overlength fetchXml, that was sent as batch automatically, we don't want it to behave as a batch
+                if (isOverLengthGet) {
                     response = response.batchResponses[0].payload;
                 } else {
                     return response;
@@ -474,12 +470,12 @@ class WebApiClientClass {
         return response;
     }
 
-    GetAsync(parameters: { async?:boolean  }):boolean {
-        if (typeof(parameters.async) !== "undefined") {
+    GetAsync(parameters: { async?: boolean }): boolean {
+        if (typeof (parameters.async) !== "undefined") {
             return parameters.async;
         }
         return this.Async;
-      }
+    }
 
     /**
      * @description Sends request using given parameters.
@@ -493,37 +489,36 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<Object>|Object}
      */
-     SendRequest<Res>(method:string, url:string, payload:any, 
-        parameters:Array<Header> | SendRequestEntityParameters ) : Promise<Res>|Res|BatchRequest
-    {
-  
-        let params:SendRequestEntityParameters = 
+    SendRequest<Res>(method: string, url: string, payload: any,
+        parameters: Array<Header> | SendRequestEntityParameters): Promise<Res> | Res | BatchRequest {
+
+        let params: SendRequestEntityParameters =
             // Fallback for request headers array as fourth parameter
-            (Array.isArray(parameters)) ? 
-                 { headers: parameters } :
-                 parameters
-            
-  
+            (Array.isArray(parameters)) ?
+                { headers: parameters } :
+                parameters
+
+
         if (this.Token) {
             params.headers = params.headers || [];
-            params.headers.push({key: "Authorization", value: "Bearer " + this.Token});
+            params.headers.push({ key: "Authorization", value: "Bearer " + this.Token });
         }
-  
+
         if (params.asBatch) {
             return new BatchRequest({
                 method: method,
                 url: url,
                 payload: payload,
                 headers: params.headers
-            }) 
+            })
         }
-  
+
         const asynchronous = this.GetAsync(params);
-  
-        return  (asynchronous) ? 
-                    this.SendAsync(method, url, payload, params) :
-                    this.SendSync(method, url, payload, params);
-      }
+
+        return (asynchronous) ?
+            this.SendAsync(method, url, payload, params) :
+            this.SendSync(method, url, payload, params);
+    }
 
 
     /**
@@ -534,7 +529,7 @@ class WebApiClientClass {
      * @return {void}
      * @Deprecated
      */
-     Configure(configuration:Record<string,any>):void {
+    Configure(configuration: Record<string, any>): void {
         for (var property in configuration) {
             if (!configuration.hasOwnProperty(property)) {
                 continue;
@@ -550,7 +545,7 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {String}
      */
-     GetApiUrl():string {
+    GetApiUrl(): string {
         return this.GetClientUrl() + "/api/data/v" + this.ApiVersion + "/";
     }
 
@@ -566,7 +561,7 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<String>|Promise<object>|String|Object} - Returns Promise<Object> if return=representation header is set, otherwise Promise<String>. Just Object or String if sent synchronously.
      */
-     Create(params: EntityParameters & SendParameters & { entity: any } ):Promise<any>|any {
+    Create(params: EntityParameters & SendParameters & { entity: any }): Promise<any> | any {
 
         if ((!params.entityName && !params.overriddenSetName) || !params.entity) {
             throw new Error("Entity name and entity object have to be passed!");
@@ -592,8 +587,7 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<object>|Object} - Returns Promise<Object> if asyncj, just Object if sent synchronously.
      */
-     Retrieve(params:EntityParameters & SendParameters): Promise<any>|any
-     {
+    Retrieve(params: EntityParameters & SendParameters): Promise<any> | any {
 
         if (!params.entityName && !params.overriddenSetName) {
             throw new Error("Entity name has to be passed!");
@@ -605,7 +599,7 @@ class WebApiClientClass {
             url += "(" + RemoveIdBrackets(params.entityId) + ")";
         }
         else if (params.fetchXml) {
-        	  url += "?fetchXml=" + escape(params.fetchXml);
+            url += "?fetchXml=" + escape(params.fetchXml);
         }
         else if (params.alternateKey) {
             url += BuildAlternateKeyUrl(params);
@@ -631,7 +625,7 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<String>|Promise<object>|String|Object} - Returns Promise<Object> if return=representation header is set, otherwise Promise<String>. Just Object or String if sent synchronously.
      */
-     Update(params:EntityParameters & SendParameters & { entity: any }): Promise<any>|any {
+    Update(params: EntityParameters & SendParameters & { entity: any }): Promise<any> | any {
 
         if (!params.entity) {
             throw new Error("Update object has to be passed!");
@@ -655,7 +649,7 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<String>|String} - Returns Promise<String> if async, just String if sent synchronously.
      */
-     Delete(params:EntityParameters & SendParameters): Promise<any>|any {
+    Delete(params: EntityParameters & SendParameters): Promise<any> | any {
 
         let url = this.GetRecordUrl(params);
 
@@ -684,11 +678,11 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<String>|String} - Returns Promise<String> if async, just String if sent synchronously.
      */
-     Associate<T = any>(params:{ 
-        relationShip:string, 
-        source:EntityParameters , 
-        target:EntityParameters 
-        } & SendRequestEntityParameters): Promise<T>|T|BatchRequest {
+    Associate<T = any>(params: {
+        relationShip: string,
+        source: EntityParameters,
+        target: EntityParameters
+    } & SendRequestEntityParameters): Promise<T> | T | BatchRequest {
 
 
         if (!params.relationShip) {
@@ -727,11 +721,11 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<String>|String} - Returns Promise<String> if async, just String if sent synchronously.
      */
-     Disassociate<T = any>(params:{ 
-        relationShip:string, 
-        source:EntityParameters , 
-        target:EntityParameters 
-        } & SendRequestEntityParameters): Promise<T>|T|BatchRequest {
+    Disassociate<T = any>(params: {
+        relationShip: string,
+        source: EntityParameters,
+        target: EntityParameters
+    } & SendRequestEntityParameters): Promise<T> | T | BatchRequest {
 
         if (!params.relationShip) {
             throw new Error("Relationship has to be passed!");
@@ -762,7 +756,7 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<Object>|Object} - Returns Promise<Object> if async, just Object if sent synchronously.
      */
-     Execute<T = any>(request:any):Promise<T>|T|BatchRequest {
+    Execute<T = any>(request: any): Promise<T> | T | BatchRequest {
         if (!request) {
             throw new Error("You need to pass a request!");
         }
@@ -783,7 +777,7 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<Object>|Object} - Returns Promise<Object> if async, just Object if sent synchronously.
      */
-     SendBatch<T = any>( batch:Batch ):Promise<T>|T|BatchRequest {
+    SendBatch<T = any>(batch: Batch): Promise<T> | T | BatchRequest {
         if (!batch) {
             throw new Error("You need to pass a batch!");
         }
@@ -795,7 +789,7 @@ class WebApiClientClass {
         const url = this.GetApiUrl() + "$batch";
 
         //batch.headers = batch.headers || [];
-        batch.headers.push({key: "Content-Type", value: "multipart/mixed;boundary=" + batch.name});
+        batch.headers.push({ key: "Content-Type", value: "multipart/mixed;boundary=" + batch.name });
 
         const payload = batch.buildPayload();
 
@@ -812,248 +806,247 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<Object>|Object} - Returns Promise<Object> if async, just Object if sent synchronously.
      */
-     Expand<T = any>(params: { records:Array<T>, async?:boolean } ):Promise<T[]>|T[]
-     {
+    Expand<T = any>(params: { records: Array<T>, async?: boolean }): Promise<T[]> | T[] {
         /// <summary>Expands all odata.nextLink / deferred properties for an array of records</summary>
         /// <param name="parameters" type="Object">Object that contains 'records' array or object. Optional 'headers'.</param>
         /// <returns>Promise for sent request or result if sync.</returns>
-            const records = params.records;
-    
-            let requests = Array<Promise<T>>()
+        const records = params.records;
 
-            const asynchronous = this.GetAsync(params);
-    
-            for (let i = 0; i < records.length; i++) {
-                const record = records[i] as any;
-    
-                for (let attribute in record) {
-                    if (!record.hasOwnProperty(attribute)) {
-                        continue;
-                    }
-    
-                    const name = attribute.replace("@odata.nextLink", "");
-    
-                    // If nothing changed, this was not a deferred attribute
-                    if (!name || name === attribute) {
-                        continue;
-                    }
-    
-                    record[name] = this.SendRequest<T>("GET", record[attribute], null, params);
-    
-                    // Delete @odata.nextLink property
-                    delete record[attribute];
+        let requests = Array<Promise<T>>()
+
+        const asynchronous = this.GetAsync(params);
+
+        for (let i = 0; i < records.length; i++) {
+            const record = records[i] as any;
+
+            for (let attribute in record) {
+                if (!record.hasOwnProperty(attribute)) {
+                    continue;
                 }
-    
-                if (asynchronous) {
-                    throw new Error( "Promise.props not implemented yet in ES6 Promises")
-                    //requests.push(Promise.props(record));
+
+                const name = attribute.replace("@odata.nextLink", "");
+
+                // If nothing changed, this was not a deferred attribute
+                if (!name || name === attribute) {
+                    continue;
                 }
+
+                record[name] = this.SendRequest<T>("GET", record[attribute], null, params);
+
+                // Delete @odata.nextLink property
+                delete record[attribute];
             }
-    
+
             if (asynchronous) {
-                return Promise.all(requests);
-            } else {
-                return records;
+                throw new Error("Promise.props not implemented yet in ES6 Promises")
+                //requests.push(Promise.props(record));
             }
         }
-    
 
-    
-}
-
-    var batchName = "batch_UrlLimitExeedingRequest";
-
-    function GetCrmContext() {
-        if (typeof (GetGlobalContext) !== "undefined") {
-            return GetGlobalContext();
-        }
-
-        if (typeof (Xrm) !== "undefined"){
-            return Xrm.Page.context;
+        if (asynchronous) {
+            return Promise.all(requests);
+        } else {
+            return records;
         }
     }
 
-    function MergeResults (firstResponse:any, secondResponse:any) {
-        if (!firstResponse && !secondResponse) {
-            return null;
-        }
 
-        if (firstResponse && !secondResponse) {
-            return firstResponse;
-        }
 
-        if (!firstResponse && secondResponse) {
-            return secondResponse;
-        }
+}
 
-        firstResponse.value = firstResponse.value.concat(secondResponse.value);
+const batchName = "batch_UrlLimitExeedingRequest";
 
-        delete firstResponse["@odata.nextLink"];
-        delete firstResponse["@Microsoft.Dynamics.CRM.fetchxmlpagingcookie"];
+function GetCrmContext() {
+    if (typeof (GetGlobalContext) !== "undefined") {
+        return GetGlobalContext();
+    }
 
+    if (typeof (Xrm) !== "undefined") {
+        return Xrm.Page.context;
+    }
+}
+
+function MergeResults(firstResponse: any, secondResponse: any) {
+    if (!firstResponse && !secondResponse) {
+        return null;
+    }
+
+    if (firstResponse && !secondResponse) {
         return firstResponse;
     }
 
-    function RemoveIdBrackets (id?:string) {
-        if (!id) {
-            return id;
+    if (!firstResponse && secondResponse) {
+        return secondResponse;
+    }
+
+    firstResponse.value = firstResponse.value.concat(secondResponse.value);
+
+    delete firstResponse["@odata.nextLink"];
+    delete firstResponse["@Microsoft.Dynamics.CRM.fetchxmlpagingcookie"];
+
+    return firstResponse;
+}
+
+function RemoveIdBrackets(id?: string) {
+    if (!id) {
+        return id;
+    }
+
+    return id.replace("{", "").replace("}", "");
+}
+
+function VerifyHeader(header: Header) {
+    if (!header.key || typeof (header.value) === "undefined") {
+        throw new Error("Each request header needs a key and a value!");
+    }
+}
+
+function AppendHeaders(xhr: XMLHttpRequest, headers?: Array<Header>) {
+    if (headers) {
+        for (let i = 0; i < headers.length; i++) {
+            var header = headers[i];
+
+            VerifyHeader(header);
+
+            xhr.setRequestHeader(header.key, header.value!);
         }
+    }
+}
 
-        return id.replace("{", "").replace("}", "");
+function GetNextLink(response: Record<string, any>) {
+    return response["@odata.nextLink"];
+}
+
+function GetPagingCookie(response: Record<string, any>) {
+    return response["@Microsoft.Dynamics.CRM.fetchxmlpagingcookie"];
+}
+
+function SetCookie(pagingCookie: string, parameters: { fetchXml?: string }) {
+    if (parameters.fetchXml) throw Error('required param "fetchXml" is undefined')
+
+    // Parse cookie that we retrieved with response
+    const parser = new DOMParser();
+    const cookieXml = parser.parseFromString(pagingCookie, "text/xml");
+
+    const cookie = cookieXml.documentElement;
+
+    let cookieAttribute = cookie.getAttribute("pagingcookie");
+
+    // In CRM 8.X orgs, fetch cookies where escaped twice. Since 9.X, they are only escaped once.
+    // Below indexOf check checks for the double escaped cookie string '<cookie page'.
+    // In CRM 9.X this will lead to no matches, as cookies start as '%3ccookie%20page'.
+    if (cookieAttribute && cookieAttribute.indexOf("%253ccookie%2520page") === 0) {
+        cookieAttribute = unescape(cookieAttribute);
     }
 
-    function VerifyHeader(header:Header) {
-        if (!header.key || typeof(header.value) === "undefined") {
-            throw new Error("Each request header needs a key and a value!");
-        }
-    }
+    const cookieValue = unescape(cookieAttribute!);
+    const pageNumber = parseInt(/<cookie page="([\d]+)">/.exec(cookieValue)![1]) + 1;
 
-    function AppendHeaders(xhr:XMLHttpRequest, headers?:Array<Header>) {
-        if (headers) {
-            for (let i = 0; i < headers.length; i++) {
-                var header = headers[i];
+    // Parse our original fetch XML, we will inject the paging information in here
+    const fetchXml = parser.parseFromString(parameters.fetchXml!, "text/xml");
+    const fetch = fetchXml.documentElement;
 
-                VerifyHeader(header);
+    fetch.setAttribute("page", String(pageNumber));
+    fetch.setAttribute("paging-cookie", cookieValue);
 
-                xhr.setRequestHeader(header.key, header.value! );
-            }
-        }
-    }
+    // Serialize modified fetch with paging information
+    var serializer = new XMLSerializer();
+    return serializer.serializeToString(fetchXml);
+}
 
-    function GetNextLink (response:Record<string,any>) {
-        return response["@odata.nextLink"];
-    }
+function SetPreviousResponse(parameters: any, response: any) {
+    // Set previous response
+    parameters._previousResponse = response;
+}
 
-    function GetPagingCookie(response:Record<string,any>) {
-        return response["@Microsoft.Dynamics.CRM.fetchxmlpagingcookie"];
-    }
+function MergeHeaders(...args: Array<Array<Header>>): Array<Header> {
+    let headers = Array<Header>();
 
-    function SetCookie (pagingCookie:string, parameters:{ fetchXml?:string } ) {
-        if( parameters.fetchXml ) throw Error( 'required param "fetchXml" is undefined')
-
-        // Parse cookie that we retrieved with response
-        const parser = new DOMParser();
-        const cookieXml = parser.parseFromString(pagingCookie, "text/xml");
-
-        const cookie = cookieXml.documentElement;
-
-        let cookieAttribute = cookie.getAttribute("pagingcookie");
-
-        // In CRM 8.X orgs, fetch cookies where escaped twice. Since 9.X, they are only escaped once.
-        // Below indexOf check checks for the double escaped cookie string '<cookie page'.
-        // In CRM 9.X this will lead to no matches, as cookies start as '%3ccookie%20page'.
-        if (cookieAttribute && cookieAttribute.indexOf("%253ccookie%2520page") === 0) {
-            cookieAttribute = unescape(cookieAttribute);
-        }
-
-        const cookieValue = unescape(cookieAttribute!);
-        const pageNumber = parseInt(/<cookie page="([\d]+)">/.exec(cookieValue)![1]) + 1;
-
-        // Parse our original fetch XML, we will inject the paging information in here
-        const fetchXml = parser.parseFromString(parameters.fetchXml!, "text/xml");
-        const fetch = fetchXml.documentElement;
-
-        fetch.setAttribute("page", String(pageNumber));
-        fetch.setAttribute("paging-cookie", cookieValue);
-
-        // Serialize modified fetch with paging information
-        var serializer = new XMLSerializer();
-        return serializer.serializeToString(fetchXml);
-    }
-
-    function SetPreviousResponse (parameters:any, response:any) {
-        // Set previous response
-        parameters._previousResponse = response;
-    }
-
-    function MergeHeaders( ...args:Array<Array<Header>>):Array<Header> {
-        let headers = Array<Header>();
-
-        if (!args) {
-            return headers;
-        }
-
-        for(let i = 0; i < args.length; i++) {
-            const headersToAdd = args[i];
-
-            if (!headersToAdd || !Array.isArray(headersToAdd)) {
-                continue;
-            }
-
-            for (let j = 0; j < headersToAdd.length; j++) {
-                const header = headersToAdd[j];
-                VerifyHeader(header);
-
-                let addHeader = true;
-
-                for (var k = 0; k < headers.length; k++) {
-                  if (headers[k].key === header.key) {
-                      addHeader = false;
-                      break;
-                  }
-                }
-
-                if (addHeader) {
-                    headers.push(header);
-                }
-            }
-        }
-
+    if (!args) {
         return headers;
     }
 
-    function IsBatch(responseText:string) {
-        return responseText && /^--batchresponse_[a-fA-F0-9\-]+$/m.test(responseText);
+    for (let i = 0; i < args.length; i++) {
+        const headersToAdd = args[i];
+
+        if (!headersToAdd || !Array.isArray(headersToAdd)) {
+            continue;
+        }
+
+        for (let j = 0; j < headersToAdd.length; j++) {
+            const header = headersToAdd[j];
+            VerifyHeader(header);
+
+            let addHeader = true;
+
+            for (var k = 0; k < headers.length; k++) {
+                if (headers[k].key === header.key) {
+                    addHeader = false;
+                    break;
+                }
+            }
+
+            if (addHeader) {
+                headers.push(header);
+            }
+        }
     }
 
-    function ParseResponse(xhr:XMLHttpRequest) {
-        var responseText = xhr.responseText;
+    return headers;
+}
 
-        // Check if it is a batch response
-        if (IsBatch(responseText)) {
-            return new BatchResponse({
-                xhr: xhr
-            });
+function IsBatch(responseText: string) {
+    return responseText && /^--batchresponse_[a-fA-F0-9\-]+$/m.test(responseText);
+}
+
+function ParseResponse(xhr: XMLHttpRequest) {
+    var responseText = xhr.responseText;
+
+    // Check if it is a batch response
+    if (IsBatch(responseText)) {
+        return new BatchResponse({
+            xhr: xhr
+        });
+    }
+    else {
+        return JSON.parse(xhr.responseText);
+    }
+}
+
+function IsOverlengthGet(method: string, url: string) {
+    return method && method.toLowerCase() === "get" && url && url.length > 2048;
+}
+
+
+function BuildAlternateKeyUrl(params?: { alternateKey?: Array<Key> }) {
+    if (!params || !params.alternateKey) {
+        return "";
+    }
+
+    var url = "(";
+
+    for (var i = 0; i < params.alternateKey.length; i++) {
+        var key = params.alternateKey[i];
+        var value = key.value;
+
+        if (typeof (key.value) !== "number") {
+            value = "'" + key.value + "'";
+        }
+
+        url += key.property + "=" + value;
+
+        if (i + 1 === params.alternateKey.length) {
+            url += ")";
         }
         else {
-            return JSON.parse(xhr.responseText);
+            url += ",";
         }
     }
 
-    function IsOverlengthGet (method:string, url:string) {
-        return method && method.toLowerCase() === "get" && url && url.length > 2048;
-    }
+    return url;
+}
 
-
-    function BuildAlternateKeyUrl (params?:{ alternateKey?:Array<Key>}) {
-        if (!params || !params.alternateKey) {
-            return "";
-        }
-
-        var url = "(";
-
-        for (var i = 0; i < params.alternateKey.length; i++) {
-            var key = params.alternateKey[i];
-            var value = key.value;
-
-            if (typeof(key.value) !== "number") {
-                value = "'" + key.value + "'";
-            }
-
-            url += key.property + "=" + value;
-
-            if (i + 1 === params.alternateKey.length) {
-                url += ")";
-            }
-            else {
-                url += ",";
-            }
-        }
-
-        return url;
-    }
-
-    export const Instance = new WebApiClientClass()
+export const Instance = new WebApiClientClass()
 
 
 

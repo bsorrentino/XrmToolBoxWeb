@@ -17,7 +17,7 @@
     "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
   },
   "scripts": {
-    "start": "parcel serve src/GlobalOptionSetDefinitions.html --dist-dir lib --no-source-maps",
+    "start": "parcel serve src/GlobalOptionSetDefinitions.html --no-source-maps",
     "prebuild": "npm run clean",
     "build": "parcel build src/GlobalOptionSetDefinitions.html --dist-dir lib --no-source-maps",
     "postbuild": "zx ../postbuild.mjs",

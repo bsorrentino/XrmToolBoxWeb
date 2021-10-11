@@ -8,7 +8,7 @@ export const scopes = [ `${POWERPLATFORM_ENV_URL}/user_impersonation` ]
 
 export const prepareWebApiRequest = ( auth:AuthenticationResult ) => {
     
-    let client = WebApiClient as any
+    let client = WebApiClient.Instance
     client.ApiVersion = '9.1'
     client.Token = auth.accessToken
     client.ClientUrl = POWERPLATFORM_ENV_URL

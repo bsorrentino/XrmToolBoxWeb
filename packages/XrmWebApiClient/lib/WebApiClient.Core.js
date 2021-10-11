@@ -405,7 +405,7 @@ class WebApiClientClass {
         }
     }
 }
-var batchName = "batch_UrlLimitExeedingRequest";
+const batchName = "batch_UrlLimitExeedingRequest";
 function GetCrmContext() {
     if (typeof (GetGlobalContext) !== "undefined") {
         return GetGlobalContext();

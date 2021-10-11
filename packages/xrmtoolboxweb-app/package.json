@@ -17,7 +17,7 @@
     "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
   },
   "scripts": {
-    "build": "parcel build src/index.html --dist-dir dist",
+    "build": "parcel build src/index.html",
     "start": "parcel serve src/index.html ",
     "clean": "rm -rf dist",
     "test": "jest --config ../../jest.config.js"
