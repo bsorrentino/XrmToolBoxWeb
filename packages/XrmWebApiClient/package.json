@@ -14,6 +14,8 @@
     "url": "https://github.com/DigitalFlow"
   },
   "devDependencies": {
+    "@types/xrm": "^9.0.47",
+    "typescript": "^4.4.3"
   },
   "files": [
     "src",
@@ -29,6 +31,9 @@
     "xrm"
   ],
   "scripts": {
-    "build":"tsc"
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "build:parcel": "parcel build src/WebApiClient.ts --dist-dir lib --no-source-maps",
+    "clean": "zx ../clean.mjs"
   }
 }

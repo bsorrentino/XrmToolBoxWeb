@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect, useState } from "react"
-import { useAccount } from "@azure/msal-react"
 import { DetailsListLayoutMode, Selection, IColumn } from '@fluentui/react/lib/DetailsList'
 import { MarqueeSelection } from '@fluentui/react/lib/MarqueeSelection'
 import { mergeStyles } from '@fluentui/react/lib/Styling'
@@ -19,7 +18,7 @@ import {
 import { Icon } from "@fluentui/react/lib/Icon"
 import { ShimmeredDetailsList } from "@fluentui/react/lib/ShimmeredDetailsList"
 
-import { RetrieveAllEntities } from './webapi'
+import * as RetrieveAllEntities from './webapi'
 
 initializeIcons();
 

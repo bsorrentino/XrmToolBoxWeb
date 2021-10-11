@@ -1,6 +1,6 @@
 {
   "packages": [
-    "packages/core",
+    "packages/Core",
     "packages/XrmWebApiClient",
     "packages/WhoAmI",
     "packages/RetrieveAllEntities",
