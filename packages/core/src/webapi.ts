@@ -1,5 +1,5 @@
 import { AuthenticationResult } from "@azure/msal-browser";
-import WebApiClient from 'xrm-webapi-client'
+import * as WebApiClient from 'xrmtoolboxweb-webapiclient'
 
 
 const POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com'
@@ -125,7 +125,7 @@ export const EntityFiltersEnum = {
 
 
 const retrieveDependenciesForDeleteRequest = ( params: { ObjectId:string, ComponentType:DependentComponentType} ) => 
-WebApiClient.Execute<Xrm.Metadata.EntityMetadata>( WebApiClient.Requests.RetrieveDependenciesForDeleteRequest.with( {  urlParams: params } ) )
+WebApiClient.Instance.Execute<Xrm.Metadata.EntityMetadata>( WebApiClient.RetrieveDependenciesForDeleteRequest.with( {  urlParams: params } ) )
 
 
 

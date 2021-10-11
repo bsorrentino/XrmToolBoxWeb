@@ -1,4 +1,4 @@
-import WebApiClient from 'xrm-webapi-client';
+import * as WebApiClient from 'xrmtoolboxweb-webapiclient';
 const POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com';
 export const scopes = [`${POWERPLATFORM_ENV_URL}/user_impersonation`];
 export const prepareWebApiRequest = (auth) => {
@@ -107,4 +107,4 @@ export const EntityFiltersEnum = {
     Relationships: 'Relationships',
     All: 'All',
 };
-const retrieveDependenciesForDeleteRequest = (params) => WebApiClient.Execute(WebApiClient.Requests.RetrieveDependenciesForDeleteRequest.with({ urlParams: params }));
+const retrieveDependenciesForDeleteRequest = (params) => WebApiClient.Instance.Execute(WebApiClient.RetrieveDependenciesForDeleteRequest.with({ urlParams: params }));

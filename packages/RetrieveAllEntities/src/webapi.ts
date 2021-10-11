@@ -1,4 +1,4 @@
-import * as WebApiClient from "xrm-webapi-client";
+import * as WebApiClient from "xrmtoolboxweb-webapiclient";
 
 export namespace RetrieveAllEntities {
 
@@ -9,7 +9,7 @@ export namespace RetrieveAllEntities {
 
     export const Invoke = ( params: { EntityFilters:string, RetrieveAsIfPublished:Boolean}) => { 
         
-        const req = WebApiClient.Requests.RetrieveAllEntitiesRequest.with( 
+        const req = WebApiClient.RetrieveAllEntitiesRequest.with( 
             {  urlParams: { EntityFilters:`Microsoft.Dynamics.CRM.EntityFilters'${params.EntityFilters}'`, RetrieveAsIfPublished:false},
                 headers: [
                     { key:'Access-Control-Allow-Origin', value:'*.crm.dynamics.com'},
@@ -19,7 +19,7 @@ export namespace RetrieveAllEntities {
                 ]
             })
         
-        return WebApiClient.Execute<Response>(req) as Promise<Response>
+        return WebApiClient.Instance.Execute<Response>(req) as Promise<Response>
     }
     
 }

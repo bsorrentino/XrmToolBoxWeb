@@ -1,10 +1,10 @@
 {
-  "name": "xrm-webapi-client",
+  "name": "xrmtoolboxweb-webapiclient",
+  "version": "1.1.0",
   "description": "Dynamics CRM WebApi Client",
-  "version": "v0.0.0",
   "license": "MIT",
-  "main": "./Publish/WebApiClient.js",
-  "types": "./Publish/WebApiClient.d.ts",
+  "main": "./lib/WebApiClient.js",
+  "types": "./lib/WebApiClient.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/DigitalFlow/Xrm-WebApi-Client"
@@ -29,5 +29,6 @@
     "xrm"
   ],
   "scripts": {
+    "build":"tsc"
   }
 }

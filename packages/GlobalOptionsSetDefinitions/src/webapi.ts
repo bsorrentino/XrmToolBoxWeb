@@ -1,4 +1,4 @@
-import WebApiClient from 'xrm-webapi-client'
+import * as WebApiClient from 'xrmtoolboxweb-webapiclient'
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // GlobalOptionSetDefinitions
@@ -6,7 +6,7 @@ import WebApiClient from 'xrm-webapi-client'
 
 export namespace GlobalOptionSetDefinitions {
 
-    class Request extends WebApiClient.Requests.Request {
+    class Request extends WebApiClient.Request {
         method = 'GET'
         name = 'GlobalOptionSetDefinitions'
     
@@ -45,7 +45,7 @@ export namespace GlobalOptionSetDefinitions {
     export const Invoke = () => {
 
         const req = new Request()
-        return WebApiClient.Execute<Response>( req ) as Promise<Response>
+        return WebApiClient.Instance.Execute<Response>( req ) as Promise<Response>
     
     }
 }

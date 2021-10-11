@@ -74,7 +74,7 @@ export class Request implements IRequest {
     entityId = "";
     payload?: Record<string, any>;
     headers?: Array<Header>;
-    urlParams?: Record<string, string>;
+    urlParams?: Record<string, string|number>;
     async = true;
 
     /**

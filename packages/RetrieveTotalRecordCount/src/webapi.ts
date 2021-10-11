@@ -1,8 +1,8 @@
-import WebApiClient from "xrm-webapi-client";
+import * as WebApiClient from 'xrmtoolboxweb-webapiclient'
 
 export namespace RetrieveTotalRecordCount {
 
-    class Request extends WebApiClient.Requests.Request {
+    class Request extends WebApiClient.Request {
         method = 'GET'
         name = 'RetrieveTotalRecordCount'
     
@@ -26,7 +26,7 @@ export namespace RetrieveTotalRecordCount {
     export const Invoke = ( EntityNames:Array<string> ) => {
     
         const req = new Request( EntityNames )
-        return WebApiClient.Execute<Response>( req ) as Promise<Response>
+        return WebApiClient.Instance.Execute<Response>( req ) as Promise<Response>
     
     }
     

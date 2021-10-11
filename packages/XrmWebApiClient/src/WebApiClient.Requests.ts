@@ -8,7 +8,7 @@ import { Request } from './WebApiClient.Request'
  * @description Calculates the value of a rollup attribute.
  * @alias CalculateRollupFieldRequest
  */
-export const CalculateRollupFieldRequest = Object.create(Request.prototype, {
+export const CalculateRollupFieldRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -26,7 +26,7 @@ export const CalculateRollupFieldRequest = Object.create(Request.prototype, {
  * @description Calculates the total time, in minutes, that you used while you worked on an incident (case).
  * @alias CalculateTotalTimeIncidentRequest
  */
-export const CalculateTotalTimeIncidentRequest = Object.create(Request.prototype, {
+export const CalculateTotalTimeIncidentRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -52,7 +52,7 @@ export const CalculateTotalTimeIncidentRequest = Object.create(Request.prototype
  * @description Check whether the incoming email message is relevant to the Microsoft Dynamics 365 system.
  * @alias CheckIncomingEmailRequest
  */
-export const CheckIncomingEmailRequest = Object.create(Request.prototype, {
+export const CheckIncomingEmailRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -70,7 +70,7 @@ export const CheckIncomingEmailRequest = Object.create(Request.prototype, {
  * @description Contains the data that is needed to check whether the incoming email message should be promoted to the Microsoft Dynamics 365 system.
  * @alias CheckPromoteEmailRequest
  */
-export const CheckPromoteEmailRequest = Object.create(Request.prototype, {
+export const CheckPromoteEmailRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -88,7 +88,7 @@ export const CheckPromoteEmailRequest = Object.create(Request.prototype, {
  * @description Downloads a report definition.
  * @alias DownloadReportDefinitionRequest
  */
-export const DownloadReportDefinitionRequest = Object.create(Request.prototype, {
+export const DownloadReportDefinitionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -114,7 +114,7 @@ export const DownloadReportDefinitionRequest = Object.create(Request.prototype, 
  * @description Converts the calendar rules to an array of available time blocks for the specified period.
  * @alias ExpandCalendarRequest
  */
-export const ExpandCalendarRequest = Object.create(Request.prototype, {
+export const ExpandCalendarRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -140,7 +140,7 @@ export const ExpandCalendarRequest = Object.create(Request.prototype, {
  * @description Exports localizable fields values to a compressed file.
  * @alias ExportFieldTranslationRequest
  */
-export const ExportFieldTranslationRequest = Object.create(Request.prototype, {
+export const ExportFieldTranslationRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -158,7 +158,7 @@ export const ExportFieldTranslationRequest = Object.create(Request.prototype, {
  * @description Converts a query in FetchXML to a QueryExpression.
  * @alias FetchXmlToQueryExpressionRequest
  */
-export const FetchXmlToQueryExpressionRequest = Object.create(Request.prototype, {
+export const FetchXmlToQueryExpressionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -176,7 +176,7 @@ export const FetchXmlToQueryExpressionRequest = Object.create(Request.prototype,
  * @description Finds a parent resource group (scheduling group) for the specified resource groups (scheduling groups).
  * @alias FindParentResourceGroupRequest
  */
-export const FindParentResourceGroupRequest = Object.create(Request.prototype, {
+export const FindParentResourceGroupRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -202,7 +202,7 @@ export const FindParentResourceGroupRequest = Object.create(Request.prototype, {
  * @description Retrieves all the time zone definitions for the specified locale and to return only the display name attribute.
  * @alias GetAllTimeZonesWithDisplayNameRequest
  */
-export const GetAllTimeZonesWithDisplayNameRequest = Object.create(Request.prototype, {
+export const GetAllTimeZonesWithDisplayNameRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -224,7 +224,7 @@ export const GetAllTimeZonesWithDisplayNameRequest = Object.create(Request.proto
  * @description Retrieves the default price level (price list) for the current user based on the user’s territory relationship with the price level.
  * @alias GetDefaultPriceLevelRequest
  */
-export const GetDefaultPriceLevelRequest = Object.create(Request.prototype, {
+export const GetDefaultPriceLevelRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -246,7 +246,7 @@ export const GetDefaultPriceLevelRequest = Object.create(Request.prototype, {
  * @description Retrieves distinct values from the parse table for a column in the source file that contains list values.
  * @alias GetDistinctValuesImportFileRequest
  */
-export const GetDistinctValuesImportFileRequest = Object.create(Request.prototype, {
+export const GetDistinctValuesImportFileRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -272,7 +272,7 @@ export const GetDistinctValuesImportFileRequest = Object.create(Request.prototyp
  * @description Retrieves the source-file column headings; or retrieve the system-generated column headings if the source file does not contain column headings.
  * @alias GetHeaderColumnsImportFileRequest
  */
-export const GetHeaderColumnsImportFileRequest = Object.create(Request.prototype, {
+export const GetHeaderColumnsImportFileRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -298,7 +298,7 @@ export const GetHeaderColumnsImportFileRequest = Object.create(Request.prototype
  * @description Gets the quantity decimal value of a product for the specified entity in the target.
  * @alias GetQuantityDecimalRequest
  */
-export const GetQuantityDecimalRequest = Object.create(Request.prototype, {
+export const GetQuantityDecimalRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -320,7 +320,7 @@ export const GetQuantityDecimalRequest = Object.create(Request.prototype, {
  * @description Retrieves the history limit for a report.
  * @alias GetReportHistoryLimitRequest
  */
-export const GetReportHistoryLimitRequest = Object.create(Request.prototype, {
+export const GetReportHistoryLimitRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -346,7 +346,7 @@ export const GetReportHistoryLimitRequest = Object.create(Request.prototype, {
  * @description Retrieves the time zone code for the specified localized time zone name.
  * @alias GetTimeZoneCodeByLocalizedNameRequest
  */
-export const GetTimeZoneCodeByLocalizedNameRequest = Object.create(Request.prototype, {
+export const GetTimeZoneCodeByLocalizedNameRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -364,7 +364,7 @@ export const GetTimeZoneCodeByLocalizedNameRequest = Object.create(Request.proto
  * @description Retrieves a list of all the entities that can participate in a Many-to-Many entity relationship.
  * @alias GetValidManyToManyRequest
  */
-export const GetValidManyToManyRequest = Object.create(Request.prototype, {
+export const GetValidManyToManyRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -382,7 +382,7 @@ export const GetValidManyToManyRequest = Object.create(Request.prototype, {
  * @description Retrieves a list of entity logical names that are valid as the primary entity (one) from the specified entity in a one-to-many relationship.
  * @alias GetValidReferencedEntitiesRequest
  */
-export const GetValidReferencedEntitiesRequest = Object.create(Request.prototype, {
+export const GetValidReferencedEntitiesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -400,7 +400,7 @@ export const GetValidReferencedEntitiesRequest = Object.create(Request.prototype
  * @description Retrieves the set of entities that are valid as the related entity (many) to the specified entity in a one-to-many relationship.
  * @alias GetValidReferencingEntitiesRequest
  */
-export const GetValidReferencingEntitiesRequest = Object.create(Request.prototype, {
+export const GetValidReferencingEntitiesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -418,7 +418,7 @@ export const GetValidReferencingEntitiesRequest = Object.create(Request.prototyp
  * @description Increments the per day view count of a knowledge article record.
  * @alias IncrementKnowledgeArticleViewCountRequest
  */
-export const IncrementKnowledgeArticleViewCountRequest = Object.create(Request.prototype, {
+export const IncrementKnowledgeArticleViewCountRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -436,7 +436,7 @@ export const IncrementKnowledgeArticleViewCountRequest = Object.create(Request.p
  * @description Initializes a new record from an existing record.
  * @alias InitializeFromRequest
  */
-export const InitializeFromRequest = Object.create(Request.prototype, {
+export const InitializeFromRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -454,7 +454,7 @@ export const InitializeFromRequest = Object.create(Request.prototype, {
  * @description Determines whether a solution component is customizable.
  * @alias IsComponentCustomizableRequest
  */
-export const IsComponentCustomizableRequest = Object.create(Request.prototype, {
+export const IsComponentCustomizableRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -472,7 +472,7 @@ export const IsComponentCustomizableRequest = Object.create(Request.prototype, {
  * @description Determines whether data encryption is currently running (active or inactive).
  * @alias IsDataEncryptionActiveRequest
  */
-export const IsDataEncryptionActiveRequest = Object.create(Request.prototype, {
+export const IsDataEncryptionActiveRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -490,7 +490,7 @@ export const IsDataEncryptionActiveRequest = Object.create(Request.prototype, {
  * @description Validates the state transition.
  * @alias IsValidStateTransitionRequest
  */
-export const IsValidStateTransitionRequest = Object.create(Request.prototype, {
+export const IsValidStateTransitionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -508,7 +508,7 @@ export const IsValidStateTransitionRequest = Object.create(Request.prototype, {
  * @description Searches multiple resources for available time block that matches the specified parameters.
  * @alias QueryMultipleSchedulesRequest
  */
-export const QueryMultipleSchedulesRequest = Object.create(Request.prototype, {
+export const QueryMultipleSchedulesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -526,7 +526,7 @@ export const QueryMultipleSchedulesRequest = Object.create(Request.prototype, {
  * @description Searches the specified resource for an available time block that matches the specified parameters.
  * @alias QueryScheduleRequest
  */
-export const QueryScheduleRequest = Object.create(Request.prototype, {
+export const QueryScheduleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -544,7 +544,7 @@ export const QueryScheduleRequest = Object.create(Request.prototype, {
  * @description Retrieves the absolute URL and the site collection URL for a SharePoint location record in Microsoft Dynamics 365.
  * @alias RetrieveAbsoluteAndSiteCollectionUrlRequest
  */
-export const RetrieveAbsoluteAndSiteCollectionUrlRequest = Object.create(Request.prototype, {
+export const RetrieveAbsoluteAndSiteCollectionUrlRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -566,7 +566,7 @@ export const RetrieveAbsoluteAndSiteCollectionUrlRequest = Object.create(Request
  * @description TODO: RetrieveActivePath Function Description (No Joke, MS description)
  * @alias RetrieveActivePathRequest
  */
-export const RetrieveActivePathRequest = Object.create(Request.prototype, {
+export const RetrieveActivePathRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -584,7 +584,7 @@ export const RetrieveActivePathRequest = Object.create(Request.prototype, {
  * @description Retrieves the collection of users that report to the specified system user (user).
  * @alias RetrieveAllChildUsersSystemUserRequest
  */
-export const RetrieveAllChildUsersSystemUserRequest = Object.create(Request.prototype, {
+export const RetrieveAllChildUsersSystemUserRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -610,7 +610,7 @@ export const RetrieveAllChildUsersSystemUserRequest = Object.create(Request.prot
  * @description Retrieves metadata information about all the entities.
  * @alias RetrieveAllEntitiesRequest
  */
-export const RetrieveAllEntitiesRequest = Object.create(Request.prototype, {
+export const RetrieveAllEntitiesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -628,7 +628,7 @@ export const RetrieveAllEntitiesRequest = Object.create(Request.prototype, {
  * @description Retrieve the data that defines the content and behavior of the application ribbon.
  * @alias RetrieveApplicationRibbonRequest
  */
-export const RetrieveApplicationRibbonRequest = Object.create(Request.prototype, {
+export const RetrieveApplicationRibbonRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -646,7 +646,7 @@ export const RetrieveApplicationRibbonRequest = Object.create(Request.prototype,
  * @description Retrieves the list of database partitions that are used to store audited history data.
  * @alias RetrieveAuditPartitionListRequest
  */
-export const RetrieveAuditPartitionListRequest = Object.create(Request.prototype, {
+export const RetrieveAuditPartitionListRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -664,7 +664,7 @@ export const RetrieveAuditPartitionListRequest = Object.create(Request.prototype
  * @description Retrieves the list of language packs that are installed and enabled on the server.
  * @alias RetrieveAvailableLanguagesRequest
  */
-export const RetrieveAvailableLanguagesRequest = Object.create(Request.prototype, {
+export const RetrieveAvailableLanguagesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -682,7 +682,7 @@ export const RetrieveAvailableLanguagesRequest = Object.create(Request.prototype
  * @description Retrieves all business units from the business unit hierarchy.
  * @alias RetrieveBusinessHierarchyBusinessUnitRequest
  */
-export const RetrieveBusinessHierarchyBusinessUnitRequest = Object.create(Request.prototype, {
+export const RetrieveBusinessHierarchyBusinessUnitRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -708,7 +708,7 @@ export const RetrieveBusinessHierarchyBusinessUnitRequest = Object.create(Reques
  * @description Retrieves all resources that are related to the specified resource group
  * @alias RetrieveByGroupResourceRequest
  */
-export const RetrieveByGroupResourceRequest = Object.create(Request.prototype, {
+export const RetrieveByGroupResourceRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -734,7 +734,7 @@ export const RetrieveByGroupResourceRequest = Object.create(Request.prototype, {
  * @description Retrieves the resource groups (scheduling groups) that contain the specified resource.
  * @alias RetrieveByResourceResourceGroupRequest
  */
-export const RetrieveByResourceResourceGroupRequest = Object.create(Request.prototype, {
+export const RetrieveByResourceResourceGroupRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -760,7 +760,7 @@ export const RetrieveByResourceResourceGroupRequest = Object.create(Request.prot
  * @description Retrieve the collection of services that are related to the specified set of resources.
  * @alias RetrieveByResourcesServiceRequest
  */
-export const RetrieveByResourcesServiceRequest = Object.create(Request.prototype, {
+export const RetrieveByResourcesServiceRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -778,7 +778,7 @@ export const RetrieveByResourcesServiceRequest = Object.create(Request.prototype
  * @description Retrieves the top-ten articles about a specified product from the knowledge base of articles for the organization
  * @alias RetrieveByTopIncidentProductKbArticleRequest
  */
-export const RetrieveByTopIncidentProductKbArticleRequest = Object.create(Request.prototype, {
+export const RetrieveByTopIncidentProductKbArticleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -804,7 +804,7 @@ export const RetrieveByTopIncidentProductKbArticleRequest = Object.create(Reques
  * @description Retrieves the top-ten articles about a specified subject from the knowledge base of articles for your organization.
  * @alias RetrieveByTopIncidentSubjectKbArticleRequest
  */
-export const RetrieveByTopIncidentSubjectKbArticleRequest = Object.create(Request.prototype, {
+export const RetrieveByTopIncidentSubjectKbArticleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -830,7 +830,7 @@ export const RetrieveByTopIncidentSubjectKbArticleRequest = Object.create(Reques
  * @description Retrieve information about the current organization.
  * @alias RetrieveCurrentOrganizationRequest
  */
-export const RetrieveCurrentOrganizationRequest = Object.create(Request.prototype, {
+export const RetrieveCurrentOrganizationRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -848,7 +848,7 @@ export const RetrieveCurrentOrganizationRequest = Object.create(Request.prototyp
  * @description Retrieves the data encryption key value.
  * @alias RetrieveDataEncryptionKeyRequest
  */
-export const RetrieveDataEncryptionKeyRequest = Object.create(Request.prototype, {
+export const RetrieveDataEncryptionKeyRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -866,7 +866,7 @@ export const RetrieveDataEncryptionKeyRequest = Object.create(Request.prototype,
  * @description Retrieves a collection of dependency records that describe any solution components that would prevent a solution component from being deleted.
  * @alias RetrieveDependenciesForDeleteRequest
  */
-export const RetrieveDependenciesForDeleteRequest = Object.create(Request.prototype, {
+export const RetrieveDependenciesForDeleteRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -884,7 +884,7 @@ export const RetrieveDependenciesForDeleteRequest = Object.create(Request.protot
  * @description Retrieves a list of the solution component dependencies that can prevent you from uninstalling a managed solution.
  * @alias RetrieveDependenciesForUninstallRequest
  */
-export const RetrieveDependenciesForUninstallRequest = Object.create(Request.prototype, {
+export const RetrieveDependenciesForUninstallRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -902,7 +902,7 @@ export const RetrieveDependenciesForUninstallRequest = Object.create(Request.pro
  * @description Retrieves a list dependencies for solution components that directly depend on a solution component.
  * @alias RetrieveDependentComponentsRequest
  */
-export const RetrieveDependentComponentsRequest = Object.create(Request.prototype, {
+export const RetrieveDependentComponentsRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -920,7 +920,7 @@ export const RetrieveDependentComponentsRequest = Object.create(Request.prototyp
  * @description Retrieves the type of license for a deployment of Microsoft Dynamics 365.
  * @alias RetrieveDeploymentLicenseTypeRequest
  */
-export const RetrieveDeploymentLicenseTypeRequest = Object.create(Request.prototype, {
+export const RetrieveDeploymentLicenseTypeRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -938,7 +938,7 @@ export const RetrieveDeploymentLicenseTypeRequest = Object.create(Request.protot
  * @description Retrieves a list of language packs that are installed on the server that have been disabled.
  * @alias RetrieveDeprovisionedLanguagesRequest
  */
-export const RetrieveDeprovisionedLanguagesRequest = Object.create(Request.prototype, {
+export const RetrieveDeprovisionedLanguagesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -956,7 +956,7 @@ export const RetrieveDeprovisionedLanguagesRequest = Object.create(Request.proto
  * @description Detects and retrieves duplicates for a specified record.
  * @alias RetrieveDuplicatesRequest
  */
-export const RetrieveDuplicatesRequest = Object.create(Request.prototype, {
+export const RetrieveDuplicatesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -974,7 +974,7 @@ export const RetrieveDuplicatesRequest = Object.create(Request.prototype, {
  * @description Retrieve the changes for an entity.
  * @alias RetrieveEntityChangesRequest
  */
-export const RetrieveEntityChangesRequest = Object.create(Request.prototype, {
+export const RetrieveEntityChangesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -992,7 +992,7 @@ export const RetrieveEntityChangesRequest = Object.create(Request.prototype, {
  * @description Retrieves ribbon definitions for an entity.
  * @alias RetrieveEntityRibbonRequest
  */
-export const RetrieveEntityRibbonRequest = Object.create(Request.prototype, {
+export const RetrieveEntityRibbonRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1010,7 +1010,7 @@ export const RetrieveEntityRibbonRequest = Object.create(Request.prototype, {
  * @description Retrieves the appointments for the current user for a specific date range from the exchange web service.
  * @alias RetrieveExchangeAppointmentsRequest
  */
-export const RetrieveExchangeAppointmentsRequest = Object.create(Request.prototype, {
+export const RetrieveExchangeAppointmentsRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1028,7 +1028,7 @@ export const RetrieveExchangeAppointmentsRequest = Object.create(Request.prototy
  * @description Retrieves the exchange rate.
  * @alias RetrieveExchangeRateRequest
  */
-export const RetrieveExchangeRateRequest = Object.create(Request.prototype, {
+export const RetrieveExchangeRateRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1046,7 +1046,7 @@ export const RetrieveExchangeRateRequest = Object.create(Request.prototype, {
  * @description Retrieves the entity forms that are available for a specified user.
  * @alias RetrieveFilteredFormsRequest
  */
-export const RetrieveFilteredFormsRequest = Object.create(Request.prototype, {
+export const RetrieveFilteredFormsRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1068,7 +1068,7 @@ export const RetrieveFilteredFormsRequest = Object.create(Request.prototype, {
  * @description Retrieves the formatted results from an import job.
  * @alias RetrieveFormattedImportJobResultsRequest
  */
-export const RetrieveFormattedImportJobResultsRequest = Object.create(Request.prototype, {
+export const RetrieveFormattedImportJobResultsRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1086,7 +1086,7 @@ export const RetrieveFormattedImportJobResultsRequest = Object.create(Request.pr
  * @description Retrieves the list of language packs that are installed on the server.
  * @alias RetrieveInstalledLanguagePacksRequest
  */
-export const RetrieveInstalledLanguagePacksRequest = Object.create(Request.prototype, {
+export const RetrieveInstalledLanguagePacksRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1104,7 +1104,7 @@ export const RetrieveInstalledLanguagePacksRequest = Object.create(Request.proto
  * @description Retrieves the version of an installed language pack.
  * @alias RetrieveInstalledLanguagePackVersionRequest
  */
-export const RetrieveInstalledLanguagePackVersionRequest = Object.create(Request.prototype, {
+export const RetrieveInstalledLanguagePackVersionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1122,7 +1122,7 @@ export const RetrieveInstalledLanguagePackVersionRequest = Object.create(Request
  * @description Retrieves the number of used and available licenses for a deployment of Microsoft Dynamics 365.
  * @alias RetrieveLicenseInfoRequest
  */
-export const RetrieveLicenseInfoRequest = Object.create(Request.prototype, {
+export const RetrieveLicenseInfoRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1140,7 +1140,7 @@ export const RetrieveLicenseInfoRequest = Object.create(Request.prototype, {
  * @description Retrieves localized labels for a limited set of entity attributes.
  * @alias RetrieveLocLabelsRequest
  */
-export const RetrieveLocLabelsRequest = Object.create(Request.prototype, {
+export const RetrieveLocLabelsRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1158,7 +1158,7 @@ export const RetrieveLocLabelsRequest = Object.create(Request.prototype, {
  * @description Retrieves folder-level tracking rules for a mailbox.
  * @alias RetrieveMailboxTrackingFoldersRequest
  */
-export const RetrieveMailboxTrackingFoldersRequest = Object.create(Request.prototype, {
+export const RetrieveMailboxTrackingFoldersRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1176,7 +1176,7 @@ export const RetrieveMailboxTrackingFoldersRequest = Object.create(Request.proto
  * @description Retrieves the members of a bulk operation.
  * @alias RetrieveMembersBulkOperationRequest
  */
-export const RetrieveMembersBulkOperationRequest = Object.create(Request.prototype, {
+export const RetrieveMembersBulkOperationRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1202,7 +1202,7 @@ export const RetrieveMembersBulkOperationRequest = Object.create(Request.prototy
  * @description Retrieves a list of missing components in the target organization.
  * @alias RetrieveMissingComponentsRequest
  */
-export const RetrieveMissingComponentsRequest = Object.create(Request.prototype, {
+export const RetrieveMissingComponentsRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1220,7 +1220,7 @@ export const RetrieveMissingComponentsRequest = Object.create(Request.prototype,
  * @description Retrieves any required solution components that are not included in the solution.
  * @alias RetrieveMissingDependenciesRequest
  */
-export const RetrieveMissingDependenciesRequest = Object.create(Request.prototype, {
+export const RetrieveMissingDependenciesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1238,7 +1238,7 @@ export const RetrieveMissingDependenciesRequest = Object.create(Request.prototyp
  * @description Retrieves the resources that are used by an organization.
  * @alias RetrieveOrganizationResourcesRequest
  */
-export const RetrieveOrganizationResourcesRequest = Object.create(Request.prototype, {
+export const RetrieveOrganizationResourcesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1256,7 +1256,7 @@ export const RetrieveOrganizationResourcesRequest = Object.create(Request.protot
  * @description Retrieves the collection of the parent resource groups of the specified resource group (scheduling group).
  * @alias RetrieveParentGroupsResourceGroupRequest
  */
-export const RetrieveParentGroupsResourceGroupRequest = Object.create(Request.prototype, {
+export const RetrieveParentGroupsResourceGroupRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1274,7 +1274,7 @@ export const RetrieveParentGroupsResourceGroupRequest = Object.create(Request.pr
  * @description Retrieves the data from the parse table.
  * @alias RetrieveParsedDataImportFileRequest
  */
-export const RetrieveParsedDataImportFileRequest = Object.create(Request.prototype, {
+export const RetrieveParsedDataImportFileRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1292,7 +1292,7 @@ export const RetrieveParsedDataImportFileRequest = Object.create(Request.prototy
  * @description Retrieves pages of posts, including comments for each post, for all records that the calling user is following.
  * @alias RetrievePersonalWallRequest
  */
-export const RetrievePersonalWallRequest = Object.create(Request.prototype, {
+export const RetrievePersonalWallRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1314,7 +1314,7 @@ export const RetrievePersonalWallRequest = Object.create(Request.prototype, {
  * @description Retrieves the access rights of the specified security principal (team or user) to the specified record.
  * @alias RetrievePrincipalAccessRequest
  */
-export const RetrievePrincipalAccessRequest = Object.create(Request.prototype, {
+export const RetrievePrincipalAccessRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1336,7 +1336,7 @@ export const RetrievePrincipalAccessRequest = Object.create(Request.prototype, {
  * @description Retrieves all the secured attribute privileges a user or team has through direct or indirect (through team membership) associations with the FieldSecurityProfile entity.
  * @alias RetrievePrincipalAttributePrivilegesRequest
  */
-export const RetrievePrincipalAttributePrivilegesRequest = Object.create(Request.prototype, {
+export const RetrievePrincipalAttributePrivilegesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1358,7 +1358,7 @@ export const RetrievePrincipalAttributePrivilegesRequest = Object.create(Request
  * @description For internal use only.
  * @alias RetrievePrincipalSyncAttributeMappingsRequest
  */
-export const RetrievePrincipalSyncAttributeMappingsRequest = Object.create(Request.prototype, {
+export const RetrievePrincipalSyncAttributeMappingsRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1380,7 +1380,7 @@ export const RetrievePrincipalSyncAttributeMappingsRequest = Object.create(Reque
  * @description Retrieves the set of privileges defined in the system.
  * @alias RetrievePrivilegeSetRequest
  */
-export const RetrievePrivilegeSetRequest = Object.create(Request.prototype, {
+export const RetrievePrivilegeSetRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1402,7 +1402,7 @@ export const RetrievePrivilegeSetRequest = Object.create(Request.prototype, {
  * @description TODO: RetrieveProcessInstances Function Description (By MS)
  * @alias RetrieveProcessInstancesRequest
  */
-export const RetrieveProcessInstancesRequest = Object.create(Request.prototype, {
+export const RetrieveProcessInstancesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1420,7 +1420,7 @@ export const RetrieveProcessInstancesRequest = Object.create(Request.prototype, 
  * @description Retrieve all the property instances (dynamic property instances) for a product added to an opportunity, quote, order, or invoice.
  * @alias RetrieveProductPropertiesRequest
  */
-export const RetrieveProductPropertiesRequest = Object.create(Request.prototype, {
+export const RetrieveProductPropertiesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1442,7 +1442,7 @@ export const RetrieveProductPropertiesRequest = Object.create(Request.prototype,
  * @description Retrieves the version of a provisioned language pack.
  * @alias RetrieveProvisionedLanguagePackVersionRequest
  */
-export const RetrieveProvisionedLanguagePackVersionRequest = Object.create(Request.prototype, {
+export const RetrieveProvisionedLanguagePackVersionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1460,7 +1460,7 @@ export const RetrieveProvisionedLanguagePackVersionRequest = Object.create(Reque
  * @description Retrieves the list of provisioned languages.
  * @alias RetrieveProvisionedLanguagesRequest
  */
-export const RetrieveProvisionedLanguagesRequest = Object.create(Request.prototype, {
+export const RetrieveProvisionedLanguagesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1478,7 +1478,7 @@ export const RetrieveProvisionedLanguagesRequest = Object.create(Request.prototy
  * @description Retrieves pages of posts, including comments for each post, for a specified record.
  * @alias RetrieveRecordWallRequest
  */
-export const RetrieveRecordWallRequest = Object.create(Request.prototype, {
+export const RetrieveRecordWallRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1500,7 +1500,7 @@ export const RetrieveRecordWallRequest = Object.create(Request.prototype, {
  * @description Retrieves a collection of solution components that are required for a solution component.
  * @alias RetrieveRequiredComponentsRequest
  */
-export const RetrieveRequiredComponentsRequest = Object.create(Request.prototype, {
+export const RetrieveRequiredComponentsRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1518,7 +1518,7 @@ export const RetrieveRequiredComponentsRequest = Object.create(Request.prototype
  * @description Retrieves the privileges that are assigned to the specified role.
  * @alias RetrieveRolePrivilegesRoleRequest
  */
-export const RetrieveRolePrivilegesRoleRequest = Object.create(Request.prototype, {
+export const RetrieveRolePrivilegesRoleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1536,7 +1536,7 @@ export const RetrieveRolePrivilegesRoleRequest = Object.create(Request.prototype
  * @description Retrieves the collection of child resource groups from the specified resource group.
  * @alias RetrieveSubGroupsResourceGroupRequest
  */
-export const RetrieveSubGroupsResourceGroupRequest = Object.create(Request.prototype, {
+export const RetrieveSubGroupsResourceGroupRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1562,7 +1562,7 @@ export const RetrieveSubGroupsResourceGroupRequest = Object.create(Request.proto
  * @description Retrieves the privileges for a team.
  * @alias RetrieveTeamPrivilegesRequest
  */
-export const RetrieveTeamPrivilegesRequest = Object.create(Request.prototype, {
+export const RetrieveTeamPrivilegesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1588,7 +1588,7 @@ export const RetrieveTeamPrivilegesRequest = Object.create(Request.prototype, {
  * @description Retrieves a time stamp for the metadata.
  * @alias RetrieveTimestampRequest
  */
-export const RetrieveTimestampRequest = Object.create(Request.prototype, {
+export const RetrieveTimestampRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1606,7 +1606,7 @@ export const RetrieveTimestampRequest = Object.create(Request.prototype, {
  * @description Retrieves a collection of unpublished organization-owned records that satisfy the specified query criteria.
  * @alias RetrieveUnpublishedMultipleRequest
  */
-export const RetrieveUnpublishedMultipleRequest = Object.create(Request.prototype, {
+export const RetrieveUnpublishedMultipleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1628,7 +1628,7 @@ export const RetrieveUnpublishedMultipleRequest = Object.create(Request.prototyp
  * @description Retrieves the privileges a system user (user) has through his or her roles in the specified business unit.
  * @alias RetrieveUserPrivilegesRequest
  */
-export const RetrieveUserPrivilegesRequest = Object.create(Request.prototype, {
+export const RetrieveUserPrivilegesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1654,7 +1654,7 @@ export const RetrieveUserPrivilegesRequest = Object.create(Request.prototype, {
  * @description Retrieves all private queues of a specified user and optionally all public queues.
  * @alias RetrieveUserQueuesRequest
  */
-export const RetrieveUserQueuesRequest = Object.create(Request.prototype, {
+export const RetrieveUserQueuesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1680,7 +1680,7 @@ export const RetrieveUserQueuesRequest = Object.create(Request.prototype, {
  * @description Retrieves the version number of the Microsoft Dynamics 365 Server.
  * @alias RetrieveVersionRequest
  */
-export const RetrieveVersionRequest = Object.create(Request.prototype, {
+export const RetrieveVersionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1698,7 +1698,7 @@ export const RetrieveVersionRequest = Object.create(Request.prototype, {
  * @description Retrieves all the entity records that are related to the specified record.
  * @alias RollupRequest
  */
-export const RollupRequest = Object.create(Request.prototype, {
+export const RollupRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1716,7 +1716,7 @@ export const RollupRequest = Object.create(Request.prototype, {
  * @description Searches for available time slots that fulfill the specified appointment request.
  * @alias SearchRequest
  */
-export const SearchRequest = Object.create(Request.prototype, {
+export const SearchRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1734,7 +1734,7 @@ export const SearchRequest = Object.create(Request.prototype, {
  * @description Searches for knowledge base articles that contain the specified body text.
  * @alias SearchByBodyKbArticleRequest
  */
-export const SearchByBodyKbArticleRequest = Object.create(Request.prototype, {
+export const SearchByBodyKbArticleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1756,7 +1756,7 @@ export const SearchByBodyKbArticleRequest = Object.create(Request.prototype, {
  * @description Searches for knowledge base articles that contain the specified keywords.
  * @alias SearchByKeywordsKbArticleRequest
  */
-export const SearchByKeywordsKbArticleRequest = Object.create(Request.prototype, {
+export const SearchByKeywordsKbArticleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1778,7 +1778,7 @@ export const SearchByKeywordsKbArticleRequest = Object.create(Request.prototype,
  * @description Searches for knowledge base articles that contain the specified title.
  * @alias SearchByTitleKbArticleRequest
  */
-export const SearchByTitleKbArticleRequest = Object.create(Request.prototype, {
+export const SearchByTitleKbArticleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1800,7 +1800,7 @@ export const SearchByTitleKbArticleRequest = Object.create(Request.prototype, {
  * @description Validates a rule for a recurring appointment.
  * @alias ValidateRecurrenceRuleRequest
  */
-export const ValidateRecurrenceRuleRequest = Object.create(Request.prototype, {
+export const ValidateRecurrenceRuleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1818,7 +1818,7 @@ export const ValidateRecurrenceRuleRequest = Object.create(Request.prototype, {
  * @description Retrieves the system user ID for the currently logged on user or the user under whose context the code is running.
  * @alias WhoAmIRequest
  */
-export const WhoAmIRequest = Object.create(Request.prototype, {
+export const WhoAmIRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "GET",
         writeable: true
@@ -1838,7 +1838,7 @@ export const WhoAmIRequest = Object.create(Request.prototype, {
  * @description Adds an item to a campaign.
  * @alias AddItemCampaignRequest
  */
-export const AddItemCampaignRequest = Object.create(Request.prototype, {
+export const AddItemCampaignRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -1860,7 +1860,7 @@ export const AddItemCampaignRequest = Object.create(Request.prototype, {
  * @description Adds an item to a campaign activity.
  * @alias AddItemCampaignActivityRequest
  */
-export const AddItemCampaignActivityRequest = Object.create(Request.prototype, {
+export const AddItemCampaignActivityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -1878,7 +1878,7 @@ export const AddItemCampaignActivityRequest = Object.create(Request.prototype, {
  * @description Adds members to a list.
  * @alias AddListMembersListRequest
  */
-export const AddListMembersListRequest = Object.create(Request.prototype, {
+export const AddListMembersListRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -1896,7 +1896,7 @@ export const AddListMembersListRequest = Object.create(Request.prototype, {
  * @description Adds a member to a list (marketing list).
  * @alias AddMemberListRequest
  */
-export const AddMemberListRequest = Object.create(Request.prototype, {
+export const AddMemberListRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -1922,7 +1922,7 @@ export const AddMemberListRequest = Object.create(Request.prototype, {
  * @description Adds members to a team.
  * @alias AddMembersTeamRequest
  */
-export const AddMembersTeamRequest = Object.create(Request.prototype, {
+export const AddMembersTeamRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -1948,7 +1948,7 @@ export const AddMembersTeamRequest = Object.create(Request.prototype, {
  * @description Adds the specified principal to the list of queue members.
  * @alias AddPrincipalToQueueRequest
  */
-export const AddPrincipalToQueueRequest = Object.create(Request.prototype, {
+export const AddPrincipalToQueueRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -1974,7 +1974,7 @@ export const AddPrincipalToQueueRequest = Object.create(Request.prototype, {
  * @description Adds a set of existing privileges to an existing role.
  * @alias AddPrivilegesRoleRequest
  */
-export const AddPrivilegesRoleRequest = Object.create(Request.prototype, {
+export const AddPrivilegesRoleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2000,7 +2000,7 @@ export const AddPrivilegesRoleRequest = Object.create(Request.prototype, {
  * @description Adds recurrence information to an existing appointment.
  * @alias AddRecurrenceRequest
  */
-export const AddRecurrenceRequest = Object.create(Request.prototype, {
+export const AddRecurrenceRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2026,7 +2026,7 @@ export const AddRecurrenceRequest = Object.create(Request.prototype, {
  * @description Adds a solution component to an unmanaged solution.
  * @alias AddSolutionComponentRequest
  */
-export const AddSolutionComponentRequest = Object.create(Request.prototype, {
+export const AddSolutionComponentRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2044,7 +2044,7 @@ export const AddSolutionComponentRequest = Object.create(Request.prototype, {
  * @description Moves an entity record from a source queue to a destination queue.
  * @alias AddToQueueRequest
  */
-export const AddToQueueRequest = Object.create(Request.prototype, {
+export const AddToQueueRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2070,7 +2070,7 @@ export const AddToQueueRequest = Object.create(Request.prototype, {
  * @description Adds a user to the auto created access team for the specified record.
  * @alias AddUserToRecordTeamRequest
  */
-export const AddUserToRecordTeamRequest = Object.create(Request.prototype, {
+export const AddUserToRecordTeamRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2096,7 +2096,7 @@ export const AddUserToRecordTeamRequest = Object.create(Request.prototype, {
  * @description Applies record creation and update rules to activities in 365 created as a result of the integration with external applications.
  * @alias ApplyRecordCreationAndUpdateRuleRequest
  */
-export const ApplyRecordCreationAndUpdateRuleRequest = Object.create(Request.prototype, {
+export const ApplyRecordCreationAndUpdateRuleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2114,7 +2114,7 @@ export const ApplyRecordCreationAndUpdateRuleRequest = Object.create(Request.pro
  * @description Applies the active routing rule to an incident.
  * @alias ApplyRoutingRuleRequest
  */
-export const ApplyRoutingRuleRequest = Object.create(Request.prototype, {
+export const ApplyRoutingRuleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2132,7 +2132,7 @@ export const ApplyRoutingRuleRequest = Object.create(Request.prototype, {
  * @description Generates a new set of attribute mappings based on the metadata.
  * @alias AutoMapEntityRequest
  */
-export const AutoMapEntityRequest = Object.create(Request.prototype, {
+export const AutoMapEntityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2150,7 +2150,7 @@ export const AutoMapEntityRequest = Object.create(Request.prototype, {
  * @description Schedules or "books" an appointment, recurring appointment, or service appointment (service activity).
  * @alias BookRequest
  */
-export const BookRequest = Object.create(Request.prototype, {
+export const BookRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2168,7 +2168,7 @@ export const BookRequest = Object.create(Request.prototype, {
  * @description Submits a bulk delete job that deletes selected records in bulk. This job runs asynchronously in the background without blocking other activities.
  * @alias BulkDeleteRequest
  */
-export const BulkDeleteRequest = Object.create(Request.prototype, {
+export const BulkDeleteRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2186,7 +2186,7 @@ export const BulkDeleteRequest = Object.create(Request.prototype, {
  * @description Submits an asynchronous system job that detects and logs multiple duplicate records.
  * @alias BulkDetectDuplicatesRequest
  */
-export const BulkDetectDuplicatesRequest = Object.create(Request.prototype, {
+export const BulkDetectDuplicatesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2204,7 +2204,7 @@ export const BulkDetectDuplicatesRequest = Object.create(Request.prototype, {
  * @description Calculates the value of an opportunity that is in the "Won" state.
  * @alias CalculateActualValueOpportunityRequest
  */
-export const CalculateActualValueOpportunityRequest = Object.create(Request.prototype, {
+export const CalculateActualValueOpportunityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2230,7 +2230,7 @@ export const CalculateActualValueOpportunityRequest = Object.create(Request.prot
  * @description Calculates price in an opportunity, quote, order, and invoice.
  * @alias CalculatePriceRequest
  */
-export const CalculatePriceRequest = Object.create(Request.prototype, {
+export const CalculatePriceRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2248,7 +2248,7 @@ export const CalculatePriceRequest = Object.create(Request.prototype, {
  * @description Checks whether the specified entity can be the primary entity (one) in a one-to-many relationship.
  * @alias CanBeReferencedRequest
  */
-export const CanBeReferencedRequest = Object.create(Request.prototype, {
+export const CanBeReferencedRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2266,7 +2266,7 @@ export const CanBeReferencedRequest = Object.create(Request.prototype, {
  * @description Checkes whether an entity can be the referencing entity in a one-to-many relationship.
  * @alias CanBeReferencingRequest
  */
-export const CanBeReferencingRequest = Object.create(Request.prototype, {
+export const CanBeReferencingRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2284,7 +2284,7 @@ export const CanBeReferencingRequest = Object.create(Request.prototype, {
  * @description Cancels a contract.
  * @alias CancelContractRequest
  */
-export const CancelContractRequest = Object.create(Request.prototype, {
+export const CancelContractRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2310,7 +2310,7 @@ export const CancelContractRequest = Object.create(Request.prototype, {
  * @description Cancels a sales order.
  * @alias CancelSalesOrderRequest
  */
-export const CancelSalesOrderRequest = Object.create(Request.prototype, {
+export const CancelSalesOrderRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2328,7 +2328,7 @@ export const CancelSalesOrderRequest = Object.create(Request.prototype, {
  * @description Checks whether an entity can participate in a many-to-many relationship.
  * @alias CanManyToManyRequest
  */
-export const CanManyToManyRequest = Object.create(Request.prototype, {
+export const CanManyToManyRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2346,7 +2346,7 @@ export const CanManyToManyRequest = Object.create(Request.prototype, {
  * @description Creates a solution patch from a managed or unmanaged solution.
  * @alias CloneAsPatchRequest
  */
-export const CloneAsPatchRequest = Object.create(Request.prototype, {
+export const CloneAsPatchRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2364,7 +2364,7 @@ export const CloneAsPatchRequest = Object.create(Request.prototype, {
  * @description Creates a new copy of an unmanged solution that contains the original solution plus all of its patches.
  * @alias CloneAsSolutionRequest
  */
-export const CloneAsSolutionRequest = Object.create(Request.prototype, {
+export const CloneAsSolutionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2382,7 +2382,7 @@ export const CloneAsSolutionRequest = Object.create(Request.prototype, {
  * @description Copies an existing contract and its line items.
  * @alias CloneContractRequest
  */
-export const CloneContractRequest = Object.create(Request.prototype, {
+export const CloneContractRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2408,7 +2408,7 @@ export const CloneContractRequest = Object.create(Request.prototype, {
  * @description For internal use only.
  * @alias CloneMobileOfflineProfileRequest
  */
-export const CloneMobileOfflineProfileRequest = Object.create(Request.prototype, {
+export const CloneMobileOfflineProfileRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2434,7 +2434,7 @@ export const CloneMobileOfflineProfileRequest = Object.create(Request.prototype,
  * @description Copies an existing product family, product, or bundle under the same parent record.
  * @alias CloneProductRequest
  */
-export const CloneProductRequest = Object.create(Request.prototype, {
+export const CloneProductRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2460,7 +2460,7 @@ export const CloneProductRequest = Object.create(Request.prototype, {
  * @description Closes an incident (case).
  * @alias CloseIncidentRequest
  */
-export const CloseIncidentRequest = Object.create(Request.prototype, {
+export const CloseIncidentRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2478,7 +2478,7 @@ export const CloseIncidentRequest = Object.create(Request.prototype, {
  * @description Closes a quote.
  * @alias CloseQuoteRequest
  */
-export const CloseQuoteRequest = Object.create(Request.prototype, {
+export const CloseQuoteRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2496,7 +2496,7 @@ export const CloseQuoteRequest = Object.create(Request.prototype, {
  * @description Updates a duplicate rule (duplicate detection rule) and its related duplicate rule conditions.
  * @alias CompoundUpdateDuplicateDetectionRuleRequest
  */
-export const CompoundUpdateDuplicateDetectionRuleRequest = Object.create(Request.prototype, {
+export const CompoundUpdateDuplicateDetectionRuleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2514,7 +2514,7 @@ export const CompoundUpdateDuplicateDetectionRuleRequest = Object.create(Request
  * @description Converts a team of type owner to a team of type access.
  * @alias ConvertOwnerTeamToAccessTeamRequest
  */
-export const ConvertOwnerTeamToAccessTeamRequest = Object.create(Request.prototype, {
+export const ConvertOwnerTeamToAccessTeamRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2540,7 +2540,7 @@ export const ConvertOwnerTeamToAccessTeamRequest = Object.create(Request.prototy
  * @description Converts a product to a kit.
  * @alias ConvertProductToKitRequest
  */
-export const ConvertProductToKitRequest = Object.create(Request.prototype, {
+export const ConvertProductToKitRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2558,7 +2558,7 @@ export const ConvertProductToKitRequest = Object.create(Request.prototype, {
  * @description Converts a quote to a sales order.
  * @alias ConvertQuoteToSalesOrderRequest
  */
-export const ConvertQuoteToSalesOrderRequest = Object.create(Request.prototype, {
+export const ConvertQuoteToSalesOrderRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2576,7 +2576,7 @@ export const ConvertQuoteToSalesOrderRequest = Object.create(Request.prototype, 
  * @description Converts a sales order to an invoice.
  * @alias ConvertSalesOrderToInvoiceRequest
  */
-export const ConvertSalesOrderToInvoiceRequest = Object.create(Request.prototype, {
+export const ConvertSalesOrderToInvoiceRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2594,7 +2594,7 @@ export const ConvertSalesOrderToInvoiceRequest = Object.create(Request.prototype
  * @description Copies a campaign.
  * @alias CopyCampaignRequest
  */
-export const CopyCampaignRequest = Object.create(Request.prototype, {
+export const CopyCampaignRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2620,7 +2620,7 @@ export const CopyCampaignRequest = Object.create(Request.prototype, {
  * @description Creates a copy of a campaign response
  * @alias CopyCampaignResponseRequest
  */
-export const CopyCampaignResponseRequest = Object.create(Request.prototype, {
+export const CopyCampaignResponseRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2646,7 +2646,7 @@ export const CopyCampaignResponseRequest = Object.create(Request.prototype, {
  * @description Creates a static list from the specified dynamic list and add the members that satisfy the dynamic list query criteria to the static list.
  * @alias CopyDynamicListToStaticRequest
  */
-export const CopyDynamicListToStaticRequest = Object.create(Request.prototype, {
+export const CopyDynamicListToStaticRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2672,7 +2672,7 @@ export const CopyDynamicListToStaticRequest = Object.create(Request.prototype, {
  * @description Copies the members from the source list to the target list without creating duplicates.
  * @alias CopyMembersListRequest
  */
-export const CopyMembersListRequest = Object.create(Request.prototype, {
+export const CopyMembersListRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2698,7 +2698,7 @@ export const CopyMembersListRequest = Object.create(Request.prototype, {
  * @description Creates a new entity form that is based on an existing entity form.
  * @alias CopySystemFormRequest
  */
-export const CopySystemFormRequest = Object.create(Request.prototype, {
+export const CopySystemFormRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2724,7 +2724,7 @@ export const CopySystemFormRequest = Object.create(Request.prototype, {
  * @description Creates a quick campaign to distribute an activity to members of a list (marketing list).
  * @alias CreateActivitiesListRequest
  */
-export const CreateActivitiesListRequest = Object.create(Request.prototype, {
+export const CreateActivitiesListRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2742,7 +2742,7 @@ export const CreateActivitiesListRequest = Object.create(Request.prototype, {
  * @description Creates a new customer lookup attribute, and optionally, to add it to a specified unmanaged solution.
  * @alias CreateCustomerRelationshipsRequest
  */
-export const CreateCustomerRelationshipsRequest = Object.create(Request.prototype, {
+export const CreateCustomerRelationshipsRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2760,7 +2760,7 @@ export const CreateCustomerRelationshipsRequest = Object.create(Request.prototyp
  * @description Creates an exception for the recurring appointment instance.
  * @alias CreateExceptionRequest
  */
-export const CreateExceptionRequest = Object.create(Request.prototype, {
+export const CreateExceptionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2782,7 +2782,7 @@ export const CreateExceptionRequest = Object.create(Request.prototype, {
  * @description Creates future unexpanded instances for the recurring appointment master.
  * @alias CreateInstanceRequest
  */
-export const CreateInstanceRequest = Object.create(Request.prototype, {
+export const CreateInstanceRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2800,7 +2800,7 @@ export const CreateInstanceRequest = Object.create(Request.prototype, {
  * @description Creates translation of a knowledge article instance.
  * @alias CreateKnowledgeArticleTranslationRequest
  */
-export const CreateKnowledgeArticleTranslationRequest = Object.create(Request.prototype, {
+export const CreateKnowledgeArticleTranslationRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2818,7 +2818,7 @@ export const CreateKnowledgeArticleTranslationRequest = Object.create(Request.pr
  * @description Creates a major or minor version of a knowledge article instance.
  * @alias CreateKnowledgeArticleVersionRequest
  */
-export const CreateKnowledgeArticleVersionRequest = Object.create(Request.prototype, {
+export const CreateKnowledgeArticleVersionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2836,7 +2836,7 @@ export const CreateKnowledgeArticleVersionRequest = Object.create(Request.protot
  * @description Creates a workflow (process) from a workflow template.
  * @alias CreateWorkflowFromTemplateRequest
  */
-export const CreateWorkflowFromTemplateRequest = Object.create(Request.prototype, {
+export const CreateWorkflowFromTemplateRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2862,7 +2862,7 @@ export const CreateWorkflowFromTemplateRequest = Object.create(Request.prototype
  * @description Replaces managed solution (A) plus all of its patches with managed solution (B) that is the clone of (A) and all of its patches.
  * @alias DeleteAndPromoteRequest
  */
-export const DeleteAndPromoteRequest = Object.create(Request.prototype, {
+export const DeleteAndPromoteRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2880,7 +2880,7 @@ export const DeleteAndPromoteRequest = Object.create(Request.prototype, {
  * @description Deletes all audit data records up until a specified end date.
  * @alias DeleteAuditDataRequest
  */
-export const DeleteAuditDataRequest = Object.create(Request.prototype, {
+export const DeleteAuditDataRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2898,7 +2898,7 @@ export const DeleteAuditDataRequest = Object.create(Request.prototype, {
  * @description Deletes instances of a recurring appointment master that have an “Open” state.
  * @alias DeleteOpenInstancesRequest
  */
-export const DeleteOpenInstancesRequest = Object.create(Request.prototype, {
+export const DeleteOpenInstancesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2916,7 +2916,7 @@ export const DeleteOpenInstancesRequest = Object.create(Request.prototype, {
  * @description Deletes an option value in a global or local option set.
  * @alias DeleteOptionValueRequest
  */
-export const DeleteOptionValueRequest = Object.create(Request.prototype, {
+export const DeleteOptionValueRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2934,7 +2934,7 @@ export const DeleteOptionValueRequest = Object.create(Request.prototype, {
  * @description Creates an email activity record from an incoming email message.
  * @alias DeliverIncomingEmailRequest
  */
-export const DeliverIncomingEmailRequest = Object.create(Request.prototype, {
+export const DeliverIncomingEmailRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2956,7 +2956,7 @@ export const DeliverIncomingEmailRequest = Object.create(Request.prototype, {
  * @description Creates an email activity record from the specified email message
  * @alias DeliverPromoteEmailRequest
  */
-export const DeliverPromoteEmailRequest = Object.create(Request.prototype, {
+export const DeliverPromoteEmailRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -2982,7 +2982,7 @@ export const DeliverPromoteEmailRequest = Object.create(Request.prototype, {
  * @description Deprovisions a language.
  * @alias DeprovisionLanguageRequest
  */
-export const DeprovisionLanguageRequest = Object.create(Request.prototype, {
+export const DeprovisionLanguageRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3000,7 +3000,7 @@ export const DeprovisionLanguageRequest = Object.create(Request.prototype, {
  * @description Creates a bulk operation that distributes a campaign activity.
  * @alias DistributeCampaignActivityRequest
  */
-export const DistributeCampaignActivityRequest = Object.create(Request.prototype, {
+export const DistributeCampaignActivityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3026,7 +3026,7 @@ export const DistributeCampaignActivityRequest = Object.create(Request.prototype
  * @description Executes a workflow.
  * @alias ExecuteWorkflowRequest
  */
-export const ExecuteWorkflowRequest = Object.create(Request.prototype, {
+export const ExecuteWorkflowRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3052,7 +3052,7 @@ export const ExecuteWorkflowRequest = Object.create(Request.prototype, {
  * @description Exports a data map as an XML formatted data.
  * @alias ExportMappingsImportMapRequest
  */
-export const ExportMappingsImportMapRequest = Object.create(Request.prototype, {
+export const ExportMappingsImportMapRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3078,7 +3078,7 @@ export const ExportMappingsImportMapRequest = Object.create(Request.prototype, {
  * @description Exports a solution.
  * @alias ExportSolutionRequest
  */
-export const ExportSolutionRequest = Object.create(Request.prototype, {
+export const ExportSolutionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3096,7 +3096,7 @@ export const ExportSolutionRequest = Object.create(Request.prototype, {
  * @description Exports all translations for a specific solution to a compressed file.
  * @alias ExportTranslationRequest
  */
-export const ExportTranslationRequest = Object.create(Request.prototype, {
+export const ExportTranslationRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3118,7 +3118,7 @@ export const ExportTranslationRequest = Object.create(Request.prototype, {
  * @description Fulfills a sales order.
  * @alias FulfillSalesOrderRequest
  */
-export const FulfillSalesOrderRequest = Object.create(Request.prototype, {
+export const FulfillSalesOrderRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3140,7 +3140,7 @@ export const FulfillSalesOrderRequest = Object.create(Request.prototype, {
  * @description Performs a full-text search on knowledge articles in Dynamics 365 using the specified search text.
  * @alias FullTextSearchKnowledgeArticleRequest
  */
-export const FullTextSearchKnowledgeArticleRequest = Object.create(Request.prototype, {
+export const FullTextSearchKnowledgeArticleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3158,7 +3158,7 @@ export const FullTextSearchKnowledgeArticleRequest = Object.create(Request.proto
  * @description Generates an invoice from an opportunity.
  * @alias GenerateInvoiceFromOpportunityRequest
  */
-export const GenerateInvoiceFromOpportunityRequest = Object.create(Request.prototype, {
+export const GenerateInvoiceFromOpportunityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3176,7 +3176,7 @@ export const GenerateInvoiceFromOpportunityRequest = Object.create(Request.proto
  * @description Generates a quote from an opportunity.
  * @alias GenerateQuoteFromOpportunityRequest
  */
-export const GenerateQuoteFromOpportunityRequest = Object.create(Request.prototype, {
+export const GenerateQuoteFromOpportunityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3194,7 +3194,7 @@ export const GenerateQuoteFromOpportunityRequest = Object.create(Request.prototy
  * @description Generates a sales order (order) from an opportunity.
  * @alias GenerateSalesOrderFromOpportunityRequest
  */
-export const GenerateSalesOrderFromOpportunityRequest = Object.create(Request.prototype, {
+export const GenerateSalesOrderFromOpportunityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3212,7 +3212,7 @@ export const GenerateSalesOrderFromOpportunityRequest = Object.create(Request.pr
  * @description Returns an existing social profile record if one exists, otherwise generates a new one and returns it.
  * @alias GenerateSocialProfileRequest
  */
-export const GenerateSocialProfileRequest = Object.create(Request.prototype, {
+export const GenerateSocialProfileRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3238,7 +3238,7 @@ export const GenerateSocialProfileRequest = Object.create(Request.prototype, {
  * @description Retrieves the products from an opportunity and copy them to the invoice.
  * @alias GetInvoiceProductsFromOpportunityRequest
  */
-export const GetInvoiceProductsFromOpportunityRequest = Object.create(Request.prototype, {
+export const GetInvoiceProductsFromOpportunityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3264,7 +3264,7 @@ export const GetInvoiceProductsFromOpportunityRequest = Object.create(Request.pr
  * @description Retrieves the products from an opportunity and copy them to the quote.
  * @alias GetQuoteProductsFromOpportunityRequest
  */
-export const GetQuoteProductsFromOpportunityRequest = Object.create(Request.prototype, {
+export const GetQuoteProductsFromOpportunityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3290,7 +3290,7 @@ export const GetQuoteProductsFromOpportunityRequest = Object.create(Request.prot
  * @description Retrieves the products from an opportunity and copy them to the sales order.
  * @alias GetSalesOrderProductsFromOpportunityRequest
  */
-export const GetSalesOrderProductsFromOpportunityRequest = Object.create(Request.prototype, {
+export const GetSalesOrderProductsFromOpportunityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3316,7 +3316,7 @@ export const GetSalesOrderProductsFromOpportunityRequest = Object.create(Request
  * @description Returns a tracking token that can then be passed as a parameter to the SendEmailRequest message.
  * @alias GetTrackingTokenEmailRequest
  */
-export const GetTrackingTokenEmailRequest = Object.create(Request.prototype, {
+export const GetTrackingTokenEmailRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3334,7 +3334,7 @@ export const GetTrackingTokenEmailRequest = Object.create(Request.prototype, {
  * @description Imports translations from a compressed file.
  * @alias ImportFieldTranslationRequest
  */
-export const ImportFieldTranslationRequest = Object.create(Request.prototype, {
+export const ImportFieldTranslationRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3352,7 +3352,7 @@ export const ImportFieldTranslationRequest = Object.create(Request.prototype, {
  * @description Imports the XML representation of a data map and create an import map (data map) based on this data.
  * @alias ImportMappingsImportMapRequest
  */
-export const ImportMappingsImportMapRequest = Object.create(Request.prototype, {
+export const ImportMappingsImportMapRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3370,7 +3370,7 @@ export const ImportMappingsImportMapRequest = Object.create(Request.prototype, {
  * @description Submits an asynchronous job that uploads the transformed data into Microsoft Dynamics 365.
  * @alias ImportRecordsImportRequest
  */
-export const ImportRecordsImportRequest = Object.create(Request.prototype, {
+export const ImportRecordsImportRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3396,7 +3396,7 @@ export const ImportRecordsImportRequest = Object.create(Request.prototype, {
  * @description Imports a solution.
  * @alias ImportSolutionRequest
  */
-export const ImportSolutionRequest = Object.create(Request.prototype, {
+export const ImportSolutionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3414,7 +3414,7 @@ export const ImportSolutionRequest = Object.create(Request.prototype, {
  * @description Imports translations from a compressed file.
  * @alias ImportTranslationRequest
  */
-export const ImportTranslationRequest = Object.create(Request.prototype, {
+export const ImportTranslationRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3432,7 +3432,7 @@ export const ImportTranslationRequest = Object.create(Request.prototype, {
  * @description Inserts a new option value for a global or local option set.
  * @alias InsertOptionValueRequest
  */
-export const InsertOptionValueRequest = Object.create(Request.prototype, {
+export const InsertOptionValueRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3450,7 +3450,7 @@ export const InsertOptionValueRequest = Object.create(Request.prototype, {
  * @description Inserts a new option into a StatusAttributeMetadata attribute.
  * @alias InsertStatusValueRequest
  */
-export const InsertStatusValueRequest = Object.create(Request.prototype, {
+export const InsertStatusValueRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3468,7 +3468,7 @@ export const InsertStatusValueRequest = Object.create(Request.prototype, {
  * @description Installs the sample data.
  * @alias InstallSampleDataRequest
  */
-export const InstallSampleDataRequest = Object.create(Request.prototype, {
+export const InstallSampleDataRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3486,7 +3486,7 @@ export const InstallSampleDataRequest = Object.create(Request.prototype, {
  * @description Instantiates a set of filters for Dynamics 365 for Outlook for the specified user.
  * @alias InstantiateFiltersRequest
  */
-export const InstantiateFiltersRequest = Object.create(Request.prototype, {
+export const InstantiateFiltersRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3512,7 +3512,7 @@ export const InstantiateFiltersRequest = Object.create(Request.prototype, {
  * @description Creates an email message from a template (email template).
  * @alias InstantiateTemplateRequest
  */
-export const InstantiateTemplateRequest = Object.create(Request.prototype, {
+export const InstantiateTemplateRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3530,7 +3530,7 @@ export const InstantiateTemplateRequest = Object.create(Request.prototype, {
  * @description Locks the total price of products and services that are specified in the invoice.
  * @alias LockInvoicePricingRequest
  */
-export const LockInvoicePricingRequest = Object.create(Request.prototype, {
+export const LockInvoicePricingRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3556,7 +3556,7 @@ export const LockInvoicePricingRequest = Object.create(Request.prototype, {
  * @description Locks the total price of products and services that are specified in the sales order (order).
  * @alias LockSalesOrderPricingRequest
  */
-export const LockSalesOrderPricingRequest = Object.create(Request.prototype, {
+export const LockSalesOrderPricingRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3582,7 +3582,7 @@ export const LockSalesOrderPricingRequest = Object.create(Request.prototype, {
  * @description Sets the state of an opportunity to Lost.
  * @alias LoseOpportunityRequest
  */
-export const LoseOpportunityRequest = Object.create(Request.prototype, {
+export const LoseOpportunityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3600,7 +3600,7 @@ export const LoseOpportunityRequest = Object.create(Request.prototype, {
  * @description Merges the information from two entity records of the same type.
  * @alias MergeRequest
  */
-export const MergeRequest = Object.create(Request.prototype, {
+export const MergeRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3618,7 +3618,7 @@ export const MergeRequest = Object.create(Request.prototype, {
  * @description Sets the order for an option set.
  * @alias OrderOptionRequest
  */
-export const OrderOptionRequest = Object.create(Request.prototype, {
+export const OrderOptionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3636,7 +3636,7 @@ export const OrderOptionRequest = Object.create(Request.prototype, {
  * @description Submits an asynchronous job that parses all import files that are associated with the specified import (data import).
  * @alias ParseImportRequest
  */
-export const ParseImportRequest = Object.create(Request.prototype, {
+export const ParseImportRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3662,7 +3662,7 @@ export const ParseImportRequest = Object.create(Request.prototype, {
  * @description Assigns a queue item to a user and optionally remove the queue item from the queue.
  * @alias PickFromQueueRequest
  */
-export const PickFromQueueRequest = Object.create(Request.prototype, {
+export const PickFromQueueRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3688,7 +3688,7 @@ export const PickFromQueueRequest = Object.create(Request.prototype, {
  * @description Processes the email responses from a marketing campaign.
  * @alias ProcessInboundEmailRequest
  */
-export const ProcessInboundEmailRequest = Object.create(Request.prototype, {
+export const ProcessInboundEmailRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3714,7 +3714,7 @@ export const ProcessInboundEmailRequest = Object.create(Request.prototype, {
  * @description Creates a quick campaign to distribute an activity to accounts, contacts, or leads that are selected by a query.
  * @alias PropagateByExpressionRequest
  */
-export const PropagateByExpressionRequest = Object.create(Request.prototype, {
+export const PropagateByExpressionRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3732,7 +3732,7 @@ export const PropagateByExpressionRequest = Object.create(Request.prototype, {
  * @description Provisions a new language.
  * @alias ProvisionLanguageRequest
  */
-export const ProvisionLanguageRequest = Object.create(Request.prototype, {
+export const ProvisionLanguageRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3750,7 +3750,7 @@ export const ProvisionLanguageRequest = Object.create(Request.prototype, {
  * @description Publishes all changes to solution components.
  * @alias PublishAllXmlRequest
  */
-export const PublishAllXmlRequest = Object.create(Request.prototype, {
+export const PublishAllXmlRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3768,7 +3768,7 @@ export const PublishAllXmlRequest = Object.create(Request.prototype, {
  * @description Submits an asynchronous job to publish a duplicate rule.
  * @alias PublishDuplicateRuleRequest
  */
-export const PublishDuplicateRuleRequest = Object.create(Request.prototype, {
+export const PublishDuplicateRuleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3794,7 +3794,7 @@ export const PublishDuplicateRuleRequest = Object.create(Request.prototype, {
  * @description Publishes a product family record and all its child records.
  * @alias PublishProductHierarchyRequest
  */
-export const PublishProductHierarchyRequest = Object.create(Request.prototype, {
+export const PublishProductHierarchyRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3820,7 +3820,7 @@ export const PublishProductHierarchyRequest = Object.create(Request.prototype, {
  * @description Publishes a theme and set it as the current theme.
  * @alias PublishThemeRequest
  */
-export const PublishThemeRequest = Object.create(Request.prototype, {
+export const PublishThemeRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3846,7 +3846,7 @@ export const PublishThemeRequest = Object.create(Request.prototype, {
  * @description Publishes specified solution components.
  * @alias PublishXmlRequest
  */
-export const PublishXmlRequest = Object.create(Request.prototype, {
+export const PublishXmlRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3864,7 +3864,7 @@ export const PublishXmlRequest = Object.create(Request.prototype, {
  * @description Qualifies a lead and create account, contact, and opportunity records that are linked to the originating lead record.
  * @alias QualifyLeadRequest
  */
-export const QualifyLeadRequest = Object.create(Request.prototype, {
+export const QualifyLeadRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3890,7 +3890,7 @@ export const QualifyLeadRequest = Object.create(Request.prototype, {
  * @description Qualifies the specified list and either override the list members or remove them according to the specified option.
  * @alias QualifyMemberListRequest
  */
-export const QualifyMemberListRequest = Object.create(Request.prototype, {
+export const QualifyMemberListRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3916,7 +3916,7 @@ export const QualifyMemberListRequest = Object.create(Request.prototype, {
  * @description Converts a QueryExpression query to its equivalent FetchXML query
  * @alias QueryExpressionToFetchXmlRequest
  */
-export const QueryExpressionToFetchXmlRequest = Object.create(Request.prototype, {
+export const QueryExpressionToFetchXmlRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3934,7 +3934,7 @@ export const QueryExpressionToFetchXmlRequest = Object.create(Request.prototype,
  * @description Reassigns all records that are owned by the security principal (user or team) to another security principal (user or team).
  * @alias ReassignObjectsOwnerRequest
  */
-export const ReassignObjectsOwnerRequest = Object.create(Request.prototype, {
+export const ReassignObjectsOwnerRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3952,7 +3952,7 @@ export const ReassignObjectsOwnerRequest = Object.create(Request.prototype, {
  * @description Reassigns all records that are owned by a specified user to another security principal (user or team).
  * @alias ReassignObjectsSystemUserRequest
  */
-export const ReassignObjectsSystemUserRequest = Object.create(Request.prototype, {
+export const ReassignObjectsSystemUserRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -3978,7 +3978,7 @@ export const ReassignObjectsSystemUserRequest = Object.create(Request.prototype,
  * @description Recalculate system-computed values for rollup fields in the goal hierarchy.
  * @alias RecalculateRequest
  */
-export const RecalculateRequest = Object.create(Request.prototype, {
+export const RecalculateRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4004,7 +4004,7 @@ export const RecalculateRequest = Object.create(Request.prototype, {
  * @description Assigns a queue item back to the queue owner so others can pick it.
  * @alias ReleaseToQueueRequest
  */
-export const ReleaseToQueueRequest = Object.create(Request.prototype, {
+export const ReleaseToQueueRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4030,7 +4030,7 @@ export const ReleaseToQueueRequest = Object.create(Request.prototype, {
  * @description Removes a queue item from a queue.
  * @alias RemoveFromQueueRequest
  */
-export const RemoveFromQueueRequest = Object.create(Request.prototype, {
+export const RemoveFromQueueRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4056,7 +4056,7 @@ export const RemoveFromQueueRequest = Object.create(Request.prototype, {
  * @description Removes members from a team.
  * @alias RemoveMembersTeamRequest
  */
-export const RemoveMembersTeamRequest = Object.create(Request.prototype, {
+export const RemoveMembersTeamRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4078,7 +4078,7 @@ export const RemoveMembersTeamRequest = Object.create(Request.prototype, {
  * @description Removes the parent for a system user (user) record.
  * @alias RemoveParentRequest
  */
-export const RemoveParentRequest = Object.create(Request.prototype, {
+export const RemoveParentRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4096,7 +4096,7 @@ export const RemoveParentRequest = Object.create(Request.prototype, {
  * @description Removes a privilege from an existing role.
  * @alias RemovePrivilegeRoleRequest
  */
-export const RemovePrivilegeRoleRequest = Object.create(Request.prototype, {
+export const RemovePrivilegeRoleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4122,7 +4122,7 @@ export const RemovePrivilegeRoleRequest = Object.create(Request.prototype, {
  * @description Removes a component from an unmanaged solution.
  * @alias RemoveSolutionComponentRequest
  */
-export const RemoveSolutionComponentRequest = Object.create(Request.prototype, {
+export const RemoveSolutionComponentRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4140,7 +4140,7 @@ export const RemoveSolutionComponentRequest = Object.create(Request.prototype, {
  * @description Removes a user from the auto created access team for the specified record.
  * @alias RemoveUserFromRecordTeamRequest
  */
-export const RemoveUserFromRecordTeamRequest = Object.create(Request.prototype, {
+export const RemoveUserFromRecordTeamRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4166,7 +4166,7 @@ export const RemoveUserFromRecordTeamRequest = Object.create(Request.prototype, 
  * @description Renews a contract and create the contract details for a new contract.
  * @alias RenewContractRequest
  */
-export const RenewContractRequest = Object.create(Request.prototype, {
+export const RenewContractRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4192,7 +4192,7 @@ export const RenewContractRequest = Object.create(Request.prototype, {
  * @description Renews an entitlement.
  * @alias RenewEntitlementRequest
  */
-export const RenewEntitlementRequest = Object.create(Request.prototype, {
+export const RenewEntitlementRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4218,7 +4218,7 @@ export const RenewEntitlementRequest = Object.create(Request.prototype, {
  * @description Replaces the privilege set of an existing role.
  * @alias ReplacePrivilegesRoleRequest
  */
-export const ReplacePrivilegesRoleRequest = Object.create(Request.prototype, {
+export const ReplacePrivilegesRoleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4244,7 +4244,7 @@ export const ReplacePrivilegesRoleRequest = Object.create(Request.prototype, {
  * @description Reschedules an appointment, recurring appointment, or service appointment (service activity).
  * @alias RescheduleRequest
  */
-export const RescheduleRequest = Object.create(Request.prototype, {
+export const RescheduleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4262,7 +4262,7 @@ export const RescheduleRequest = Object.create(Request.prototype, {
  * @description Resets the offline data filters for the calling user to the default filters for the organization.
  * @alias ResetUserFiltersRequest
  */
-export const ResetUserFiltersRequest = Object.create(Request.prototype, {
+export const ResetUserFiltersRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4280,7 +4280,7 @@ export const ResetUserFiltersRequest = Object.create(Request.prototype, {
  * @description Reverts changes done to properties of a product family, product, or bundle record, and set it back to its last published (active) state.
  * @alias RevertProductRequest
  */
-export const RevertProductRequest = Object.create(Request.prototype, {
+export const RevertProductRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4298,7 +4298,7 @@ export const RevertProductRequest = Object.create(Request.prototype, {
  * @description Sets the state of a quote to Draft.
  * @alias ReviseQuoteRequest
  */
-export const ReviseQuoteRequest = Object.create(Request.prototype, {
+export const ReviseQuoteRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4316,7 +4316,7 @@ export const ReviseQuoteRequest = Object.create(Request.prototype, {
  * @description Replaces the access rights on the target record for the specified security principal (user or team).
  * @alias RevokeAccessRequest
  */
-export const RevokeAccessRequest = Object.create(Request.prototype, {
+export const RevokeAccessRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4334,7 +4334,7 @@ export const RevokeAccessRequest = Object.create(Request.prototype, {
  * @description Routes a queue item to a queue, a user, or a team.
  * @alias RouteToRequest
  */
-export const RouteToRequest = Object.create(Request.prototype, {
+export const RouteToRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4352,7 +4352,7 @@ export const RouteToRequest = Object.create(Request.prototype, {
  * @description Sends bulk email messages.
  * @alias SendBulkMailRequest
  */
-export const SendBulkMailRequest = Object.create(Request.prototype, {
+export const SendBulkMailRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4370,7 +4370,7 @@ export const SendBulkMailRequest = Object.create(Request.prototype, {
  * @description Sends an e-mail message.
  * @alias SendEmailRequest
  */
-export const SendEmailRequest = Object.create(Request.prototype, {
+export const SendEmailRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4396,7 +4396,7 @@ export const SendEmailRequest = Object.create(Request.prototype, {
  * @description Sends an e-mail message to a recipient using an e-mail template.
  * @alias SendEmailFromTemplateRequest
  */
-export const SendEmailFromTemplateRequest = Object.create(Request.prototype, {
+export const SendEmailFromTemplateRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4414,7 +4414,7 @@ export const SendEmailFromTemplateRequest = Object.create(Request.prototype, {
  * @description Sends a fax.
  * @alias SendFaxRequest
  */
-export const SendFaxRequest = Object.create(Request.prototype, {
+export const SendFaxRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4432,7 +4432,7 @@ export const SendFaxRequest = Object.create(Request.prototype, {
  * @description Sends a bulk email message that is created from a template.
  * @alias SendTemplateRequest
  */
-export const SendTemplateRequest = Object.create(Request.prototype, {
+export const SendTemplateRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4450,7 +4450,7 @@ export const SendTemplateRequest = Object.create(Request.prototype, {
  * @description Assigns equipment (facility/equipment) to a specific business unit.
  * @alias SetBusinessEquipmentRequest
  */
-export const SetBusinessEquipmentRequest = Object.create(Request.prototype, {
+export const SetBusinessEquipmentRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4468,7 +4468,7 @@ export const SetBusinessEquipmentRequest = Object.create(Request.prototype, {
  * @description Moves a system user (user) to a different business unit.
  * @alias SetBusinessSystemUserRequest
  */
-export const SetBusinessSystemUserRequest = Object.create(Request.prototype, {
+export const SetBusinessSystemUserRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4494,7 +4494,7 @@ export const SetBusinessSystemUserRequest = Object.create(Request.prototype, {
  * @description Sets or restore the data encryption key.
  * @alias SetDataEncryptionKeyRequest
  */
-export const SetDataEncryptionKeyRequest = Object.create(Request.prototype, {
+export const SetDataEncryptionKeyRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4512,7 +4512,7 @@ export const SetDataEncryptionKeyRequest = Object.create(Request.prototype, {
  * @description TODO: SetFeatureStatus Action Description (Obviously no description yet)
  * @alias SetFeatureStatusRequest
  */
-export const SetFeatureStatusRequest = Object.create(Request.prototype, {
+export const SetFeatureStatusRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4530,7 +4530,7 @@ export const SetFeatureStatusRequest = Object.create(Request.prototype, {
  * @description Sets localized labels for a limited set of entity attributes.
  * @alias SetLocLabelsRequest
  */
-export const SetLocLabelsRequest = Object.create(Request.prototype, {
+export const SetLocLabelsRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4548,7 +4548,7 @@ export const SetLocLabelsRequest = Object.create(Request.prototype, {
  * @description Sets a new parent system user (user) for the specified user.
  * @alias SetParentSystemUserRequest
  */
-export const SetParentSystemUserRequest = Object.create(Request.prototype, {
+export const SetParentSystemUserRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4574,7 +4574,7 @@ export const SetParentSystemUserRequest = Object.create(Request.prototype, {
  * @description Sets the process that associates with a given target entity. The user can set to another business process or specify null to clear out the current process.
  * @alias SetProcessRequest
  */
-export const SetProcessRequest = Object.create(Request.prototype, {
+export const SetProcessRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4592,7 +4592,7 @@ export const SetProcessRequest = Object.create(Request.prototype, {
  * @description Links an instance of a report entity to related entities.
  * @alias SetReportRelatedRequest
  */
-export const SetReportRelatedRequest = Object.create(Request.prototype, {
+export const SetReportRelatedRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4610,7 +4610,7 @@ export const SetReportRelatedRequest = Object.create(Request.prototype, {
  * @description Submits an asynchronous job that transforms the parsed data.
  * @alias TransformImportRequest
  */
-export const TransformImportRequest = Object.create(Request.prototype, {
+export const TransformImportRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4628,7 +4628,7 @@ export const TransformImportRequest = Object.create(Request.prototype, {
  * @description Validates the configuration of a Microsoft Azure Service Bus solution’s service endpoint.
  * @alias TriggerServiceEndpointCheckRequest
  */
-export const TriggerServiceEndpointCheckRequest = Object.create(Request.prototype, {
+export const TriggerServiceEndpointCheckRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4654,7 +4654,7 @@ export const TriggerServiceEndpointCheckRequest = Object.create(Request.prototyp
  * @description Uninstalls the sample data.
  * @alias UninstallSampleDataRequest
  */
-export const UninstallSampleDataRequest = Object.create(Request.prototype, {
+export const UninstallSampleDataRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4672,7 +4672,7 @@ export const UninstallSampleDataRequest = Object.create(Request.prototype, {
  * @description Unlocks pricing for an invoice.
  * @alias UnlockInvoicePricingRequest
  */
-export const UnlockInvoicePricingRequest = Object.create(Request.prototype, {
+export const UnlockInvoicePricingRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4690,7 +4690,7 @@ export const UnlockInvoicePricingRequest = Object.create(Request.prototype, {
  * @description Unlocks pricing for a sales order (order).
  * @alias UnlockSalesOrderPricingRequest
  */
-export const UnlockSalesOrderPricingRequest = Object.create(Request.prototype, {
+export const UnlockSalesOrderPricingRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4708,7 +4708,7 @@ export const UnlockSalesOrderPricingRequest = Object.create(Request.prototype, {
  * @description Submits an asynchronous job to unpublish a duplicate rule.
  * @alias UnpublishDuplicateRuleRequest
  */
-export const UnpublishDuplicateRuleRequest = Object.create(Request.prototype, {
+export const UnpublishDuplicateRuleRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4726,7 +4726,7 @@ export const UnpublishDuplicateRuleRequest = Object.create(Request.prototype, {
  * @description TODO: UpdateFeatureConfig Action Description (Missing)
  * @alias UpdateFeatureConfigRequest
  */
-export const UpdateFeatureConfigRequest = Object.create(Request.prototype, {
+export const UpdateFeatureConfigRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4744,7 +4744,7 @@ export const UpdateFeatureConfigRequest = Object.create(Request.prototype, {
  * @description Updates an option value in a global or local option set.
  * @alias UpdateOptionValueRequest
  */
-export const UpdateOptionValueRequest = Object.create(Request.prototype, {
+export const UpdateOptionValueRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4762,7 +4762,7 @@ export const UpdateOptionValueRequest = Object.create(Request.prototype, {
  * @description Updates values of the property instances (dynamic property instances) for a product added to an opportunity, quote, order, or invoice.
  * @alias UpdateProductPropertiesRequest
  */
-export const UpdateProductPropertiesRequest = Object.create(Request.prototype, {
+export const UpdateProductPropertiesRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4780,7 +4780,7 @@ export const UpdateProductPropertiesRequest = Object.create(Request.prototype, {
  * @description Updates a component in an unmanaged solution.
  * @alias UpdateSolutionComponentRequest
  */
-export const UpdateSolutionComponentRequest = Object.create(Request.prototype, {
+export const UpdateSolutionComponentRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4798,7 +4798,7 @@ export const UpdateSolutionComponentRequest = Object.create(Request.prototype, {
  * @description Updates an option set value in for a StateAttributeMetadata attribute.
  * @alias UpdateStateValueRequest
  */
-export const UpdateStateValueRequest = Object.create(Request.prototype, {
+export const UpdateStateValueRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4816,7 +4816,7 @@ export const UpdateStateValueRequest = Object.create(Request.prototype, {
  * @description Verifies that an appointment or service appointment (service activity) has valid available resources for the activity, duration, and site, as appropriate.
  * @alias ValidateRequest
  */
-export const ValidateRequest = Object.create(Request.prototype, {
+export const ValidateRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4834,7 +4834,7 @@ export const ValidateRequest = Object.create(Request.prototype, {
  * @description Validates a saved query.
  * @alias ValidateSavedQueryRequest
  */
-export const ValidateSavedQueryRequest = Object.create(Request.prototype, {
+export const ValidateSavedQueryRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4856,7 +4856,7 @@ export const ValidateSavedQueryRequest = Object.create(Request.prototype, {
  * @description Sets the state of an opportunity to Won.
  * @alias WinOpportunityRequest
  */
-export const WinOpportunityRequest = Object.create(Request.prototype, {
+export const WinOpportunityRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true
@@ -4874,7 +4874,7 @@ export const WinOpportunityRequest = Object.create(Request.prototype, {
  * @description Sets the state of a quote to Won.
  * @alias WinQuoteRequest
  */
-export const WinQuoteRequest = Object.create(Request.prototype, {
+export const WinQuoteRequest:Request = Object.create(Request.prototype, {
     method: {
         value: "POST",
         writeable: true

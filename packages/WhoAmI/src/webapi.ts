@@ -1,4 +1,4 @@
-import WebApiClient from "xrm-webapi-client";
+import * as WebApiClient from "xrmtoolboxweb-webapiclient";
 
 export namespace WhoAmI {
 
@@ -10,7 +10,7 @@ export namespace WhoAmI {
     }
 
     export const Invoke = () => 
-        WebApiClient.Execute<Response>(WebApiClient.Requests.WhoAmIRequest) as Promise<Response>
+        WebApiClient.Instance.Execute<Response>(WebApiClient.WhoAmIRequest) as Promise<Response>
     
         
     
