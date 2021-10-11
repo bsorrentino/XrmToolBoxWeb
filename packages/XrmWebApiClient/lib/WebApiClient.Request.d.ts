@@ -9,6 +9,6 @@ export declare class Request implements IRequest {
     headers?: Array<Header>;
     urlParams?: Record<string, string | number>;
     async: boolean;
-    with(parameters: RequestParameters): ThisType<Request>;
+    with(parameters: RequestParameters): this;
     buildUrl(): string;
 }

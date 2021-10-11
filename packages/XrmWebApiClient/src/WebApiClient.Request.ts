@@ -84,7 +84,7 @@ export class Request implements IRequest {
      * @memberof module:Requests
      * @this {Request}
      */
-    with(parameters: RequestParameters): ThisType<Request> {
+    with(parameters: RequestParameters): this {
         const request = Object.create(this);
 
         for (let parameter in parameters) {

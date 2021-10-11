@@ -1,6 +1,7 @@
 import { Header, Key } from "./WebApiClient.Base";
 import { Batch } from './WebApiClient.Batch';
 import { BatchRequest } from './WebApiClient.BatchRequest';
+import { Request } from './WebApiClient.Request';
 export declare type SendParameters = {
     returnAllPages?: boolean;
     isOverLengthGet?: boolean;
@@ -67,7 +68,7 @@ declare class WebApiClientClass {
         source: EntityParameters;
         target: EntityParameters;
     } & SendRequestEntityParameters): Promise<T> | T | BatchRequest;
-    Execute<T = any>(request: any): Promise<T> | T | BatchRequest;
+    Execute<T = any>(request: Request): Promise<T> | T | BatchRequest;
     SendBatch<T = any>(batch: Batch): Promise<T> | T | BatchRequest;
     Expand<T = any>(params: {
         records: Array<T>;

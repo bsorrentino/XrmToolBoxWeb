@@ -1,6 +1,7 @@
 import { Batch } from './WebApiClient.Batch';
 import { BatchResponse } from './WebApiClient.BatchResponse';
 import { BatchRequest } from './WebApiClient.BatchRequest';
+import { Request } from './WebApiClient.Request';
 class WebApiClientClass {
     constructor() {
         this.ApiVersion = "8.0";
@@ -361,6 +362,9 @@ class WebApiClientClass {
     Execute(request) {
         if (!request) {
             throw new Error("You need to pass a request!");
+        }
+        if (!(request instanceof Request)) {
+            throw new Error("Request for execution must be in prototype chain of WebApiClient.Request");
         }
         return this.SendRequest(request.method, request.buildUrl(), request.payload, request);
     }

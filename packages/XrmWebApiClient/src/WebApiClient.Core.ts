@@ -30,6 +30,7 @@ import { Header, Key } from "./WebApiClient.Base";
 import { Batch } from './WebApiClient.Batch'
 import { BatchResponse } from './WebApiClient.BatchResponse'
 import { BatchRequest } from './WebApiClient.BatchRequest'
+import { Request } from './WebApiClient.Request'
 
 export type SendParameters = {
     returnAllPages?: boolean,
@@ -587,7 +588,7 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<object>|Object} - Returns Promise<Object> if asyncj, just Object if sent synchronously.
      */
-    Retrieve(params: EntityParameters & SendParameters): Promise<any> | any {
+    Retrieve<T = any>(params: EntityParameters & SendParameters): Promise<T> | T | BatchRequest {
 
         if (!params.entityName && !params.overriddenSetName) {
             throw new Error("Entity name has to be passed!");
@@ -609,7 +610,7 @@ class WebApiClientClass {
             url += params.queryParams;
         }
 
-        return this.SendRequest("GET", url, null, params);
+        return this.SendRequest<T>("GET", url, null, params);
     }
 
     /**
@@ -625,7 +626,7 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<String>|Promise<object>|String|Object} - Returns Promise<Object> if return=representation header is set, otherwise Promise<String>. Just Object or String if sent synchronously.
      */
-    Update(params: EntityParameters & SendParameters & { entity: any }): Promise<any> | any {
+    Update<T = any>(params: EntityParameters & SendParameters & { entity: any }): Promise<T> | T | BatchRequest  {
 
         if (!params.entity) {
             throw new Error("Update object has to be passed!");
@@ -633,7 +634,7 @@ class WebApiClientClass {
 
         const url = this.GetRecordUrl(params);
 
-        return this.SendRequest("PATCH", url, params.entity, params);
+        return this.SendRequest<T>("PATCH", url, params.entity, params);
     }
 
     /**
@@ -649,7 +650,7 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<String>|String} - Returns Promise<String> if async, just String if sent synchronously.
      */
-    Delete(params: EntityParameters & SendParameters): Promise<any> | any {
+    Delete<T = any>(params: EntityParameters & SendParameters): Promise<T> | T | BatchRequest {
 
         let url = this.GetRecordUrl(params);
 
@@ -657,7 +658,7 @@ class WebApiClientClass {
             url += params.queryParams;
         }
 
-        return this.SendRequest("DELETE", url, null, params);
+        return this.SendRequest<T>("DELETE", url, null, params);
     }
 
     /**
@@ -700,7 +701,7 @@ class WebApiClientClass {
 
         const payload = { "@odata.id": this.GetRecordUrl(params.source) };
 
-        return this.SendRequest("POST", url, payload, params);
+        return this.SendRequest<T>("POST", url, payload, params);
     }
 
     /**
@@ -744,7 +745,7 @@ class WebApiClientClass {
 
         const url = targetUrl + relationShip;
 
-        return this.SendRequest("DELETE", url, null, params);
+        return this.SendRequest<T>("DELETE", url, null, params);
     }
 
     /**
@@ -756,14 +757,14 @@ class WebApiClientClass {
      * @memberof module:WebApiClient
      * @return {Promise<Object>|Object} - Returns Promise<Object> if async, just Object if sent synchronously.
      */
-    Execute<T = any>(request: any): Promise<T> | T | BatchRequest {
+    Execute<T = any,>(request: Request): Promise<T> | T | BatchRequest {
         if (!request) {
             throw new Error("You need to pass a request!");
         }
 
-        // if (!(request instanceof WebApiClient.Requests.Request)) {
-        //     throw new Error("Request for execution must be in prototype chain of WebApiClient.Request");
-        // }
+        if (!(request instanceof Request)) {
+            throw new Error("Request for execution must be in prototype chain of WebApiClient.Request");
+        }
 
         return this.SendRequest<T>(request.method, request.buildUrl(), request.payload, request);
     }
