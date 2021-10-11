@@ -41,7 +41,7 @@ export class BatchResponse implements IBatchResponse {
      * @this {BatchResponse}
      */
 
-    errors: Array<string>;
+    errors: Array<Record<string,any>>;
 
     xhr?: XMLHttpRequest;
 
