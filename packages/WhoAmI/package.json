@@ -17,9 +17,9 @@
     "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
   },
   "scripts": {
-    "start": "parcel serve src/whoami.html --no-source-maps",
+    "start:dev": "parcel serve src/WhoAmI.html",
     "prebuild": "npm run clean",
-    "build": "parcel build src/whoami.html --dist-dir lib --no-source-maps",
+    "build": "parcel build src/WhoAmI.html",
     "postbuild": "zx ../postbuild.mjs",
     "clean": "zx ../clean.mjs",
     "test": "jest --config ../../jest.config.js"
@@ -35,5 +35,14 @@
   "devDependencies": {
     "@types/react": "^17.0.27",
     "@types/xrm": "^9.0.39"
+  },
+  "targets": {
+    "default": {
+      "distDir": "./lib",
+      "publicUrl": "./",
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
+    }
   }
 }

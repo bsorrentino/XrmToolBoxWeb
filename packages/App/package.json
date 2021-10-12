@@ -17,9 +17,10 @@
     "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
   },
   "scripts": {
-    "build": "parcel build src/index.html --dist-dir lib",
-    "start": "parcel serve src/index.html ",
-    "clean": "rm -rf dist",
+    "build": "parcel build src/index.html",
+    "start:dev": "parcel serve src/index.html",
+    "start": "http-server -p 1234 -c-1 ./lib",
+    "clean": "zx ../clean.mjs",
     "test": "jest --config ../../jest.config.js"
   },
   "bugs": {
@@ -31,7 +32,15 @@
     "xrmtoolboxweb-webapiclient": "^1.1.0"
   },
   "devDependencies": {
-    "@types/xrm": "^9.0.39",
-    "serve-static": "^1.14.1"
+    "@types/xrm": "^9.0.39"
+  },
+  "targets": {
+    "default": {
+      "distDir": "./lib",
+      "publicUrl": "./",
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
+    }
   }
 }

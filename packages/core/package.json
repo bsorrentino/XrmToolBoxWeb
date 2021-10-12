@@ -24,7 +24,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "build:parcel": "parcel build src/index.ts --dist-dir lib --no-source-maps",
+    "build:parcel": "parcel build src/index.ts --dist-dir lib",
     "clean": "rm -rf lib",
     "test": "jest --config ../../jest.config.js"
   },

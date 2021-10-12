@@ -59,8 +59,6 @@ export function App() {
         }
     }, [account?.localAccountId, instance]);
 
-
-
     const _onRenderCell = (item?: GlobalOptionSetDefinitions.Metadata, index?: number | undefined): JSX.Element => {
         return (
           <Stack styles={{ root: { maxWidth: 500 }}}>
@@ -82,10 +80,7 @@ export function App() {
                     selectionMode={SelectionMode.none}
                     isHeaderVisible={true}
                     />
-              }
-
-              
-               
+              }         
           </Stack>
         );
       };

@@ -17,9 +17,9 @@
     "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
   },
   "scripts": {
-    "start": "parcel serve src/GlobalOptionSetDefinitions.html --no-source-maps",
+    "start:dev": "parcel serve src/GlobalOptionSetDefinitions.html",
     "prebuild": "npm run clean",
-    "build": "parcel build src/GlobalOptionSetDefinitions.html --dist-dir lib --no-source-maps",
+    "build": "parcel build src/GlobalOptionSetDefinitions.html",
     "postbuild": "zx ../postbuild.mjs",
     "clean": "zx ../clean.mjs",
     "test": "jest --config ../../jest.config.js"
@@ -33,7 +33,18 @@
     "@types/xrm": "^9.0.39"
   },
   "dependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
     "xrmtoolboxweb-core": "^1.1.0",
     "xrmtoolboxweb-webapiclient": "^1.1.0"
+  },
+  "targets": {
+    "default": {
+      "distDir": "./lib",
+      "publicUrl": "./",
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
+    }
   }
 }
