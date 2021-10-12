@@ -33,8 +33,6 @@
     "@types/xrm": "^9.0.39"
   },
   "dependencies": {
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
     "xrmtoolboxweb-core": "^1.1.0",
     "xrmtoolboxweb-webapiclient": "^1.1.0"
   },
