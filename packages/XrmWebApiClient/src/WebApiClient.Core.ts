@@ -177,7 +177,7 @@ class WebApiClientClass {
             return;
         }
 
-        for (var i = 0; i < headers.length; i++) {
+        for (let i = 0; i < headers.length; i++) {
             const argument = headers[i];
 
             VerifyHeader(argument);
@@ -197,7 +197,7 @@ class WebApiClientClass {
             throw new Error("Need entity name or overridden set name and entity id or alternate key for getting record url!");
         }
 
-        var url = this.GetApiUrl() + this.GetSetName(params.entityName!, params.overriddenSetName);
+        let url = this.GetApiUrl() + this.GetSetName(params.entityName!, params.overriddenSetName);
 
         if (params.alternateKey) {
             url += BuildAlternateKeyUrl(params);
@@ -210,7 +210,7 @@ class WebApiClientClass {
 
     private FormatError(xhr: XMLHttpRequest): string {
         if (xhr && xhr.response) {
-            var response = ParseResponse(xhr);
+            const response = ParseResponse(xhr);
 
             if (response instanceof BatchResponse) {
                 let errors = "";
@@ -223,14 +223,14 @@ class WebApiClientClass {
                 return xhr.status + " - " + errors;
             }
 
-            var json = JSON.parse(xhr.response);
+            const json = JSON.parse(xhr.response);
 
             if (!this.PrettifyErrors) {
                 json.xhrStatusText = xhr.statusText;
 
                 return JSON.stringify(json);
             } else {
-                var error = "";
+                let error = "";
 
                 if (json.error) {
                     error = json.error.message;
@@ -292,7 +292,7 @@ class WebApiClientClass {
                         resolve(this.SendAsync("GET", nextLink, null, parameters));
                     }
                     else if (parameters.fetchXml && moreRecords && pagingCookie && (this.ReturnAllPages || returnAllPages)) {
-                        var nextPageFetch = SetCookie(pagingCookie, parameters);
+                        const nextPageFetch = SetCookie(pagingCookie, parameters);
 
                         SetPreviousResponse(parameters, response);
 
@@ -325,7 +325,7 @@ class WebApiClientClass {
         });
 
         if (IsOverlengthGet(method, url)) {
-            var batch = new Batch({
+            const batch = new Batch({
                 requests: [new BatchRequest({
                     method: method,
                     url: url,
@@ -376,7 +376,7 @@ class WebApiClientClass {
         let headers = Array<Header>();
 
         if (IsOverlengthGet(method, url)) {
-            var batch = new Batch({
+            const batch = new Batch({
                 requests: [new BatchRequest({
                     method: method,
                     url: url,
@@ -426,13 +426,13 @@ class WebApiClientClass {
                 }
             }
 
-            var nextLink = GetNextLink(response);
-            var pagingCookie = GetPagingCookie(response);
+            const nextLink = GetNextLink(response);
+            const pagingCookie = GetPagingCookie(response);
 
             // Since 9.X paging cookie is always added to response, even in queryParams retrieves
             // In 9.X the morerecords flag can signal whether there are more records to be found
             // In 8.X the flag was not present and instead the pagingCookie was only set if more records were available
-            var moreRecords = "@Microsoft.Dynamics.CRM.morerecords" in response ? response["@Microsoft.Dynamics.CRM.morerecords"] : true;
+            const moreRecords = "@Microsoft.Dynamics.CRM.morerecords" in response ? response["@Microsoft.Dynamics.CRM.morerecords"] : true;
 
             response = MergeResults(_previousResponse, response);
 
@@ -443,7 +443,7 @@ class WebApiClientClass {
                 this.SendSync("GET", nextLink, null, params);
             }
             else if (fetchXml && moreRecords && pagingCookie && (this.ReturnAllPages || returnAllPages)) {
-                var nextPageFetch = SetCookie(pagingCookie, params);
+                const nextPageFetch = SetCookie(pagingCookie, params);
 
                 SetPreviousResponse(params, response);
 
@@ -531,7 +531,7 @@ class WebApiClientClass {
      * @Deprecated
      */
     Configure(configuration: Record<string, any>): void {
-        for (var property in configuration) {
+        for (const property in configuration) {
             if (!configuration.hasOwnProperty(property)) {
                 continue;
             }
@@ -597,17 +597,17 @@ class WebApiClientClass {
         let url = this.GetApiUrl() + this.GetSetName(params.entityName, params.overriddenSetName);
 
         if (params.entityId) {
-            url += "(" + RemoveIdBrackets(params.entityId) + ")";
+            url += `(${RemoveIdBrackets(params.entityId)})`
         }
         else if (params.fetchXml) {
-            url += "?fetchXml=" + escape(params.fetchXml);
+            url += `?fetchXml=${escape(params.fetchXml)}`
         }
         else if (params.alternateKey) {
             url += BuildAlternateKeyUrl(params);
         }
 
         if (params.queryParams) {
-            url += params.queryParams;
+            url += `?${params.queryParams}`
         }
 
         return this.SendRequest<T>("GET", url, null, params);
@@ -905,7 +905,7 @@ function VerifyHeader(header: Header) {
 function AppendHeaders(xhr: XMLHttpRequest, headers?: Array<Header>) {
     if (headers) {
         for (let i = 0; i < headers.length; i++) {
-            var header = headers[i];
+            const header = headers[i];
 
             VerifyHeader(header);
 
@@ -951,7 +951,7 @@ function SetCookie(pagingCookie: string, parameters: { fetchXml?: string }) {
     fetch.setAttribute("paging-cookie", cookieValue);
 
     // Serialize modified fetch with paging information
-    var serializer = new XMLSerializer();
+    const serializer = new XMLSerializer();
     return serializer.serializeToString(fetchXml);
 }
 
@@ -980,7 +980,7 @@ function MergeHeaders(...args: Array<Array<Header>>): Array<Header> {
 
             let addHeader = true;
 
-            for (var k = 0; k < headers.length; k++) {
+            for (let k = 0; k < headers.length; k++) {
                 if (headers[k].key === header.key) {
                     addHeader = false;
                     break;
@@ -1001,7 +1001,7 @@ function IsBatch(responseText: string) {
 }
 
 function ParseResponse(xhr: XMLHttpRequest) {
-    var responseText = xhr.responseText;
+    const responseText = xhr.responseText;
 
     // Check if it is a batch response
     if (IsBatch(responseText)) {
@@ -1024,11 +1024,11 @@ function BuildAlternateKeyUrl(params?: { alternateKey?: Array<Key> }) {
         return "";
     }
 
-    var url = "(";
+    let url = "(";
 
-    for (var i = 0; i < params.alternateKey.length; i++) {
-        var key = params.alternateKey[i];
-        var value = key.value;
+    for (let i = 0; i < params.alternateKey.length; i++) {
+        const key = params.alternateKey[i];
+        let value = key.value;
 
         if (typeof (key.value) !== "number") {
             value = "'" + key.value + "'";

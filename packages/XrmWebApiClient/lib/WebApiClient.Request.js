@@ -54,7 +54,7 @@ export class Request {
         const baseUrl = WebApiClient.GetApiUrl();
         let url = baseUrl;
         if (this.bound && this.entityId) {
-            var entityId = this.entityId.replace("{", "").replace("}", "");
+            const entityId = this.entityId.replace("{", "").replace("}", "");
             url += WebApiClient.GetSetName(this.entityName) + "(" + entityId + ")/";
         }
         if (this.bound && this.name.indexOf("Microsoft.Dynamics.CRM.") === -1) {

@@ -109,7 +109,7 @@ export class Request implements IRequest {
         let url = baseUrl;
 
         if (this.bound && this.entityId) {
-            var entityId = this.entityId.replace("{", "").replace("}", "");
+            const entityId = this.entityId.replace("{", "").replace("}", "");
             url += WebApiClient.GetSetName(this.entityName) + "(" + entityId + ")/";
         }
 

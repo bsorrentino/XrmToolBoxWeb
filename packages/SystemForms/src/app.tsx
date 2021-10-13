@@ -1,11 +1,12 @@
 import React, { useEffect, useState, useCallback } from "react"
-import { useAccount } from "@azure/msal-react"
 import { Text } from '@fluentui/react/lib/Text'
 import { DefaultButton } from '@fluentui/react/lib/Button'
-import { Stack } from '@fluentui/react/lib/Stack';
+import { Stack } from '@fluentui/react/lib/Stack'
+import { Separator } from '@fluentui/react/lib/Separator'
+
 
 import {  
-    scopes as webapiScopes, 
+    scopes as WebApiScopes, 
     prepareWebApiRequest,
     useRenderAfterLogin
 } from 'xrmtoolboxweb-core';
@@ -14,7 +15,7 @@ import { TextField } from "@fluentui/react/lib/TextField";
 import { IIconProps } from "@fluentui/react/lib/Icon";
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 
-import * as RetrieveTotalRecordCount from './webapi'
+import * as SystemForms from './webapi'
 
 initializeIcons()
 
@@ -27,14 +28,14 @@ const play: IIconProps = { iconName: 'BoxPlaySolid' };
 export function App() {
 
     const { instance, account, renderAfterLogin } = useRenderAfterLogin();
-    const [result, setResult] = useState<Partial<RetrieveTotalRecordCount.Response>>();
+    const [result, setResult] = useState<Partial<SystemForms.Response>>();
     const [entityName, setEntityName] = useState( '' )
 
     useEffect(() => {
         
         if (account) {
             instance.acquireTokenSilent({
-                scopes: webapiScopes,
+                scopes: WebApiScopes,
                 account: account
             })
             .then( prepareWebApiRequest ) 
@@ -46,15 +47,19 @@ export function App() {
     }, [account?.localAccountId, instance]);
 
     const _run = useCallback( () => 
-        RetrieveTotalRecordCount.Invoke( [ entityName ]).then( setResult ), [entityName] )
+        SystemForms.Invoke( entityName ).then( setResult ), [entityName] )
 
     return renderAfterLogin( () =>  
-        (<div>
-            <Stack horizontal>
+    (<div>
+        <Stack>
+            <Stack horizontal tokens={{ childrenGap: 20 }}>
                 <TextField placeholder="Please enter the entity name" onChange={ (e,v) => setEntityName(v!) }  />
                 <DefaultButton text="Run" iconProps={play} onClick={_run}/>
-
-                <Text>Result: {result?.EntityRecordCountCollection?.Values[0]}</Text>
             </Stack>
-        </div>))
+            <Separator alignContent="start">Result</Separator>
+            <div>
+                <pre>{JSON.stringify(result?.value, undefined, 2)}</pre>
+            </div>
+        </Stack>
+    </div>))
 }
