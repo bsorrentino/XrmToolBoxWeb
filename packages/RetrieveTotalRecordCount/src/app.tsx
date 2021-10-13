@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useCallback } from "react"
-import { useAccount } from "@azure/msal-react"
 import { Text } from '@fluentui/react/lib/Text'
 import { DefaultButton } from '@fluentui/react/lib/Button'
 import { Stack } from '@fluentui/react/lib/Stack';
+import { Separator } from '@fluentui/react/lib/Separator';
 
 import {  
-    scopes as webapiScopes, 
+    scopes as WebApiScopes, 
     prepareWebApiRequest,
     useRenderAfterLogin
 } from 'xrmtoolboxweb-core';
@@ -34,7 +34,7 @@ export function App() {
         
         if (account) {
             instance.acquireTokenSilent({
-                scopes: webapiScopes,
+                scopes: WebApiScopes,
                 account: account
             })
             .then( prepareWebApiRequest ) 
@@ -49,12 +49,19 @@ export function App() {
         RetrieveTotalRecordCount.Invoke( [ entityName ]).then( setResult ), [entityName] )
 
     return renderAfterLogin( () =>  
-        (<div>
-            <Stack horizontal>
+    (<div>
+        <Stack tokens={{ childrenGap: 10 }}>
+            <Stack horizontal tokens={{ childrenGap: 20 }}>
                 <TextField placeholder="Please enter the entity name" onChange={ (e,v) => setEntityName(v!) }  />
                 <DefaultButton text="Run" iconProps={play} onClick={_run}/>
-
-                <Text>Result: {result?.EntityRecordCountCollection?.Values[0]}</Text>
             </Stack>
-        </div>))
+            <Separator alignContent="start">Result</Separator>
+
+            <div>
+             
+            <Text variant="large">Total Record Count : [ {result?.EntityRecordCountCollection?.Values[0]} ]</Text>
+            </div>
+            
+        </Stack>
+    </div>))
 }
