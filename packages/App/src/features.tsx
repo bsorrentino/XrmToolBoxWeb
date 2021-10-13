@@ -154,6 +154,11 @@ export const Features: React.FunctionComponent = () => {
         docPage:'https://crmtipoftheday.com/532/retrieving-global-optionsets-using-web-api/',
         testPage:'/GlobalOptionSetDefinitions.html'
       }, 
+      { name: 'System Forms', 
+        description:'Gets a collection of SystemForm entity references.', 
+        docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/systemform?view=dynamics-ce-odata-9',
+        testPage:'/SystemForms.html'
+      }, 
   ])
 
   const getItemCountForPage = React.useCallback((itemIndex?: number, surfaceRect?: IRectangle) => {

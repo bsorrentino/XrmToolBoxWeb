@@ -51,7 +51,7 @@ class WebApiClientClass {
         if (!headers.length) {
             return;
         }
-        for (var i = 0; i < headers.length; i++) {
+        for (let i = 0; i < headers.length; i++) {
             const argument = headers[i];
             VerifyHeader(argument);
             this.DefaultHeaders.push(argument);
@@ -61,7 +61,7 @@ class WebApiClientClass {
         if ((!params.entityName && !params.overriddenSetName) || (!params.entityId && !params.alternateKey)) {
             throw new Error("Need entity name or overridden set name and entity id or alternate key for getting record url!");
         }
-        var url = this.GetApiUrl() + this.GetSetName(params.entityName, params.overriddenSetName);
+        let url = this.GetApiUrl() + this.GetSetName(params.entityName, params.overriddenSetName);
         if (params.alternateKey) {
             url += BuildAlternateKeyUrl(params);
         }
@@ -72,7 +72,7 @@ class WebApiClientClass {
     }
     FormatError(xhr) {
         if (xhr && xhr.response) {
-            var response = ParseResponse(xhr);
+            const response = ParseResponse(xhr);
             if (response instanceof BatchResponse) {
                 let errors = "";
                 if (response.errors.length > 0) {
@@ -80,13 +80,13 @@ class WebApiClientClass {
                 }
                 return xhr.status + " - " + errors;
             }
-            var json = JSON.parse(xhr.response);
+            const json = JSON.parse(xhr.response);
             if (!this.PrettifyErrors) {
                 json.xhrStatusText = xhr.statusText;
                 return JSON.stringify(json);
             }
             else {
-                var error = "";
+                let error = "";
                 if (json.error) {
                     error = json.error.message;
                 }
@@ -122,7 +122,7 @@ class WebApiClientClass {
                         resolve(this.SendAsync("GET", nextLink, null, parameters));
                     }
                     else if (parameters.fetchXml && moreRecords && pagingCookie && (this.ReturnAllPages || returnAllPages)) {
-                        var nextPageFetch = SetCookie(pagingCookie, parameters);
+                        const nextPageFetch = SetCookie(pagingCookie, parameters);
                         SetPreviousResponse(parameters, response);
                         parameters.fetchXml = nextPageFetch;
                         resolve(this.Retrieve(parameters));
@@ -149,7 +149,7 @@ class WebApiClientClass {
             xhr.onerror = () => reject(new Error(this.FormatError(xhr)));
         });
         if (IsOverlengthGet(method, url)) {
-            var batch = new Batch({
+            const batch = new Batch({
                 requests: [new BatchRequest({
                         method: method,
                         url: url,
@@ -183,7 +183,7 @@ class WebApiClientClass {
         let response;
         let headers = Array();
         if (IsOverlengthGet(method, url)) {
-            var batch = new Batch({
+            const batch = new Batch({
                 requests: [new BatchRequest({
                         method: method,
                         url: url,
@@ -222,16 +222,16 @@ class WebApiClientClass {
                     return response;
                 }
             }
-            var nextLink = GetNextLink(response);
-            var pagingCookie = GetPagingCookie(response);
-            var moreRecords = "@Microsoft.Dynamics.CRM.morerecords" in response ? response["@Microsoft.Dynamics.CRM.morerecords"] : true;
+            const nextLink = GetNextLink(response);
+            const pagingCookie = GetPagingCookie(response);
+            const moreRecords = "@Microsoft.Dynamics.CRM.morerecords" in response ? response["@Microsoft.Dynamics.CRM.morerecords"] : true;
             response = MergeResults(_previousResponse, response);
             if (moreRecords && nextLink && (this.ReturnAllPages || returnAllPages)) {
                 SetPreviousResponse(params, response);
                 this.SendSync("GET", nextLink, null, params);
             }
             else if (fetchXml && moreRecords && pagingCookie && (this.ReturnAllPages || returnAllPages)) {
-                var nextPageFetch = SetCookie(pagingCookie, params);
+                const nextPageFetch = SetCookie(pagingCookie, params);
                 SetPreviousResponse(params, response);
                 params.fetchXml = nextPageFetch;
                 this.Retrieve(params);
@@ -281,7 +281,7 @@ class WebApiClientClass {
             this.SendSync(method, url, payload, params);
     }
     Configure(configuration) {
-        for (var property in configuration) {
+        for (const property in configuration) {
             if (!configuration.hasOwnProperty(property)) {
                 continue;
             }
@@ -304,16 +304,16 @@ class WebApiClientClass {
         }
         let url = this.GetApiUrl() + this.GetSetName(params.entityName, params.overriddenSetName);
         if (params.entityId) {
-            url += "(" + RemoveIdBrackets(params.entityId) + ")";
+            url += `(${RemoveIdBrackets(params.entityId)})`;
         }
         else if (params.fetchXml) {
-            url += "?fetchXml=" + escape(params.fetchXml);
+            url += `?fetchXml=${escape(params.fetchXml)}`;
         }
         else if (params.alternateKey) {
             url += BuildAlternateKeyUrl(params);
         }
         if (params.queryParams) {
-            url += params.queryParams;
+            url += `?${params.queryParams}`;
         }
         return this.SendRequest("GET", url, null, params);
     }
@@ -447,7 +447,7 @@ function VerifyHeader(header) {
 function AppendHeaders(xhr, headers) {
     if (headers) {
         for (let i = 0; i < headers.length; i++) {
-            var header = headers[i];
+            const header = headers[i];
             VerifyHeader(header);
             xhr.setRequestHeader(header.key, header.value);
         }
@@ -475,7 +475,7 @@ function SetCookie(pagingCookie, parameters) {
     const fetch = fetchXml.documentElement;
     fetch.setAttribute("page", String(pageNumber));
     fetch.setAttribute("paging-cookie", cookieValue);
-    var serializer = new XMLSerializer();
+    const serializer = new XMLSerializer();
     return serializer.serializeToString(fetchXml);
 }
 function SetPreviousResponse(parameters, response) {
@@ -495,7 +495,7 @@ function MergeHeaders(...args) {
             const header = headersToAdd[j];
             VerifyHeader(header);
             let addHeader = true;
-            for (var k = 0; k < headers.length; k++) {
+            for (let k = 0; k < headers.length; k++) {
                 if (headers[k].key === header.key) {
                     addHeader = false;
                     break;
@@ -512,7 +512,7 @@ function IsBatch(responseText) {
     return responseText && /^--batchresponse_[a-fA-F0-9\-]+$/m.test(responseText);
 }
 function ParseResponse(xhr) {
-    var responseText = xhr.responseText;
+    const responseText = xhr.responseText;
     if (IsBatch(responseText)) {
         return new BatchResponse({
             xhr: xhr
@@ -529,10 +529,10 @@ function BuildAlternateKeyUrl(params) {
     if (!params || !params.alternateKey) {
         return "";
     }
-    var url = "(";
-    for (var i = 0; i < params.alternateKey.length; i++) {
-        var key = params.alternateKey[i];
-        var value = key.value;
+    let url = "(";
+    for (let i = 0; i < params.alternateKey.length; i++) {
+        const key = params.alternateKey[i];
+        let value = key.value;
         if (typeof (key.value) !== "number") {
             value = "'" + key.value + "'";
         }
