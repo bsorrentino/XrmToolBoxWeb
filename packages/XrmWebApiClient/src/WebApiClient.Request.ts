@@ -78,6 +78,16 @@ export class Request implements IRequest {
     async = true;
 
     /**
+     * factory method
+     * 
+     * @param parameters 
+     * @returns 
+     */
+    static of( parameters: RequestParameters ):Request {
+        return new Request().with(parameters)
+    }
+
+    /**
      * @description Applies properties of parameters object to the current request and returns it
      * @param {Object} parameters Pass object with properties that will be applied to current request
      * @return {Request}

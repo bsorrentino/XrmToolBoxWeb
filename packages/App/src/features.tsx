@@ -6,6 +6,7 @@ import { useConst } from '@fluentui/react-hooks'
 import { Text } from '@fluentui/react/lib/Text';
 import { Link } from '@fluentui/react/lib/Link'
 import { IIconProps } from '@fluentui/react/lib/Icon';
+import { FeatureItem, featureItems } from './feature.items'
 
 import { 
   Stack, 
@@ -33,6 +34,64 @@ const stackStyles: IStackStyles = {
 }
 
 const stackTokens: IStackTokens = { childrenGap: 10 }
+
+const ROWS_PER_PAGE = 3;
+const MAX_ROW_HEIGHT = 250;
+
+export const Features: React.FunctionComponent = () => {
+
+  const columnCount = React.useRef(0);
+  const rowHeight   = React.useRef(0);
+
+  const play: IIconProps = { iconName: 'BoxPlaySolid' };
+  const onRenderCell = React.useCallback((item?: FeatureItem, index?: number) => {
+
+    return (
+        <Stack styles={stackStyles} tokens={stackTokens}>
+            <Stack horizontal verticalAlign="center" tokens={stackTokens}>
+              <Text variant="xxLarge">{item?.name}</Text>
+              <DefaultButton href={item?.testPage} target={item?.name + 'Request'} title="test it!" iconProps={play}>
+                {
+                //<Icon iconName="BoxPlaySolid" style={{fontSize:'30px'}}></Icon>
+                }
+              </DefaultButton>            
+            </Stack>
+            
+            <Text variant={'large'} block>
+                {item?.description}
+            </Text>
+            <Link  href={item?.docPage} target={item?.name + 'Doc'}>Documentation</Link>
+        </Stack>
+    );
+  }, []);
+
+  const getPageHeight = React.useCallback( () => rowHeight.current * ROWS_PER_PAGE, [])
+
+
+  const getItemCountForPage = React.useCallback((itemIndex?: number, surfaceRect?: IRectangle) => {
+
+    console.log( surfaceRect, itemIndex)
+    if (surfaceRect && itemIndex === 0) {
+      columnCount.current   = Math.ceil(surfaceRect.width / MAX_ROW_HEIGHT);
+      rowHeight.current     = Math.floor(surfaceRect.width / columnCount.current);
+    }
+    return columnCount.current * ROWS_PER_PAGE;
+  }, []);
+
+  const items = useConst<FeatureItem[]>(featureItems)
+
+  return (
+    <FocusZone>
+      <List
+        items={items}
+        getItemCountForPage={getItemCountForPage}
+        getPageHeight={getPageHeight}
+        renderedWindowsAhead={4}
+        onRenderCell={onRenderCell}
+      />
+    </FocusZone>
+  );
+};
 
 /*
 import { ITheme, getTheme, mergeStyleSets } from '@fluentui/react/lib/Styling';
@@ -93,93 +152,3 @@ const classNames = mergeStyleSets({
   },
 });
 */
-
-interface FeatureItem {
-    name: string
-    description?: string
-    docPage: string
-    testPage?:string
-}
-
-const ROWS_PER_PAGE = 3;
-const MAX_ROW_HEIGHT = 250;
-
-export const Features: React.FunctionComponent = () => {
-
-  const columnCount = React.useRef(0);
-  const rowHeight   = React.useRef(0);
-
-  const play: IIconProps = { iconName: 'BoxPlaySolid' };
-  const onRenderCell = React.useCallback((item?: FeatureItem, index?: number) => {
-
-    return (
-        <Stack styles={stackStyles} tokens={stackTokens}>
-            <Stack horizontal verticalAlign="center" tokens={stackTokens}>
-              <Text variant="xxLarge">{item?.name}</Text>
-              <DefaultButton href={item?.testPage} target={item?.name + 'Request'} title="test it!" iconProps={play}>
-                {
-                //<Icon iconName="BoxPlaySolid" style={{fontSize:'30px'}}></Icon>
-                }
-              </DefaultButton>            
-            </Stack>
-            
-            <Text variant={'large'} block>
-                {item?.description}
-            </Text>
-            <Link  href={item?.docPage} target={item?.name + 'Doc'}>Documentation</Link>
-        </Stack>
-    );
-  }, []);
-
-  const getPageHeight = React.useCallback( () => rowHeight.current * ROWS_PER_PAGE, [])
-
-  const items = useConst<FeatureItem[]>(() => [
-      { name: 'WhoAmI', 
-        description:'Retrieves the system user ID for the currently logged on user or the user under whose context the code is running.', 
-        docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/whoami?view=dynamics-ce-odata-9', 
-        testPage:'/WhoAmI.html'
-      }, 
-      { name: 'RetrieveAllEntities', 
-        description:'Retrieves metadata information about all the entities.', 
-        docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/retrieveallentities?view=dynamics-ce-odata-9',
-        testPage:'/RetrieveAllEntities.html'
-      }, 
-      { name: 'RetrieveTotalRecordCount', 
-        description:'Returns data on the total number of records for specific entities.', 
-        docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/retrievetotalrecordcount?view=dynamics-ce-odata-9',
-        testPage:'/RetrieveTotalRecordCount.html'
-      }, 
-      { name: 'GlobalOptionSetDefinitions', 
-        description:'fetch Global OptionSets.', 
-        docPage:'https://crmtipoftheday.com/532/retrieving-global-optionsets-using-web-api/',
-        testPage:'/GlobalOptionSetDefinitions.html'
-      }, 
-      { name: 'System Forms', 
-        description:'Gets a collection of SystemForm entity references.', 
-        docPage:'https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/systemform?view=dynamics-ce-odata-9',
-        testPage:'/SystemForms.html'
-      }, 
-  ])
-
-  const getItemCountForPage = React.useCallback((itemIndex?: number, surfaceRect?: IRectangle) => {
-
-    console.log( surfaceRect, itemIndex)
-    if (surfaceRect && itemIndex === 0) {
-      columnCount.current   = Math.ceil(surfaceRect.width / MAX_ROW_HEIGHT);
-      rowHeight.current     = Math.floor(surfaceRect.width / columnCount.current);
-    }
-    return columnCount.current * ROWS_PER_PAGE;
-  }, []);
-
-  return (
-    <FocusZone>
-      <List
-        items={items}
-        getItemCountForPage={getItemCountForPage}
-        getPageHeight={getPageHeight}
-        renderedWindowsAhead={4}
-        onRenderCell={onRenderCell}
-      />
-    </FocusZone>
-  );
-};

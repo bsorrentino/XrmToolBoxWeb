@@ -9,7 +9,11 @@ export interface Response {
 export const Invoke = ( params: { EntityFilters:string, RetrieveAsIfPublished:Boolean}) => { 
     
     const req = WebApiClient.RetrieveAllEntitiesRequest.with( 
-        {  urlParams: { EntityFilters:`Microsoft.Dynamics.CRM.EntityFilters'${params.EntityFilters}'`, RetrieveAsIfPublished:false},
+        {  
+            urlParams: { 
+                EntityFilters:`Microsoft.Dynamics.CRM.EntityFilters'${params.EntityFilters}'`, 
+                RetrieveAsIfPublished:false
+            },
             headers: [
                 { key:'Access-Control-Allow-Origin', value:'*.crm.dynamics.com'},
                 { key:'Access-Control-Allow-Credentials', value:'true' },

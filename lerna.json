@@ -7,6 +7,7 @@
     "packages/RetrieveTotalRecordCount",
     "packages/GlobalOptionsSetDefinitions",
     "packages/SystemForms",
+    "packages/CalculateRollupField",
     "packages/App"
   ],
   "version": "1.1.0"

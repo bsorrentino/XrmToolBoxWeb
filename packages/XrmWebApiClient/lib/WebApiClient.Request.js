@@ -40,6 +40,9 @@ export class Request {
         this.entityId = "";
         this.async = true;
     }
+    static of(parameters) {
+        return new Request().with(parameters);
+    }
     with(parameters) {
         const request = Object.create(this);
         for (let parameter in parameters) {

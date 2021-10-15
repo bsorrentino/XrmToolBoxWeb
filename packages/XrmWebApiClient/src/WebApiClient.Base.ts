@@ -108,7 +108,7 @@ export interface IRequest<Payload = Record<string,any>>  {
     entityId?: string;
     payload?: Payload;
     headers?: Array<Header>;
-    urlParams?: Record<string, string|number>;
+    urlParams?: Record<string, string|number|boolean>;
     async?: boolean;
 
 }
