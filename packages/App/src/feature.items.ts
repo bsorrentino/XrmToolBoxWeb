@@ -35,5 +35,10 @@ export const featureItems:Array<FeatureItem> = [
       description:'Calculates the value of a rollup attribute.', 
       docPage:'https://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/developers-guide/mt718083(v=crm.8)?redirectedfrom=MSDN',
       testPage:'/CalculateRollupField.html'
-    }, 
+    },
+    { name: 'Commandbar Elements', 
+      description:'List(Delete) Commandbar Dependencies', 
+      docPage:'https://taerimhan.com/quick-fix-cant-delete-command-library-component/',
+      testPage:'/Commandbar.html'
+    },  
 ]
