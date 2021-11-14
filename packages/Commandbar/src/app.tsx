@@ -101,7 +101,7 @@ export function Appelements() {
             })
             .then( prepareWebApiRequest ) 
             //.then( () => API.GetAppelements() )
-            .then( () => API.GetAppactions() )
+            .then( () => API.GetAppelements() )
             .then( setResult )
             .catch( error => console.error(error))
             ;

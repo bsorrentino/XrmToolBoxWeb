@@ -1,29 +1,7 @@
 import { AuthenticationResult } from "@azure/msal-browser";
-import * as WebApiClient from 'xrmtoolboxweb-webapiclient'
-
-
-const POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com'
-//const POWERPLATFORM_ENV_URL =  'https://org8b3e7e60.crm4.dynamics.com'
-
-
-export const scopes = [ `${POWERPLATFORM_ENV_URL}/user_impersonation` ]
-
-export const prepareWebApiRequest = ( auth:AuthenticationResult ) => {
-    
-    let client = WebApiClient.Instance
-    client.ApiVersion = '9.1'
-    client.Token = auth.accessToken
-    client.ClientUrl = POWERPLATFORM_ENV_URL
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ENUMERATIONS
-////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-/* 
-https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/dependency?view=dynamics-ce-odata-9
-*/
-export enum DependentComponentType	{
+export declare const scopes: string[];
+export declare const prepareWebApiRequest: (auth: AuthenticationResult) => void;
+export declare enum DependentComponentType {
     'Entity' = 1,
     'Attribute' = 2,
     'Relationship' = 3,
@@ -113,25 +91,12 @@ export enum DependentComponentType	{
     'AI Configuration' = 402,
     'Entity Analytics Configuration' = 430,
     'Attribute Image Configuration' = 431,
-    'Entity Image Configuration' = 432,
-    
-    }
-
-export const EntityFiltersEnum = {
-    Entity: 'Entity', // Use this to retrieve only entity information.
-    Attributes: 'Attributes', // Use this to retrieve entity information plus attributes for the entity.
-    Privileges: 'Privileges', // Use this to retrieve entity information plus privileges for the entity.
-    Relationships: 'Relationships', // Use this to retrieve entity information plus entity relationships for the entity.
-    All: 'All', // Use this to retrieve all data for an entity.
+    'Entity Image Configuration' = 432
 }
-
-
-const retrieveDependenciesForDeleteRequest = ( params: { ObjectId:string, ComponentType:DependentComponentType} ) => 
-WebApiClient.Instance.Execute<Xrm.Metadata.EntityMetadata>( WebApiClient.RetrieveDependenciesForDeleteRequest.with( {  urlParams: params } ) )
-
-
-
-
-
-
-
+export declare const EntityFiltersEnum: {
+    Entity: string;
+    Attributes: string;
+    Privileges: string;
+    Relationships: string;
+    All: string;
+};
