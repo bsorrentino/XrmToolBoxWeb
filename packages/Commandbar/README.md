@@ -1,11 +1,7 @@
-# `retrievetotalrecordcount`
+# Command Bar Component Library
 
-> TODO: description
+List the `Appactions` and `Appelements` related to Command Bar component Library allowing to delete it from environment 
 
-## Usage
+### Inspired by 
+> [Can’t Delete That Command Bar Component Library?](https://taerimhan.com/quick-fix-cant-delete-command-library-component/)
 
-```
-const retrievetotalrecordcount = require('retrievetotalrecordcount');
-
-// TODO: DEMONSTRATE API
-```
