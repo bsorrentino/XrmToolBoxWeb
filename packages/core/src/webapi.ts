@@ -2,7 +2,9 @@ import { AuthenticationResult } from "@azure/msal-browser";
 import * as WebApiClient from 'xrmtoolboxweb-webapiclient'
 
 
-const POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com'
+//const POWERPLATFORM_ENV_URL = 'https://bsc-labs.crm.dynamics.com',
+const POWERPLATFORM_ENV_URL =  'https://org8b3e7e60.crm4.dynamics.com'
+
 
 export const scopes = [ `${POWERPLATFORM_ENV_URL}/user_impersonation` ]
 
