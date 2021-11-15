@@ -15,7 +15,6 @@ import {
 
 import * as API from './webapi'
 
-
 initializeIcons()
 
 const deleteIcon: IIconProps = { iconName: 'Delete' };
@@ -39,7 +38,6 @@ export function Appactions() {
                 account: account
             })
             .then( prepareWebApiRequest ) 
-            //.then( () => API.GetAppelements() )
             .then( () => API.GetAppactions() )
             .then( setResult )
             .catch( error => console.error(error))
@@ -100,7 +98,6 @@ export function Appelements() {
                 account: account
             })
             .then( prepareWebApiRequest ) 
-            //.then( () => API.GetAppelements() )
             .then( () => API.GetAppelements() )
             .then( setResult )
             .catch( error => console.error(error))

@@ -15,7 +15,7 @@ export const GetAppelements = () => {
 
     const req:WebApiClient.EntityParameters & WebApiClient.SendParameters = {
         entityName: 'appelement',
-        //queryParams: `$select=formid,name,type&$filter=(objecttypecode eq '${EntityName}' and formactivationstate eq 1)`
+        queryParams: '$select=appelementid,uniquename,name'    
     }
 
     return WebApiClient.Instance.Retrieve<Response>(req) as Promise<Response>
@@ -26,7 +26,8 @@ export const DeleteAppelement = ( id: string ) => {
 
     const req:WebApiClient.EntityParameters & WebApiClient.SendParameters = {
         entityName: 'appelement',
-        entityId: id 
+        entityId: id
+
     }
 
     return WebApiClient.Instance.Delete(req) as Promise<any>
@@ -37,7 +38,7 @@ export const GetAppactions = () => {
 
     const req:WebApiClient.EntityParameters & WebApiClient.SendParameters = {
         entityName: 'appaction',
-        //queryParams: `$select=formid,name,type&$filter=(objecttypecode eq '${EntityName}' and formactivationstate eq 1)`
+        queryParams: '$select=appactionid,uniquename,name,buttontooltiptitle,buttontooltipdescription,hidden'
     }
 
     return WebApiClient.Instance.Retrieve<Response>(req) as Promise<Response>
