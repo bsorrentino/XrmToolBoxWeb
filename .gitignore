@@ -8,4 +8,5 @@ node_modules/
 .parcel-cache/
 dist/
 
-
+# 
+lib/
