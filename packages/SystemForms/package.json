@@ -17,7 +17,7 @@
     "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
   },
   "scripts": {
-    "start:dev": "parcel serve src/SystemForms.html",
+    "start:dev": "parcel serve src/SystemForms.html --no-cache",
     "prebuild": "npm run clean",
     "build": "parcel build src/SystemForms.html",
     "postbuild": "zx ../postbuild.mjs",

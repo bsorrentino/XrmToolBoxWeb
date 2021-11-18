@@ -17,7 +17,7 @@
     "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
   },
   "scripts": {
-    "start:dev": "parcel serve src/Commandbar.html",
+    "start:dev": "parcel serve src/Commandbar.html --no-cache",
     "prebuild": "npm run clean",
     "build": "parcel build src/Commandbar.html",
     "postbuild": "zx ../postbuild.mjs",
