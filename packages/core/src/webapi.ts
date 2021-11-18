@@ -8,7 +8,7 @@ const CurrentEnv =  () => {
         'https://bsc-labs.crm.dynamics.com', 
         'https://org8b3e7e60.crm4.dynamics.com'
     ]
-    return POWERPLATFORM_ENV_URL[1]
+    return POWERPLATFORM_ENV_URL[0]
 }
 
 export const scopes = [ `${CurrentEnv()}/user_impersonation` ]
