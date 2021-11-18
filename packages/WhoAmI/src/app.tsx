@@ -3,9 +3,7 @@ import { Stack, Text } from "@fluentui/react";
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
 
 import { 
-    scopes as webapiScopes, 
-    prepareWebApiRequest,
-    useRenderAfterLogin 
+    useRenderAfterLogin2 
 } from "xrmtoolboxweb-core";
 
 import * as WhoAmI from './webapi'
@@ -14,17 +12,12 @@ initializeIcons();
 
 export function App() {
 
-    const { instance, account, renderAfterLogin } = useRenderAfterLogin();
+    const { instance, account, scopes, renderAfterLogin, acquireTokenSilent } = useRenderAfterLogin2();
     const [result, setResult] = useState<Partial<WhoAmI.Response>>( {} );
 
     useEffect(() => {
-        
         if (account) {
-            instance.acquireTokenSilent({
-                scopes: webapiScopes,
-                account: account
-            })
-            .then( prepareWebApiRequest ) 
+            acquireTokenSilent()
             .then( WhoAmI.Invoke )
             .then( setResult )
             ;
@@ -33,6 +26,8 @@ export function App() {
 
     return renderAfterLogin( () => 
         (<div>
+            <h3>Scope: {scopes[0]}</h3>
+            <hr/>
             <Stack>
                 <Text>UserId: {result.UserId}</Text>
                 <Text>BusinessUnitId: {result.BusinessUnitId}</Text>
