@@ -2,14 +2,7 @@ import React, { useEffect, useState, useCallback } from "react"
 import { DefaultButton } from '@fluentui/react/lib/Button'
 import { Stack } from '@fluentui/react/lib/Stack'
 import { Separator } from '@fluentui/react/lib/Separator'
-
-
-import {  
-    scopes as WebApiScopes, 
-    prepareWebApiRequest,
-    useRenderAfterLogin
-} from 'xrmtoolboxweb-core';
-
+import { useRenderAfterLogin } from 'xrmtoolboxweb-core';
 import { ITextFieldStyles, TextField } from "@fluentui/react/lib/TextField";
 import { IIconProps } from "@fluentui/react/lib/Icon";
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
@@ -29,7 +22,7 @@ const textFieldStyles: Partial<ITextFieldStyles> = {
  */
 export function App() {
 
-    const { instance, account, renderAfterLogin } = useRenderAfterLogin();
+    const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()
     const [result, setResult] = useState<Partial<CalculateRollupField.Response>>();
     const [entityPluralName, setEntityPluralName] = useState( '' )
     const [fieldName, setFieldName] = useState( '' )
@@ -40,11 +33,7 @@ export function App() {
     useEffect(() => {
         
         if (account) {
-            instance.acquireTokenSilent({
-                scopes: WebApiScopes,
-                account: account
-            })
-            .then( prepareWebApiRequest ) 
+            acquireTokenSilent()
             //.then( () => RetrieveTotalRecordCount( ['systemuser']) )
             //.then( setResult )
             //.catch( error => console.error(error))
@@ -66,6 +55,7 @@ export function App() {
 
     return renderAfterLogin( () =>  
     (<div>
+        <h3>Scope: {scopes[0]}</h3><hr/>
         <Stack>
             <TextField placeholder="Please enter the plural entity name" styles={textFieldStyles} onChange={ (e,v) => setEntityPluralName(v!) }  />
             <TextField placeholder="Please enter the field name" styles={textFieldStyles} onChange={ (e,v) => setFieldName(v!) }  />
