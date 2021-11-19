@@ -8,16 +8,10 @@ import { Announced } from '@fluentui/react/lib/Announced'
 import { PrimaryButton } from '@fluentui/react/lib/Button'
 import { Stack } from '@fluentui/react/lib/Stack';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
-import {  
-    scopes as webapiScopes, 
-    prepareWebApiRequest,
-    EntityFiltersEnum,
-    useRenderAfterLogin
-} from 'xrmtoolboxweb-core';
-
 import { Icon } from "@fluentui/react/lib/Icon"
 import { ShimmeredDetailsList } from "@fluentui/react/lib/ShimmeredDetailsList"
 
+import {  useRenderAfterLogin, EntityFiltersEnum } from 'xrmtoolboxweb-core';
 import * as RetrieveAllEntities from './webapi'
 
 initializeIcons();
@@ -227,17 +221,12 @@ function Main() {
  * @returns 
  */
 export function App() {
-
-    const { instance, account, renderAfterLogin } = useRenderAfterLogin();
+    const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()
 
     useEffect(() => {
         
         if (account) {
-            instance.acquireTokenSilent({
-                scopes: webapiScopes,
-                account: account
-            })
-            .then( prepareWebApiRequest ) 
+            acquireTokenSilent() 
             //.then( () => RetrieveAllEntities( { EntityFilters:{} }) )
             //.then( setResult )
             .catch( error => console.error(error))
@@ -245,5 +234,10 @@ export function App() {
         }
     }, [account?.localAccountId, instance]);
 
-    return renderAfterLogin( () => ( <div><Main/></div> ))
+    return renderAfterLogin( () => ( 
+        <div>
+            <h3>Scope: {scopes[0]}</h3><hr/>
+            <Main/>
+        </div> 
+        ))
 }

@@ -1,25 +1,4 @@
-import { AuthenticationResult } from "@azure/msal-browser";
 import * as WebApiClient from 'xrmtoolboxweb-webapiclient'
-
-
-
-const CurrentEnv =  () => {
-    const POWERPLATFORM_ENV_URL = [
-        'https://bsc-labs.crm.dynamics.com', 
-        'https://org8b3e7e60.crm4.dynamics.com'
-    ]
-    return POWERPLATFORM_ENV_URL[0]
-}
-
-export const scopes = [ `${CurrentEnv()}/user_impersonation` ]
-
-export const prepareWebApiRequest = ( auth:AuthenticationResult ) => {
-    
-    let client = WebApiClient.Instance
-    client.ApiVersion = '9.1'
-    client.Token = auth.accessToken
-    client.ClientUrl = CurrentEnv()
-}
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ENUMERATIONS

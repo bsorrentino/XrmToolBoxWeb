@@ -7,11 +7,7 @@ import { PrimaryButton } from '@fluentui/react/lib/Button'
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import { IIconProps } from "@fluentui/react/lib/Icon";
 
-import {  
-    scopes as WebApiScopes, 
-    prepareWebApiRequest,
-    useRenderAfterLogin
-} from 'xrmtoolboxweb-core';
+import { useRenderAfterLogin } from 'xrmtoolboxweb-core';
 
 import * as API from './webapi'
 
@@ -25,7 +21,7 @@ const deleteIcon: IIconProps = { iconName: 'Delete' };
  */
 export function Appactions() {
 
-    const { instance, account, renderAfterLogin } = useRenderAfterLogin();
+    const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()
     const [result, setResult] = useState<Partial<API.Response>>();
     const [entityId, setEntityId ] = useState<string>('')
     const [isDialogOpen, setDialogOpen ] = useState(false)
@@ -33,11 +29,7 @@ export function Appactions() {
     useEffect(() => {
         
         if (account) {
-            instance.acquireTokenSilent({
-                scopes: WebApiScopes,
-                account: account
-            })
-            .then( prepareWebApiRequest ) 
+            acquireTokenSilent()
             .then( () => API.GetAppactions() )
             .then( setResult )
             .catch( error => console.error(error))
@@ -55,6 +47,7 @@ export function Appactions() {
 
     return renderAfterLogin( () =>  
     (<div>
+        <h3>Scope: {scopes[0]}</h3><hr/>
         <Stack>
             <Stack horizontal tokens={{ childrenGap: 20 }}>
                 <TextField placeholder="Please enter the entity Id" onChange={ (e,v) => setEntityId(v!) } style = {{ width:300 }} />
@@ -85,7 +78,7 @@ export function Appactions() {
 
 export function Appelements() {
 
-    const { instance, account, renderAfterLogin } = useRenderAfterLogin();
+    const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()
     const [result, setResult] = useState<Partial<API.Response>>();
     const [entityId, setEntityId ] = useState<string>('')
     const [isDialogOpen, setDialogOpen ] = useState(false)
@@ -93,11 +86,7 @@ export function Appelements() {
     useEffect(() => {
         
         if (account) {
-            instance.acquireTokenSilent({
-                scopes: WebApiScopes,
-                account: account
-            })
-            .then( prepareWebApiRequest ) 
+            acquireTokenSilent()
             .then( () => API.GetAppelements() )
             .then( setResult )
             .catch( error => console.error(error))
@@ -115,6 +104,7 @@ export function Appelements() {
 
     return renderAfterLogin( () =>  
     (<div>
+        <h3>Scope: {scopes[0]}</h3><hr/>
         <Stack>
             <Stack horizontal tokens={{ childrenGap: 20 }}>
                 <TextField placeholder="Please enter the entity Id" onChange={ (e,v) => setEntityId(v!) } style = {{ width:300 }} />

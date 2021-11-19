@@ -17,7 +17,7 @@
     "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
   },
   "scripts": {
-    "start:dev": "parcel serve src/RetrieveTotalRecordCount.html",
+    "start:dev": "parcel serve src/RetrieveTotalRecordCount.html --no-cache",
     "prebuild": "npm run clean",
     "build": "parcel build src/RetrieveTotalRecordCount.html",
     "postbuild": "zx ../postbuild.mjs",

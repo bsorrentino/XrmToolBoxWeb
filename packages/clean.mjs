@@ -5,4 +5,6 @@
 
 const { fs } = require("zx");
 
-await fs.remove( 'lib')
+await fs.remove( 'lib' )
+await fs.remove( 'dist' )
+await fs.remove( '.parcel-cache' )

@@ -25,10 +25,6 @@ const configuration : Configuration = {
 export const PCA = new PublicClientApplication(configuration);
 
 type RenderAfterLogin = IMsalContext & { 
-    renderAfterLogin:( render:() => JSX.Element) => JSX.Element,
-    account: AccountInfo|null
-} 
-type RenderAfterLogin2 = IMsalContext & { 
     renderAfterLogin:( render:() => JSX.Element) => JSX.Element
     acquireTokenSilent: () => Promise<void>
     scopes:Array<string>
@@ -36,34 +32,6 @@ type RenderAfterLogin2 = IMsalContext & {
 } 
 
 export const useRenderAfterLogin = ():RenderAfterLogin =>  {
-
-    const msalContext = useMsal()
-    const account = useAccount(msalContext.accounts[0] ?? {});
-
-    return { 
-        renderAfterLogin : ( render:() => JSX.Element) =>  { 
-
-            if (msalContext.accounts.length > 0) {   
-                return render()    
-            } 
-            else if (msalContext.inProgress === 'login') {
-                return <span>Login is currently in progress!</span>
-            } else {
-                return (
-                    <Stack horizontal>
-                        <Text>There are currently no users signed in!</Text>
-                        <PrimaryButton text="Login" onClick={() => msalContext.instance.loginPopup()} />
-                    </Stack>
-                )
-            }    
-        },
-        account:account, 
-        ...msalContext
-    }
-
-}
-
-export const useRenderAfterLogin2 = ():RenderAfterLogin2 =>  {
 
     const msalContext = useMsal()
     const account = useAccount(msalContext.accounts[0] ?? {});
@@ -102,12 +70,12 @@ export const useRenderAfterLogin2 = ():RenderAfterLogin2 =>  {
             }
             else {
                 return ( 
-                    <Stack horizontal>
+                    <Stack horizontal verticalAlign="end" tokens={{ childrenGap: 10 }}>
                     <TextField  label="Environment Url" 
                                 placeholder="Please enter the environment url" 
                                 onChange={ (_,v) => setInputEnvUrl(v!) } 
-                                style = {{ width:300 }} />
-                    <PrimaryButton text="Set" onClick={() => storeEnvUrl(inputEnvUrl)} />
+                                style = {{ width:350 }} />
+                    <PrimaryButton text="Apply" onClick={() => storeEnvUrl(inputEnvUrl)} />
                     </Stack>
                 )
             }
@@ -129,3 +97,37 @@ export const useRenderAfterLogin2 = ():RenderAfterLogin2 =>  {
     }
 
 }
+
+
+// type RenderAfterLogin = IMsalContext & { 
+//     renderAfterLogin:( render:() => JSX.Element) => JSX.Element,
+//     account: AccountInfo|null
+// } 
+
+// export const useRenderAfterLogin = ():RenderAfterLogin =>  {
+
+//     const msalContext = useMsal()
+//     const account = useAccount(msalContext.accounts[0] ?? {});
+
+//     return { 
+//         renderAfterLogin : ( render:() => JSX.Element) =>  { 
+
+//             if (msalContext.accounts.length > 0) {   
+//                 return render()    
+//             } 
+//             else if (msalContext.inProgress === 'login') {
+//                 return <span>Login is currently in progress!</span>
+//             } else {
+//                 return (
+//                     <Stack horizontal>
+//                         <Text>There are currently no users signed in!</Text>
+//                         <PrimaryButton text="Login" onClick={() => msalContext.instance.loginPopup()} />
+//                     </Stack>
+//                 )
+//             }    
+//         },
+//         account:account, 
+//         ...msalContext
+//     }
+
+// }

@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react"
-
-import {  
-    scopes as webapiScopes, 
-    prepareWebApiRequest,
-    useRenderAfterLogin
-} from 'xrmtoolboxweb-core';
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import { Stack } from "@fluentui/react/lib/Stack";
 import { Text } from "@fluentui/react/lib/Text";
 import { List } from "@fluentui/react/lib/List";
 import { DetailsList, DetailsListLayoutMode, IColumn, SelectionMode } from "@fluentui/react/lib/DetailsList";
 
+import {  useRenderAfterLogin } from 'xrmtoolboxweb-core';
 import * as GlobalOptionSetDefinitions from './webapi'
 
 initializeIcons()
@@ -38,18 +33,13 @@ const sortCriteria = (a:GlobalOptionSetDefinitions.Metadata, b:GlobalOptionSetDe
  */
 export function App() {
 
-    const { instance, account, renderAfterLogin } = useRenderAfterLogin()
-
+    const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()
     const [result, setResult] = useState<Partial<GlobalOptionSetDefinitions.Response>>(EMPTY_RESULT);
 
     useEffect(() => {
         
         if (account) {
-            instance.acquireTokenSilent({
-                scopes: webapiScopes,
-                account: account
-            })
-            .then( prepareWebApiRequest ) 
+            acquireTokenSilent() 
             .then( () => GlobalOptionSetDefinitions.Invoke() )
             .then( (values) => 
                 setResult( { ...values, value:values.value.sort(sortCriteria)})
@@ -88,6 +78,7 @@ export function App() {
 
     return renderAfterLogin( () => ( 
         <div>
+            <h3>Scope: {scopes[0]}</h3><hr/>
             <List items={result.value!} onRenderCell={_onRenderCell} />            
         </div>
     ))

@@ -16,7 +16,7 @@ export const Invoke = (EntityName: string) => {
 
     const req:WebApiClient.EntityParameters & WebApiClient.SendParameters = {
         entityName: 'systemform',
-        queryParams: `$select=formid,name,type&$filter=(objecttypecode eq '${EntityName}' and formactivationstate eq 1)`
+        queryParams: `$select=formid,name,type&$filter=(objecttypecode eq '${EntityName}' and formactivationstate eq 1)&$orderby=type`
     }
 
     return WebApiClient.Instance.Retrieve<Response>(req) as Promise<Response>
