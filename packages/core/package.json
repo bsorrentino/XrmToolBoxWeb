@@ -1,6 +1,6 @@
 {
   "name": "xrmtoolboxweb-core",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "keywords": [
     "xrm",
@@ -36,6 +36,6 @@
     "@types/xrm": "^9.0.39"
   },
   "dependencies": {
-    "xrmtoolboxweb-webapiclient": "^1.1.0"
+    "xrmtoolboxweb-webapiclient": "^1.2.0"
   }
 }
