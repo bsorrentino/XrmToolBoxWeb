@@ -1,6 +1,6 @@
 {
   "name": "xrmtoolboxweb-calculaterollupfield",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "keywords": [],
   "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
@@ -33,8 +33,8 @@
     "@types/xrm": "^9.0.39"
   },
   "dependencies": {
-    "xrmtoolboxweb-core": "^1.1.0",
-    "xrmtoolboxweb-webapiclient": "^1.1.0"
+    "xrmtoolboxweb-core": "^1.2.0",
+    "xrmtoolboxweb-webapiclient": "^1.2.0"
   },
   "targets": {
     "default": {
