@@ -1,0 +1,39 @@
+{
+  "name": "xrmtoolboxweb-webapiclient",
+  "version": "1.2.0",
+  "description": "Dynamics CRM WebApi Client",
+  "license": "MIT",
+  "main": "./lib/WebApiClient.js",
+  "types": "./lib/WebApiClient.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DigitalFlow/Xrm-WebApi-Client"
+  },
+  "author": {
+    "name": "Florian Krönert",
+    "url": "https://github.com/DigitalFlow"
+  },
+  "devDependencies": {
+    "@types/xrm": "^9.0.47",
+    "typescript": "^4.4.3"
+  },
+  "files": [
+    "src",
+    "Publish"
+  ],
+  "keywords": [
+    "dynamics-crm-webapi",
+    "webapi",
+    "webapiclient",
+    "dynamics-crm",
+    "dynamics-365",
+    "crm",
+    "xrm"
+  ],
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "build:parcel": "parcel build src/WebApiClient.ts --dist-dir lib --no-source-maps",
+    "clean": "zx ../clean.mjs"
+  }
+}

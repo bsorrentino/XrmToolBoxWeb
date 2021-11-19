@@ -1,0 +1,4 @@
+node_modules/*
+Publish/*
+*.log
+coverage/*

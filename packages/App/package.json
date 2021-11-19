@@ -1,0 +1,46 @@
+{
+  "name": "xrmtoolboxweb-app",
+  "version": "1.2.0",
+  "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
+  "keywords": [],
+  "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
+  "license": "ISC",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
+  },
+  "scripts": {
+    "build": "parcel build src/index.html",
+    "start:dev": "parcel serve src/index.html --no-cache",
+    "start": "http-server -p 1234 -c-1 ./lib",
+    "clean": "zx ../clean.mjs",
+    "test": "jest --config ../../jest.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/bsorrentino/XrmToolBoxWeb/issues"
+  },
+  "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
+  "dependencies": {
+    "xrmtoolboxweb-core": "^1.2.0",
+    "xrmtoolboxweb-webapiclient": "^1.2.0"
+  },
+  "devDependencies": {
+    "@types/xrm": "^9.0.39"
+  },
+  "targets": {
+    "default": {
+      "distDir": "./lib",
+      "publicUrl": "./",
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
+    }
+  }
+}

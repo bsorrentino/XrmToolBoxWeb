@@ -1,0 +1,29 @@
+{
+  "name": "xrmtoolboxweb-webapiclient",
+  "version": "1.1.0",
+  "description": "",
+  "keywords": [],
+  "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
+  "license": "ISC",
+  "types": "lib/WebApiClient.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
+  },
+  "scripts": {},
+  "bugs": {
+    "url": "https://github.com/bsorrentino/XrmToolBoxWeb/issues"
+  },
+  "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
+  "devDependencies": {
+    "@types/xrm": "^9.0.39"
+  },
+  "dependencies": {
+  }
+}

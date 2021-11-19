@@ -1,0 +1,15 @@
+{
+  "packages": [
+    "packages/Core",
+    "packages/XrmWebApiClient",
+    "packages/WhoAmI",
+    "packages/RetrieveAllEntities",
+    "packages/RetrieveTotalRecordCount",
+    "packages/GlobalOptionsSetDefinitions",
+    "packages/SystemForms",
+    "packages/CalculateRollupField",
+    "packages/Commandbar",
+    "packages/App"
+  ],
+  "version": "1.2.0"
+}

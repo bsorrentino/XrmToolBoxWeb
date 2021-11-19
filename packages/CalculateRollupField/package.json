@@ -1,0 +1,48 @@
+{
+  "name": "xrmtoolboxweb-calculaterollupfield",
+  "version": "1.2.0",
+  "description": "",
+  "keywords": [],
+  "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
+  "license": "ISC",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
+  },
+  "scripts": {
+    "start:dev": "parcel serve src/CalculateRollupField.html",
+    "prebuild": "npm run clean",
+    "build": "parcel build src/CalculateRollupField.html",
+    "postbuild": "zx ../postbuild.mjs",
+    "clean": "zx ../clean.mjs",
+    "test": "jest --config ../../jest.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/bsorrentino/XrmToolBoxWeb/issues"
+  },
+  "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
+  "devDependencies": {
+    "@types/react": "^17.0.27",
+    "@types/xrm": "^9.0.39"
+  },
+  "dependencies": {
+    "xrmtoolboxweb-core": "^1.2.0",
+    "xrmtoolboxweb-webapiclient": "^1.2.0"
+  },
+  "targets": {
+    "default": {
+      "distDir": "./lib",
+      "publicUrl": "./",
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
+    }
+  }
+}

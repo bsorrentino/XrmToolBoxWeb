@@ -173,7 +173,7 @@ declare module WebApiClient {
 
     function Disassociate(parameters: AssociationParameters): Promise<string> | string | BatchRequest;
 
-    function Execute(request: object): Promise<any> | any | BatchRequest;
+    function Execute<T>(request: Requests.Request): Promise<T> | T | BatchRequest;
 
     function SendBatch(batch: Batch): Promise<BatchResponse> | BatchResponse;
 
@@ -202,8 +202,10 @@ declare module WebApiClient {
             headers?: Array<Header>;
             urlParams?: object;
             async?: boolean;
-
-            static with(param: RequestParameters): this; 
+            
+            buildUrl():string
+            
+            static with(param: RequestParameters): Request; 
         }
 
         class CalculateRollupFieldRequest extends Request { }
@@ -295,7 +297,7 @@ declare module WebApiClient {
         class SearchByKeywordsKbArticleRequest extends Request { }
         class SearchByTitleKbArticleRequest extends Request { }
         class ValidateRecurrenceRuleRequest extends Request { }
-        class WhoAmIRequest extends Request { }
+        let WhoAmIRequest:Request 
         class AddItemCampaignRequest extends Request { }
         class AddItemCampaignActivityRequest extends Request { }
         class AddListMembersListRequest extends Request { }
