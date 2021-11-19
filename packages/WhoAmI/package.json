@@ -1,6 +1,6 @@
 {
   "name": "xrmtoolboxweb-whoami",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "",
   "keywords": [],
   "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
@@ -29,8 +29,8 @@
   },
   "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
   "dependencies": {
-    "xrmtoolboxweb-core": "^1.1.0",
-    "xrmtoolboxweb-webapiclient": "^1.1.0"
+    "xrmtoolboxweb-core": "^1.2.0",
+    "xrmtoolboxweb-webapiclient": "^1.2.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.27",
