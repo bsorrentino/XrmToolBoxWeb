@@ -11,7 +11,7 @@ import { initializeIcons } from '@fluentui/font-icons-mdl2';
 import { Icon } from "@fluentui/react/lib/Icon"
 import { ShimmeredDetailsList } from "@fluentui/react/lib/ShimmeredDetailsList"
 
-import {  useRenderAfterLogin, EntityFiltersEnum } from 'xrmtoolboxweb-core';
+import {  useRenderAfterLogin, EntityFiltersEnum } from '@bsorrentino/xrmtoolboxweb-core'
 import * as RetrieveAllEntities from './webapi'
 
 initializeIcons();

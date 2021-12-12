@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import { MsalProvider } from "@azure/msal-react";
 
-import { PCA } from "xrmtoolboxweb-core";
+import { PCA } from '@bsorrentino/xrmtoolboxweb-core'
 import {Appactions, Appelements} from "./app";
 
 // Component

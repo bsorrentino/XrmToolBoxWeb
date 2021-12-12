@@ -7,7 +7,7 @@ import { TextField } from "@fluentui/react/lib/TextField";
 import { IIconProps } from "@fluentui/react/lib/Icon";
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 
-import {  useRenderAfterLogin } from 'xrmtoolboxweb-core';
+import {  useRenderAfterLogin } from '@bsorrentino/xrmtoolboxweb-core'
 import * as SystemForms from './webapi'
 
 initializeIcons()

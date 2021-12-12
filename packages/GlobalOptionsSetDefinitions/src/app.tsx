@@ -5,7 +5,7 @@ import { Text } from "@fluentui/react/lib/Text";
 import { List } from "@fluentui/react/lib/List";
 import { DetailsList, DetailsListLayoutMode, IColumn, SelectionMode } from "@fluentui/react/lib/DetailsList";
 
-import {  useRenderAfterLogin } from 'xrmtoolboxweb-core';
+import {  useRenderAfterLogin } from '@bsorrentino/xrmtoolboxweb-core'
 import * as GlobalOptionSetDefinitions from './webapi'
 
 initializeIcons()

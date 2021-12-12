@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react"
 import { DefaultButton } from '@fluentui/react/lib/Button'
 import { Stack } from '@fluentui/react/lib/Stack'
 import { Separator } from '@fluentui/react/lib/Separator'
-import { useRenderAfterLogin } from 'xrmtoolboxweb-core';
+import { useRenderAfterLogin } from '@bsorrentino/xrmtoolboxweb-core'
 import { ITextFieldStyles, TextField } from "@fluentui/react/lib/TextField";
 import { IIconProps } from "@fluentui/react/lib/Icon";
 import { initializeIcons } from "@fluentui/font-icons-mdl2";

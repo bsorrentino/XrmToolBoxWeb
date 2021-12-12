@@ -7,7 +7,7 @@ import { PrimaryButton } from '@fluentui/react/lib/Button'
 import { initializeIcons } from "@fluentui/font-icons-mdl2";
 import { IIconProps } from "@fluentui/react/lib/Icon";
 
-import { useRenderAfterLogin } from 'xrmtoolboxweb-core';
+import { useRenderAfterLogin } from '@bsorrentino/xrmtoolboxweb-core'
 
 import * as API from './webapi'
 

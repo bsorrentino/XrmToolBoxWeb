@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react"
 import { Stack, Text } from "@fluentui/react";
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
 
-import {  useRenderAfterLogin } from "xrmtoolboxweb-core";
+import {  useRenderAfterLogin } from '@bsorrentino/xrmtoolboxweb-core'
 
 import * as WhoAmI from './webapi'
 
