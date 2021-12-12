@@ -7,8 +7,20 @@
     "webapi",
     "dataverse"
   ],
-  "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bsorrentino/XrmToolBoxWeb.git"
+  },
+  "author": {
+    "name": "Bartolomeo Sorrentino",
+    "email": "bartolomeo.sorrentino@gmail.com",
+    "url": "https://bsorrentino.github.io/bsorrentino/"
+  },
+  "bugs": {
+    "url": "https://github.com/bsorrentino/XrmToolBoxWeb/issues"
+  },
+  "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
+  "license": "MiT",
   "main": "lib/index.js",
   "types": "./lib/index.d.ts",
   "directories": {
@@ -18,10 +30,6 @@
   "files": [
     "lib"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
-  },
   "scripts": {
     "prepare": "tsc",
     "build": "tsc",
@@ -29,10 +37,6 @@
     "clean": "rm -rf lib",
     "test": "jest --config ../../jest.config.js"
   },
-  "bugs": {
-    "url": "https://github.com/bsorrentino/XrmToolBoxWeb/issues"
-  },
-  "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
   "dependencies": {
     "@azure/msal-browser": "2.14.2",
     "@azure/msal-react": "1.0.0",
