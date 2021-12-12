@@ -28,8 +28,7 @@
   "main": "./lib/WebApiClient.js",
   "types": "./lib/WebApiClient.d.ts",
   "files": [
-    "src",
-    "Publish"
+    "lib"
   ],
   "scripts": {
     "prepare": "tsc",

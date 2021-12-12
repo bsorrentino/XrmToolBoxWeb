@@ -1,7 +1,7 @@
 {
   "name": "@bsorrentino/xrmtoolboxweb-core",
   "version": "1.2.0",
-  "description": "",
+  "description": "Core utilities (Auth,Storage,enum) for work with XRM WebApi Client",
   "keywords": [
     "xrm",
     "webapi",
