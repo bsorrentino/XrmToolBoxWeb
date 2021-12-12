@@ -11,5 +11,11 @@
     "packages/Commandbar",
     "packages/App"
   ],
+  "command": {
+    "bootstrap": {
+      "hoist": true,
+      "strict": true
+    }
+  },
   "version": "1.2.0"
 }

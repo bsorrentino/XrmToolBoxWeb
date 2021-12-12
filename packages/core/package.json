@@ -23,6 +23,7 @@
     "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
   },
   "scripts": {
+    "prepare": "tsc",
     "build": "tsc",
     "build:parcel": "parcel build src/index.ts --dist-dir lib",
     "clean": "rm -rf lib",
@@ -32,10 +33,10 @@
     "url": "https://github.com/bsorrentino/XrmToolBoxWeb/issues"
   },
   "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
-  "devDependencies": {
-    "@types/xrm": "^9.0.39"
-  },
   "dependencies": {
+    "@azure/msal-browser": "2.14.2",
+    "@azure/msal-react": "1.0.0",
+    "react-dom": "^17.0.2",
     "xrmtoolboxweb-webapiclient": "^1.2.0"
   }
 }

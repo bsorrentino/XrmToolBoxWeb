@@ -29,12 +29,9 @@
   },
   "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
   "dependencies": {
+    "@fluentui/react": "8.36.4",
     "xrmtoolboxweb-core": "^1.2.0",
     "xrmtoolboxweb-webapiclient": "^1.2.0"
-  },
-  "devDependencies": {
-    "@types/react": "^17.0.27",
-    "@types/xrm": "^9.0.39"
   },
   "targets": {
     "default": {

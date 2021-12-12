@@ -13,10 +13,6 @@
     "name": "Florian Krönert",
     "url": "https://github.com/DigitalFlow"
   },
-  "devDependencies": {
-    "@types/xrm": "^9.0.47",
-    "typescript": "^4.4.3"
-  },
   "files": [
     "src",
     "Publish"
@@ -31,9 +27,12 @@
     "xrm"
   ],
   "scripts": {
+    "prepare": "tsc",
     "prebuild": "npm run clean",
     "build": "tsc",
     "build:parcel": "parcel build src/WebApiClient.ts --dist-dir lib --no-source-maps",
     "clean": "zx ../clean.mjs"
+  },
+  "dependencies": {
   }
 }
