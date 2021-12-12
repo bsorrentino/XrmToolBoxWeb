@@ -12,7 +12,7 @@ import { useSessionStorage } from "./storage";
 // import { TextField } from "@fluentui/react/lib/TextField";
 // ===============================================================
 
-import * as WebApiClient from 'xrmtoolboxweb-webapiclient'
+import * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'
 
 // MSAL configuration
 const configuration : Configuration = {

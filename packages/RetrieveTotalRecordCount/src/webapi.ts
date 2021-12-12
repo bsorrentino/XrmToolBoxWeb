@@ -1,4 +1,4 @@
-import * as WebApiClient from 'xrmtoolboxweb-webapiclient'
+import * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'
 
 // class Request extends WebApiClient.Request {
 //     method = 'GET'

@@ -1,4 +1,4 @@
-import * as WebApiClient from 'xrmtoolboxweb-webapiclient'
+import * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'
 
 // https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/systemform?view=dynamics-ce-odata-9
 export interface Response {

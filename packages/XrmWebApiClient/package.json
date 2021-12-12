@@ -1,22 +1,7 @@
 {
-  "name": "xrmtoolboxweb-webapiclient",
+  "name": "@bsorrentino/xrmtoolboxweb-webapiclient",
   "version": "1.2.0",
   "description": "Dynamics CRM WebApi Client",
-  "license": "MIT",
-  "main": "./lib/WebApiClient.js",
-  "types": "./lib/WebApiClient.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/DigitalFlow/Xrm-WebApi-Client"
-  },
-  "author": {
-    "name": "Florian Krönert",
-    "url": "https://github.com/DigitalFlow"
-  },
-  "files": [
-    "src",
-    "Publish"
-  ],
   "keywords": [
     "dynamics-crm-webapi",
     "webapi",
@@ -25,6 +10,26 @@
     "dynamics-365",
     "crm",
     "xrm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bsorrentino/XrmToolBoxWeb.git"
+  },
+  "author": {
+    "name": "Bartolomeo Sorrentino",
+    "email": "bartolomeo.sorrentino@gmail.com",
+    "url": "https://bsorrentino.github.io/bsorrentino/"
+  },
+  "bugs": {
+    "url": "https://github.com/bsorrentino/XrmToolBoxWeb/issues"
+  },
+  "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
+  "license": "MIT",
+  "main": "./lib/WebApiClient.js",
+  "types": "./lib/WebApiClient.d.ts",
+  "files": [
+    "src",
+    "Publish"
   ],
   "scripts": {
     "prepare": "tsc",

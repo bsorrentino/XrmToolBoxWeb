@@ -1,4 +1,4 @@
-import * as WebApi from 'xrmtoolboxweb-webapiclient'
+import * as WebApi from '@bsorrentino/xrmtoolboxweb-webapiclient'
 
 export interface Response extends Record<string,any> {
     "@odata.context": string

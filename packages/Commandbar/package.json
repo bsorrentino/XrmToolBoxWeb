@@ -31,7 +31,7 @@
   "dependencies": {
     "@fluentui/react": "8.36.4",
     "xrmtoolboxweb-core": "^1.2.0",
-    "xrmtoolboxweb-webapiclient": "^1.2.0"
+    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.0"
   },
   "targets": {
     "default": {
