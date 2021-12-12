@@ -1,4 +1,3 @@
-import * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ENUMERATIONS
@@ -110,8 +109,8 @@ export const EntityFiltersEnum = {
 }
 
 
-const retrieveDependenciesForDeleteRequest = ( params: { ObjectId:string, ComponentType:DependentComponentType} ) => 
-WebApiClient.Instance.Execute<Xrm.Metadata.EntityMetadata>( WebApiClient.RetrieveDependenciesForDeleteRequest.with( {  urlParams: params } ) )
+// const retrieveDependenciesForDeleteRequest = ( params: { ObjectId:string, ComponentType:DependentComponentType} ) => 
+// WebApiClient.Instance.Execute<Xrm.Metadata.EntityMetadata>( WebApiClient.RetrieveDependenciesForDeleteRequest.with( {  urlParams: params } ) )
 
 
 
