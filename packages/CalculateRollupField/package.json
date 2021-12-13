@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "xrmtoolboxweb-calculaterollupfield",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "",
   "keywords": [],
   "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
@@ -30,8 +30,8 @@
   },
   "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
   "dependencies": {
-    "@bsorrentino/xrmtoolboxweb-core": "^1.2.3",
-    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.3",
+    "@bsorrentino/xrmtoolboxweb-core": "^1.2.4",
+    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.4",
     "@fluentui/react": "8.36.4"
   },
   "targets": {
