@@ -25,7 +25,7 @@
   },
   "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
   "license": "MIT",
-  "main": "./lib/WebApiClient.js",
+  "main": "./index.js",
   "types": "./lib/WebApiClient.d.ts",
   "files": [
     "lib"
