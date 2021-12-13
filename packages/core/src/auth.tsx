@@ -23,9 +23,9 @@ const configuration : Configuration = {
         //knownAuthorities: [],
         //navigateToLoginRequestUrl: true
     },
-    // cache: {
-    //     cacheLocation: 'localStorage'
-    // }
+    cache: {
+        cacheLocation: 'sessionStorage'
+    }
 };
 
 export const PCA = new PublicClientApplication(configuration);
