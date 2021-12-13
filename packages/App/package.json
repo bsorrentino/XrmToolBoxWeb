@@ -1,6 +1,6 @@
 {
   "name": "xrmtoolboxweb-app",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Now I’m the model of a modern major general / The venerated Virginian veteran whose men are all / Lining up, to put me up on a pedestal / Writin’ letters to relatives / Embellishin’ my elegance and eloquence / But the elephant is in the room / The truth is in ya face when ya hear the British cannons go / BOOM",
   "keywords": [],
   "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
@@ -28,9 +28,9 @@
   },
   "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
   "dependencies": {
-    "@fluentui/react": "8.36.4",
-    "@bsorrentino/xrmtoolboxweb-core": "^1.2.0",
-    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.0"
+    "@bsorrentino/xrmtoolboxweb-core": "^1.2.1",
+    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.1",
+    "@fluentui/react": "8.36.4"
   },
   "targets": {
     "default": {

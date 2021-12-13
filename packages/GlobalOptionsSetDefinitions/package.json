@@ -1,6 +1,6 @@
 {
   "name": "xrmtoolboxweb-globaloptionssetdefinitions",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "",
   "keywords": [],
   "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
@@ -29,9 +29,9 @@
   },
   "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
   "dependencies": {
-    "@fluentui/react": "8.36.4",
-    "@bsorrentino/xrmtoolboxweb-core": "^1.2.0",
-    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.0"
+    "@bsorrentino/xrmtoolboxweb-core": "^1.2.1",
+    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.1",
+    "@fluentui/react": "8.36.4"
   },
   "targets": {
     "default": {
