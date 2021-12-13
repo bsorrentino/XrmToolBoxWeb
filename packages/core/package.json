@@ -21,14 +21,13 @@
   },
   "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
   "license": "MiT",
-  "main": "./index.js",
+  "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "index.js",
     "lib"
   ],
   "scripts": {
