@@ -36,5 +36,6 @@
     "build": "tsc",
     "build:parcel": "parcel build src/WebApiClient.ts --dist-dir lib --no-source-maps",
     "clean": "zx ../clean.mjs"
-  }
+  },
+  "gitHead": "8b27bb8def2d583e9957ba9c55e2602f0a1748dd"
 }
