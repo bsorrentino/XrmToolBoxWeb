@@ -1,6 +1,6 @@
 {
   "name": "@bsorrentino/xrmtoolboxweb-webapiclient",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "Dynamics CRM WebApi Client",
   "keywords": [
     "dynamics-crm-webapi",
@@ -28,6 +28,7 @@
   "main": "./index.js",
   "types": "./lib/WebApiClient.d.ts",
   "files": [
+    "index.js",
     "lib"
   ],
   "scripts": {

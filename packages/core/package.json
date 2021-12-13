@@ -1,6 +1,6 @@
 {
   "name": "@bsorrentino/xrmtoolboxweb-core",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "Core utilities (Auth,Storage,enum) for work with XRM WebApi Client",
   "keywords": [
     "xrm",
@@ -28,6 +28,7 @@
     "test": "__tests__"
   },
   "files": [
+    "index.js",
     "lib"
   ],
   "scripts": {
@@ -40,7 +41,7 @@
   "dependencies": {
     "@azure/msal-browser": "2.14.2",
     "@azure/msal-react": "1.0.0",
-    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.1",
+    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.3",
     "react-dom": "^17.0.2"
   }
 }
