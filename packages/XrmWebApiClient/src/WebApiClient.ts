@@ -1,4 +1,6 @@
     // Get WebApiClient core
+    export * from './WebApiClient.Base'
+
     export * from './WebApiClient.Core'
     export * from './WebApiClient.ChangeSet'
 

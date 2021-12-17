@@ -1,0 +1,45 @@
+{
+  "private": true,
+  "name": "batch-test",
+  "version": "1.2.4",
+  "description": "",
+  "keywords": [],
+  "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
+  "license": "MIT",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
+  },
+  "scripts": {
+    "start:dev": "parcel serve src/batch.html --no-cache",
+    "prebuild": "npm run clean",
+    "build": "parcel build src/batch.html",
+    "clean": "zx ../clean.mjs",
+    "test": "jest --config ../../jest.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/bsorrentino/XrmToolBoxWeb/issues"
+  },
+  "homepage": "https://github.com/bsorrentino/XrmToolBoxWeb#readme",
+  "dependencies": {
+    "@bsorrentino/xrmtoolboxweb-core": "^1.2.4",
+    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.4",
+    "@fluentui/react": "8.36.4"
+  },
+  "targets": {
+    "default": {
+      "distDir": "./lib",
+      "publicUrl": "./",
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
+    }
+  }
+}

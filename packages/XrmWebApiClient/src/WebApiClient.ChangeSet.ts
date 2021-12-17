@@ -1,4 +1,5 @@
-import { ChangeSetParameters, IBatchRequest, IChangeSet } from "./WebApiClient.Base";
+import { ChangeSetParameters, IChangeSet } from "./WebApiClient.Base";
+import { BatchRequest } from "./WebApiClient.BatchRequest";
 
 let instanceCount = 1;
 
@@ -24,7 +25,7 @@ export class ChangeSet implements IChangeSet {
      * @property {Array<Request>} requests - Requests included in the change set. Only non GET requests are allowed.
      * @this {ChangeSet}
      */
-    requests: Array<IBatchRequest>;
+    requests: Array<BatchRequest>;
 
     constructor(params: ChangeSetParameters) {
 
