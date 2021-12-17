@@ -83,7 +83,7 @@ export class BatchRequest implements IBatchRequest {
             payload += JSON.stringify({});
         }
 
-        return payload;
+        return payload + '\n';
     };
 
 };
