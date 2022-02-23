@@ -3,7 +3,7 @@
 // @ref https://www.npmjs.com/package/zx
 //
 
-const { fs } = require("zx");
+import 'zx/globals'
 
 await fs.remove( 'lib' )
 await fs.remove( 'dist' )

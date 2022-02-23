@@ -3,7 +3,7 @@
 // @ref https://www.npmjs.com/package/zx
 //
 
-const { fs, path } = require("zx");
+import 'zx/globals'
 
 const destDir = path.join( '..', 'App', 'lib')
 await fs.ensureDir( destDir) 

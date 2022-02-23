@@ -21,8 +21,8 @@
     "start:dev": "parcel serve src/WhoAmI.html --no-cache",
     "prebuild": "npm run clean",
     "build": "parcel build src/WhoAmI.html",
-    "postbuild": "zx ../postbuild.mjs",
-    "clean": "zx ../clean.mjs",
+    "postbuild": "zx ../zx-postbuild.mjs",
+    "clean": "zx ../zx-clean.mjs",
     "test": "jest --config ../../jest.config.js"
   },
   "bugs": {

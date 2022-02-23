@@ -21,7 +21,7 @@
     "build": "parcel build src/index.html",
     "start:dev": "parcel serve src/index.html --no-cache",
     "start": "http-server -p 1234 -c-1 ./lib",
-    "clean": "zx ../clean.mjs",
+    "clean": "zx ../zx-clean.mjs",
     "test": "jest --config ../../jest.config.js"
   },
   "bugs": {
