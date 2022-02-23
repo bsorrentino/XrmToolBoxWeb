@@ -13,6 +13,7 @@
     "@parcel/transformer-typescript-types": "^2.0.1",
     "@types/react": "^17.0.9",
     "@types/xrm": "^9.0.47",
+    "cz-conventional-changelog": "^3.3.0",
     "lerna": "^4.0.0",
     "parcel": "^2.0.1",
     "react-dom": "^17.0.2",
@@ -25,6 +26,11 @@
       "engines": {
         "browsers": "> 0.25%"
       }
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   }
 }
