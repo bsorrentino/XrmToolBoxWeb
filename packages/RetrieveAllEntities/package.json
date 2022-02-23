@@ -20,7 +20,7 @@
   "scripts": {
     "start:dev": "parcel serve src/RetrieveAllEntities.html --no-cache",
     "prebuild": "npm run clean",
-    "build": "parcel build src/RetrieveAllEntities.html",
+    "prepare": "parcel build src/RetrieveAllEntities.html",
     "postbuild": "zx ../zx-postbuild.mjs",
     "clean": "zx ../zx-clean.mjs",
     "test": "jest --config ../../jest.config.js"

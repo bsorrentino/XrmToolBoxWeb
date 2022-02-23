@@ -18,7 +18,7 @@
     "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
   },
   "scripts": {
-    "build": "parcel build src/index.html",
+    "prepare": "parcel build src/index.html",
     "start:dev": "parcel serve src/index.html --no-cache",
     "start": "http-server -p 1234 -c-1 ./lib",
     "clean": "zx ../zx-clean.mjs",

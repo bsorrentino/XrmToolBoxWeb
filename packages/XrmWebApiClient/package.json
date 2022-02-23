@@ -33,7 +33,7 @@
   "scripts": {
     "prepare": "tsc",
     "prebuild": "npm run clean",
-    "build": "tsc",
+    "prepare": "tsc",
     "build:parcel": "parcel build src/WebApiClient.ts --dist-dir lib --no-source-maps",
     "clean": "zx ../zx-clean.mjs"
   },
