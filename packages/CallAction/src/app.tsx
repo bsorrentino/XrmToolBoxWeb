@@ -16,21 +16,22 @@ const textFieldStyles: Partial<ITextFieldStyles> = {
 
 export function App() {
 
-    const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()
-    const [result, _setResult] = useState<Partial<CallAction.Response>>( {} );
+    const { 
+        instance, 
+        account, 
+        scopes, 
+        acquireTokenSilent, 
+        renderAfterLogin 
+    } = useRenderAfterLogin()
 
-    const setResult = ( result:Partial<CallAction.Response> ) => {
-        console.log( result )
-        _setResult( result )
-    }
+    const [result, setResult] = useState<Partial<CallAction.Response>>( {} )
 
     useEffect(() => {
         if (account) {
             acquireTokenSilent()
-            .catch( error => console.error(error))
-            ;
+                .catch( err => console.error(err) )
         }
-    }, [account?.localAccountId, instance]);
+    }, [account?.localAccountId, instance])
 
     const [operationName,setOperationName] = useState<string>('')
     const [disabled, setDisabled] = useState( true )
@@ -47,13 +48,18 @@ export function App() {
                     boundParameter: null,
                     operationName: operationName,
                     operationType: CallAction.OperationType.Action,
-                    parameterTypes: {}
+                    parameterTypes: {
+                    }
                 }
             }
         }
+
         CallAction.Invoke( new CustomApisampleRequest() )
                 .then( setResult )
-                .catch( err => console.log( 'call action error', err) )
+                .catch( err => {
+                    setResult( { error: err.message } )
+                    console.log( 'call action error:', err)
+                })
     }, [ operationName ])
 
     return renderAfterLogin( () => 
@@ -61,14 +67,22 @@ export function App() {
             <h3>Scope: {scopes[0]}</h3><hr/>
             <Stack>
                 <Stack horizontal tokens={{ childrenGap: 20 }}>
-                    <TextField placeholder="Please enter operation bame" onChange={ (e,v) => setOperationName(v!) } style = {{ width:300 }} />
-                    <PrimaryButton text="Run" iconProps={play} styles={textFieldStyles} onClick={callaction} disabled={disabled}/>
+                    <TextField  placeholder="Please enter operation bame" 
+                                style = {{ width:300 }}
+                                onChange={ (_,v) => setOperationName(v!) }  />
+                    <PrimaryButton  text="Run" 
+                                    iconProps={play} 
+                                    styles={textFieldStyles} 
+                                    disabled={disabled}
+                                    onClick={callaction} />
                 </Stack>
     
                 <Separator alignContent="start">Result</Separator>
+
                 <div>
                     <pre>{JSON.stringify(result, undefined, 2)}</pre>
                 </div>
             </Stack>
-        </div>))
+        </div>)
+    )
 }
