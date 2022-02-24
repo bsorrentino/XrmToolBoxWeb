@@ -1,11 +1,9 @@
-# `whoami`
+# `Call Dataverse Action`
 
 > TODO: description
 
 ## Usage
 
 ```
-const whoami = require('whoami');
 
-// TODO: DEMONSTRATE API
 ```

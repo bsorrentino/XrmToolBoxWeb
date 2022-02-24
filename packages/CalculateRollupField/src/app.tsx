@@ -28,8 +28,6 @@ export function App() {
     const [fieldName, setFieldName] = useState( '' )
     const [recordId, setRecordId] = useState( '' )
 
-    const [disabled, setDisabled] = useState( true )
-
     useEffect(() => {
         
         if (account) {
@@ -40,6 +38,8 @@ export function App() {
             ;
         }
     }, [account?.localAccountId, instance]);
+
+    const [disabled, setDisabled] = useState( true )
 
     useEffect(() => 
         setDisabled( entityPluralName.trim().length === 0 || 

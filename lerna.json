@@ -9,8 +9,9 @@
     "packages/SystemForms",
     "packages/CalculateRollupField",
     "packages/Commandbar",
-    "packages/App",
-    "packages/Batch"
+    "packages/Batch",
+    "packages/CallAction",
+    "packages/App"
   ],
   "command": {
     "bootstrap": {

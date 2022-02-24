@@ -1,4 +1,4 @@
-import * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'
+import * as WebApi from '@bsorrentino/xrmtoolboxweb-webapiclient'
 
 /**
  * Execute a single action, function, or CRUD operation.
@@ -32,13 +32,13 @@ import * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'
     value: string
 }
 
-const enum OperationType {
+export const enum OperationType {
     Action = 0,
     Function,
     CRUD
 } 
 
-const enum ParamCategory {
+export const enum ParamCategory {
     Unknown = 0,
     PrimitiveType,
     ComplexType,
@@ -54,51 +54,38 @@ type CRUD = undefined
 
 type ActionName = string
 
-type OperationName = ActionName | "Create" | "Retrieve" | "RetrieveMultiple" |"Update" | "Delete"
+export type OperationName = ActionName | "Create" | "Retrieve" | "RetrieveMultiple" |"Update" | "Delete"
 
-type ParamType = {
+export type ParamType = {
     enumProperties?: EnumType
     structuralProperty: ParamCategory,
     typeName: string
 }
 
-interface ExecuteRequestData {
+export interface ExecuteRequestData {
     boundParameter: CRUD | Unbounded | EntityName
     operationName?: OperationName
     operationType?: OperationType
     parameterTypes: Record<string,ParamType>
 }
 
-interface ExecuteRequest {
+export interface ExecuteRequest {
     getMetadata():ExecuteRequestData
 }
 
-class CustomApisampleRequest implements ExecuteRequest {
 
-    getMetadata(): ExecuteRequestData {
-        return {
-            boundParameter: null,
-            operationName: 'rxr_customapisample',
-            operationType: OperationType.Action,
-            parameterTypes: {}
-        }
-    }
-    
+
+export type Response = Record<string,any>
+
+export const Invoke = <T extends ExecuteRequest>( request:T ) => {
+
+    const { operationName } = request.getMetadata()
+    const req = WebApi.Request.of({
+        method: 'POST',
+        name: operationName,
+    })
+
+    return WebApi.Instance.Execute<Response>(req) as Promise<Response>
+
 }
-function callCustomAPI() {
-
-    Xrm.WebApi.online.execute( new CustomApisampleRequest() )
-    .then( res => console.log( res ))
-    .catch( err => console.error( err ))
-}
-
-
-export interface Response {
-    BusinessUnitId: string
-    OrganizationId: string
-    UserId: string
-}
-
-export const Invoke = () => 
-    WebApiClient.Instance.Execute<Response>(WebApiClient.WhoAmIRequest) as Promise<Response>
     
