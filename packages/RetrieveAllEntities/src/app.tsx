@@ -1,139 +1,23 @@
 import React, { useCallback, useEffect, useState } from "react"
-import { DetailsListLayoutMode, Selection, IColumn } from '@fluentui/react/lib/DetailsList'
-import { MarqueeSelection } from '@fluentui/react/lib/MarqueeSelection'
 import { mergeStyles } from '@fluentui/react/lib/Styling'
 import { TextField, ITextFieldStyles } from '@fluentui/react/lib/TextField'
 import { ChoiceGroup, IChoiceGroupOption } from '@fluentui/react/lib/ChoiceGroup'
-import { Announced } from '@fluentui/react/lib/Announced'
 import { PrimaryButton } from '@fluentui/react/lib/Button'
 import { Stack } from '@fluentui/react/lib/Stack';
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
-import { Icon } from "@fluentui/react/lib/Icon"
-import { ShimmeredDetailsList } from "@fluentui/react/lib/ShimmeredDetailsList"
 
 import {  useRenderAfterLogin, EntityFiltersEnum } from '@bsorrentino/xrmtoolboxweb-core'
 import * as RetrieveAllEntities from './webapi'
+import { EntityMetadataList } from "./EntityMetadataList"
 
 initializeIcons();
 
 const exampleChildClass = mergeStyles({
     display: 'block',
     marginBottom: '10px',
-  });
+});
   
-  const textFieldStyles: Partial<ITextFieldStyles> = { root: { maxWidth: '300px' } };
-  
-  export interface IDetailsListBasicExampleItem {
-    key: number;
-    name: string;
-    value: number;
-  }
-  
-  export interface IDetailsListBasicExampleState {
-    items: IDetailsListBasicExampleItem[];
-    selectionDetails: string;
-  }
-  
-  /**
-   * 
-   * @param items 
-   * @returns 
-   */
-  function EntityMetadataList( params:{ 
-      metadata?:Array<Xrm.Metadata.EntityMetadata>,
-      loading:boolean
-    }) 
-    {
-    
-    const selection = new Selection({
-        onSelectionChanged: () => {
-            //this.setState({ selectionDetails: this._getSelectionDetails() }
-            console.log( 'onSelectionChanged!' )
-        },
-    });
-
-    const copyToClipboard = ( text:string ) => {
-        if( navigator.clipboard ) {
-            navigator.clipboard.writeText(text)
-            .then( () => console.log( `text '${text}' copied to clipboard`))
-            .catch( err => console.error( 'error coping to clipboard', err ))
-        }
-    }
-
-    const renderer = ( item: Record<string,any>, index?:number, col?:IColumn) => {
-
-        return ( 
-            <Stack horizontal verticalAlign="center" >
-                <div>{item[col!.fieldName!]}</div>
-                <Icon  iconName="Copy" styles={{root:{ paddingLeft:5 }}} onClick={ () => copyToClipboard(item[col!.fieldName!]) } />
-            </Stack> 
-        )
-
-    }
-    const columns: IColumn[] = [
-        {   
-            key: 'column1', 
-            name: 'Name', 
-            fieldName: 'LogicalName', 
-            minWidth: 100, 
-            maxWidth: 200, 
-            isResizable: true,
-            onRender:renderer,
-        },
-        { 
-            key: 'column2', 
-            name: 'Plural Name', 
-            fieldName: 'LogicalCollectionName', 
-            minWidth: 100, 
-            maxWidth: 200, 
-            isResizable: true,
-            onRender:renderer,
-        },
-        { 
-            key: 'column3', 
-            name: 'Primary Name', 
-            fieldName: 'PrimaryIdAttribute', 
-            minWidth: 100, 
-            maxWidth: 200, 
-            isResizable: true,
-            onRender:renderer,
-        },
-    ]
-
-
-    const onItemInvoked = (item: IDetailsListBasicExampleItem): void => {
-        alert(`Item invoked: ${item.name}`);
-    };
-  
-  
-    const items = params.metadata ?? []
-    return (
-        <div>
-          {/*  
-          <Text>
-            Note: While focusing a row, pressing enter or double clicking will execute onItemInvoked, which in this
-            example will show an alert.
-          </Text>
-          */}
-          <Announced message={`Number of items: ${items.length}.`} />
-          <MarqueeSelection selection={selection}>
-            <ShimmeredDetailsList
-              items={items}
-              columns={columns}
-              enableShimmer={params.loading}
-              setKey="set"
-              layoutMode={DetailsListLayoutMode.justified}
-              selection={selection}
-              selectionPreservedOnEmptyClick={true}
-              ariaLabelForSelectionColumn="Toggle selection"
-              ariaLabelForSelectAllCheckbox="Toggle selection for all items"
-              checkButtonAriaLabel="select row"
-              onItemInvoked={onItemInvoked}
-            />
-          </MarqueeSelection>
-        </div>
-      );
-}
+const textFieldStyles: Partial<ITextFieldStyles> = { root: { maxWidth: '300px' } };
   
 /**
  * 
