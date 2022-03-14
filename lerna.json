@@ -1,17 +1,10 @@
 {
   "packages": [
-    "packages/Core",
+    "packages/client-main",
+    "packages/cli",
+    "packages/core",
     "packages/XrmWebApiClient",
-    "packages/WhoAmI",
-    "packages/RetrieveAllEntities",
-    "packages/RetrieveTotalRecordCount",
-    "packages/GlobalOptionsSetDefinitions",
-    "packages/SystemForms",
-    "packages/CalculateRollupField",
-    "packages/Commandbar",
-    "packages/Batch",
-    "packages/CallAction",
-    "packages/App"
+    "packages/local-pkg"
   ],
   "command": {
     "bootstrap": {

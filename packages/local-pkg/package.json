@@ -1,0 +1,19 @@
+{
+  "name": "@bsorrentino/xrmtoolboxweb-local-pkg",
+  "version": "1.2.4",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsorrentino/XrmToolBoxWeb.git"
+  },
+  "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "prepare": "npm i --ignore-scripts",
+    "clean":""
+  },
+  "dependencies": {
+    "@bsorrentino/xrmtoolboxweb-core": "^1.2.4",
+    "@bsorrentino/xrmtoolboxweb-webapiclient": "^1.2.4"
+  }
+}
