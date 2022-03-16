@@ -1,5 +1,5 @@
 import { FunctionComponent, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import * as db from '../../db'
+import * as db from '@bsorrentino/jsnotebook-client-data'
 import {DeletionNotebookPopup } from './DeletionNotebookPopup'
 import {AddingNotebookPopup } from './AddingNotebookPopup'
 
@@ -26,7 +26,7 @@ const NotebookRow = ( params: {docId: string, onDelete:( id:string ) => void } )
         <a className="columns is-vcentered panel-block" key={id} >
             <div className="column is-10">{ id }</div>
             <div className="column">
-                <button className="button is-primary is-small is-rounded" style={{width: '100%'}} onClick={ () => window.location.href=`/notebook#${id}` }>Edit</button>
+                <button className="button is-primary is-small is-rounded" style={{width: '100%'}} onClick={ () => window.location.href=`/notebook?database=${db.context.databaseName}&notebook=${id}` }>Edit</button>
             </div>
             <div className="column">
                 <button className="button is-danger is-small is-rounded" style={{width: '100%'}} onClick={ () => params.onDelete(params.docId) }>Delete</button>
