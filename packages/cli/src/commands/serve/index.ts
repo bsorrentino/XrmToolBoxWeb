@@ -2,6 +2,7 @@ import { Command } from "commander";
 import { serve, Configuration, CellsRoute } from "@bsorrentino/jsnotebook-server";
 import path from "path";
 import chalk from "chalk";
+import os from 'os'
 
 interface Options {
   port: string;
@@ -9,7 +10,7 @@ interface Options {
 // not used for now
 const isProduction = process.env.NODE_ENV === "production";
 
-const serveAction = async (filename:string|undefined, { port }: Options) => {
+const serveAction = async ( { port }: Options ) => {
 
   const modulePath = ( moduleName:string, join:string ) => 
       path.join( path.dirname(require.resolve( path.join('@bsorrentino', moduleName, 'package.json' ) )), join )
@@ -17,17 +18,13 @@ const serveAction = async (filename:string|undefined, { port }: Options) => {
   const config:Configuration = {
     port: parseFloat(port),
     mainModulePath: modulePath('xrmtoolboxweb-client-main', 'dist'),
-    pkgModulePath: modulePath('xrmtoolboxweb-local-pkg', 'node_modules')
-  }
-
-  if( filename ) {
-    config.cellRoute =  {
-      dir: path.join(process.cwd(), path.dirname(filename)),
-      filename: path.basename(filename)
+    pkgModulePath: modulePath('xrmtoolboxweb-local-pkg', 'node_modules'),
+    cellRoute: {
+      dir: os.tmpdir(),
     } 
-    
-  }
 
+  }
+    
   try {
 
     await serve( config );
