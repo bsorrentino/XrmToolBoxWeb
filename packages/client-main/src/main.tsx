@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom";
 import App from "./App";
 import Layout from "./components/Layout/Layout";
-import { Provider } from "react-redux";
 
 import "./global.scss";
 
