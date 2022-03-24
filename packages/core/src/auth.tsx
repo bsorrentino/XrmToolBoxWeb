@@ -1,4 +1,4 @@
-import { AccountInfo, AuthenticationResult, Configuration,  PublicClientApplication } from "@azure/msal-browser";
+import { AccountInfo, AuthenticationResult, Configuration,  PublicClientApplication, SilentRequest } from "@azure/msal-browser";
 import { IMsalContext, useMsal, useAccount } from "@azure/msal-react";
 import React, { useEffect, useState } from "react";
 import { useSessionStorage } from "./storage";
@@ -44,7 +44,7 @@ export const useRenderAfterLogin = ():RenderAfterLogin =>  {
     const [storedEnvUrl, storeEnvUrl] = useSessionStorage('envurl')
     const [inputEnvUrl, setInputEnvUrl] = useState('')
     
-    const [scopes, setScopes] = useState<Array<string>>([])
+    const [scopes, setScopes] = useState<Array<string>>([`${storedEnvUrl}/user_impersonation`])
 
     useEffect( () => {
         if( storedEnvUrl ) {
@@ -107,7 +107,7 @@ export const useRenderAfterLogin = ():RenderAfterLogin =>  {
             account: account ?? undefined
         })
         .then( (auth:AuthenticationResult) => {
-            console.log( `environment url ${storedEnvUrl} scopes: ${scopes}`)
+            console.log( `environment url ${storedEnvUrl} scopes: [${scopes}]`)
             WebApiClient.Instance.ApiVersion = '9.1'
             WebApiClient.Instance.ClientUrl = storedEnvUrl!
             WebApiClient.Instance.Token     = auth.accessToken
