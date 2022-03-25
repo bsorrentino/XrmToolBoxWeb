@@ -17,10 +17,10 @@ const serveAction = async ( { port }: Options ) => {
   
   const config:Configuration = {
     port: parseFloat(port),
-    mainModulePath: modulePath('xrmtoolboxweb-client-main', 'dist'),
     pkgModulePath: modulePath('xrmtoolboxweb-local-pkg', 'node_modules'),
-    cellRoute: {
-      dir: os.tmpdir(),
+    extraModulePath: {
+      route: '/',
+      path: path.join( path.dirname(require.resolve( path.join('xrmtoolboxweb-app', 'package.json' ) )), 'lib'),
     } 
 
   }

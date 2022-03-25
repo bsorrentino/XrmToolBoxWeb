@@ -1,6 +1,6 @@
 {
   "packages": [
-    "packages/client-main",
+    "packages/App",
     "packages/cli",
     "packages/core",
     "packages/XrmWebApiClient",

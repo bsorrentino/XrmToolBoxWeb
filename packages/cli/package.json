@@ -26,8 +26,8 @@
     "commander": "^7.2.0"
   },
   "dependencies": {
-    "@bsorrentino/xrmtoolboxweb-client-main": "^1.2.4",
+    "xrmtoolboxweb-app": "^1.2.4",
     "@bsorrentino/xrmtoolboxweb-local-pkg": "^1.2.4",
-    "@bsorrentino/jsnotebook-server": "^0.9.1"
+    "@bsorrentino/jsnotebook-server": "^0.11.0"
   }
 }
