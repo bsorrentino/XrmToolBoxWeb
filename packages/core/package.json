@@ -32,9 +32,8 @@
   ],
   "scripts": {
     "prepare": "tsc",
-    "prepare": "tsc",
     "build:parcel": "parcel build src/index.ts --dist-dir lib",
-    "clean": "rm -rf lib",
+    "clean": "zx ../zx-clean.mjs",
     "test": "jest --config ../../jest.config.js"
   },
   "dependencies": {

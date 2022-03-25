@@ -1,30 +1,31 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { initializeIcons } from '@fluentui/font-icons-mdl2';
+import { useRenderAfterLogin } from "@bsorrentino/xrmtoolboxweb-core";
 
-import { Features } from "./features";
+//import { Features } from "./features";
 
 initializeIcons();
 
-export function App() {
+// export function App() {
     
-    return  (<div>
-                <Features></Features>
-            </div>)
-}
-
-// export function AppWithLogin() {
-
-//     const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()
-
-//     useEffect(() => {
-        
-//         if (account) {
-//             acquireTokenSilent()
-//         }
-//     }, [account?.localAccountId, instance]);
-
-//     return renderAfterLogin( () => 
-//         (<div>
+//     return  (<div>
 //                 <Features></Features>
-//         </div>))
+//             </div>)
 // }
+
+export function App() {
+
+    const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()
+
+    useEffect(() => {
+        
+        if (account) {
+            acquireTokenSilent()
+        }
+    }, [account?.localAccountId, instance]);
+
+    return renderAfterLogin( () => 
+        (<div>
+            <a href="/notebooks?database=xrmtoolkitweb">NOTEBOOKS</a>
+        </div>))
+}
