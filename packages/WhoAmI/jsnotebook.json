@@ -15,9 +15,10 @@
     },
     {
       "id": "lxfcn",
-      "content": "import * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'\n\nexport interface Response {\n    BusinessUnitId: string\n    OrganizationId: string\n    UserId: string\n}\n\nexport const Invoke = () => \n    WebApiClient.Instance.Execute<Response>(WebApiClient.WhoAmIRequest) as Promise<Response>\n    \n",
+      "content": "import * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'\n\nexport interface Response {\n    BusinessUnitId: string\n    OrganizationId: string\n    UserId: string\n}\n\nexport const Invoke = () => \n    WebApiClient.Instance.Execute<Response>(WebApiClient.WhoAmIRequest) as Promise<Response>\n    ",
       "type": "code",
-      "language": "typescript"
+      "language": "typescript",
+      "height": 238
     },
     {
       "id": "jbv9k",
@@ -29,13 +30,15 @@
       "id": "i9mn9",
       "content": "import React, { useEffect, useState } from \"react\";\nimport ReactDOM from \"react-dom\";\nimport { useRenderAfterLogin } from \"@bsorrentino/xrmtoolboxweb-core\";\n\nexport function App() {\n  const { \n    instance, \n    account, \n    scopes, \n    acquireTokenSilent, \n    renderAfterLogin \n    } = useRenderAfterLogin();\n  const [result, setResult] = useState < Partial < Response >>({});\n\n  useEffect(() => {\n    if (account) {\n      acquireTokenSilent().then(Invoke).then(setResult);\n    }\n  }, [account?.localAccountId, instance]);\n\n  return renderAfterLogin(() => (\n    <div>\n      <h3>Scope: {scopes[0]}</h3>\n      <hr />\n      <table>\n        <tbody>\n        <tr><td>UserId:</td><td>{result.UserId}</td></tr>\n        <tr><td>BusinessUnitId:</td><td>{result.BusinessUnitId}</td></tr>\n        <tr><td>OrganizationId:</td><td>{result.OrganizationId}</td></tr>\n        </tbody>\n      </table>\n    </div>\n  ));\n}\n",
       "type": "code",
-      "language": "typescript"
+      "language": "typescript",
+      "height": 678
     },
     {
       "id": "i5eg9",
       "content": "import React from \"react\";\nimport ReactDOM from \"react-dom\";\nimport { MsalProvider } from \"@azure/msal-react\";\nimport { PCA } from '@bsorrentino/xrmtoolboxweb-core'\n\n// Component\nconst AppProvider = () => (\n    <MsalProvider instance={PCA}>\n        <App/>\n    </MsalProvider>\n);\n\nshow( <AppProvider /> )",
       "type": "code",
-      "language": "typescript"
+      "language": "typescript",
+      "height": 282
     }
   ]
 }
