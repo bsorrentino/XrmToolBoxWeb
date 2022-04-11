@@ -1,0 +1,38 @@
+{
+  "language": "typescript",
+  "cells": [
+    {
+      "id": "4ppm2",
+      "content": "Gets a collection of SystemForm entity references.\n\n> [Reference](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/systemform?view=dynamics-ce-odata-9)",
+      "type": "text",
+      "language": "javascript"
+    },
+    {
+      "id": "lxfcn",
+      "content": "import * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'\n\n// https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/systemform?view=dynamics-ce-odata-9\nexport interface Response {\n    \"@odata.context\": string\n     value: [{\n        '@odata.etag': string,\n        formid: string,\n        name: string\n        type: number\n    }]\n}\n\nexport const Invoke = (EntityName: string) => {\n\n    const req:WebApiClient.EntityParameters & WebApiClient.SendParameters = {\n        entityName: 'systemform',\n        queryParams: `$select=formid,name,type&$filter=(objecttypecode eq '${EntityName}' and formactivationstate eq 1)&$orderby=type`\n    }\n\n    return WebApiClient.Instance.Retrieve<Response>(req) as Promise<Response>\n}\n  ",
+      "type": "code",
+      "language": "typescript",
+      "height": 514
+    },
+    {
+      "id": "jbv9k",
+      "content": "### Define App react component\n\n\n`acquireTokenSilent()`:   allows to acquire access token for WebApi call\n\n\n`scopes`: contains the scopes provided to acquiring access token\n\n`renderAfterLogin`: render component given as parameter if user is autehnticated otherwise present a login page",
+      "type": "text",
+      "language": "javascript"
+    },
+    {
+      "id": "i9mn9",
+      "content": "import React, { useEffect, useState, useCallback } from \"react\"\nimport {  useRenderAfterLogin } from '@bsorrentino/xrmtoolboxweb-core'\n\n/**\n * \n * @returns \n */\nexport function App() {\n\n    const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()\n    const [result, setResult] = useState<Partial<Response>>();\n    const [entityName, setEntityName] = useState( '' )\n\n    useEffect(() => {\n        \n        if (account) {\n            acquireTokenSilent()\n            //.then( () => RetrieveTotalRecordCount( ['systemuser']) )\n            //.then( setResult )\n            //.catch( error => console.error(error))\n            ;\n        }\n    }, [account?.localAccountId, instance]);\n\n    const _run = useCallback( () => \n        Invoke( entityName ).then( setResult ), [entityName] )\n\n    return renderAfterLogin( () =>  \n    (<div>\n        <h3>Scope: {scopes[0]} - {entityName}</h3><hr/>\n        <div>\n            <div className=\"columns\">\n              <div className=\"column\">\n                <input size=\"50\" placeholder=\"Please enter the entity name\" onChange={ e => setEntityName(e.target.value) } />\n              </div>\n              <div className=\"column\">\n                <button onClick={_run}>Run</button>\n              </div>\n            </div>\n            <p>Result</p>\n            <div>\n                <pre>{JSON.stringify(result?.value, undefined, 2)}</pre>\n            </div>\n        </div>\n    </div>))\n}\n",
+      "type": "code",
+      "language": "typescript",
+      "height": 988
+    },
+    {
+      "id": "i5eg9",
+      "content": "import React from \"react\";\nimport ReactDOM from \"react-dom\";\nimport { MsalProvider } from \"@azure/msal-react\";\nimport { PCA } from \"@bsorrentino/xrmtoolboxweb-core\";\n\n// Component\nconst AppProvider = () => (\n  <MsalProvider instance={PCA}>\n    <App />\n  </MsalProvider>\n);\n\nshow(<AppProvider />);\n",
+      "type": "code",
+      "language": "typescript",
+      "height": 392
+    }
+  ]
+}
