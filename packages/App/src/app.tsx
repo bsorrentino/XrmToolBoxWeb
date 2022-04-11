@@ -1,10 +1,10 @@
-import React, { useEffect } from "react"
-import { initializeIcons } from '@fluentui/font-icons-mdl2';
+import React, { useEffect, useRef } from "react"
 import { useRenderAfterLogin } from "@bsorrentino/xrmtoolboxweb-core";
 
-//import { Features } from "./features";
+// import { initializeIcons } from '@fluentui/font-icons-mdl2';
+// import { Features } from "./features";
 
-initializeIcons();
+// initializeIcons();
 
 // export function App() {
     
@@ -16,16 +16,17 @@ initializeIcons();
 export function App() {
 
     const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()
-
+    const link = useRef<HTMLAnchorElement>(null)
+    
     useEffect(() => {
         
         if (account) {
-            acquireTokenSilent()
+            acquireTokenSilent().then( () => link.current?.click() )
         }
     }, [account?.localAccountId, instance]);
 
     return renderAfterLogin( () => 
         (<div>
-            <a href="/notebooks?database=xrmtoolkitweb">NOTEBOOKS</a>
+            <a ref={link} href="/notebooks?database=xrmtoolkitweb">LOADING NOTEBOOKS.....</a>
         </div>))
 }
