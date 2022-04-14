@@ -4,7 +4,7 @@
   "description": "",
   "keywords": [],
   "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "types": "lib/WebApiClient.d.ts",
   "directories": {
     "lib": "lib"

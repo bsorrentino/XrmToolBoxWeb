@@ -5,7 +5,7 @@
   "description": "",
   "keywords": [],
   "author": "bsorrentino <bartolomeo.sorrentino@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
