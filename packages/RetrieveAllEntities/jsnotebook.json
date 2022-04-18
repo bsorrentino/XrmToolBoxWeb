@@ -1,0 +1,44 @@
+{
+  "language": "typescript",
+  "cells": [
+    {
+      "id": "4ppm2",
+      "content": "Retrieves metadata information about all the entities..\n\n> [Reference](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/web-api/retrieveallentities?view=dynamics-ce-odata-9)",
+      "type": "text",
+      "language": "javascript"
+    },
+    {
+      "id": "qwo70",
+      "content": "WebApi Call",
+      "type": "text",
+      "height": 200
+    },
+    {
+      "id": "lxfcn",
+      "content": "/// <reference types=\"@types/xrm\" />\n\nimport * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'\n\nexport interface Response {\n    EntityMetadata: Array<Xrm.Metadata.EntityMetadata>\n    Timestamp: String\n}\n\nexport const Invoke = ( params: { EntityFilters:string, RetrieveAsIfPublished:Boolean}) => { \n    \n    const req = WebApiClient.RetrieveAllEntitiesRequest.with( \n        {  \n            urlParams: { \n                EntityFilters:`Microsoft.Dynamics.CRM.EntityFilters'${params.EntityFilters}'`, \n                RetrieveAsIfPublished:false\n            },\n            headers: [\n                { key:'Access-Control-Allow-Origin', value:'*.crm.dynamics.com'},\n                { key:'Access-Control-Allow-Credentials', value:'true' },\n                { key:'Access-Control-Allow-Methods', value:'GET, POST, PUT, DELETE, OPTIONS' },\n                { key:'Access-Control-Allow-Headers', value:'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token' },\n            ]\n        })\n    \n    return WebApiClient.Instance.Execute<Response>(req) as Promise<Response>\n}\n  ",
+      "type": "code",
+      "language": "typescript",
+      "height": 514
+    },
+    {
+      "id": "jbv9k",
+      "content": "### Define App react component\n\n\n`acquireTokenSilent()`:   allows to acquire access token for WebApi call\n\n\n`scopes`: contains the scopes provided to acquiring access token\n\n`renderAfterLogin`: render component given as parameter if user is autehnticated otherwise present a login page",
+      "type": "text",
+      "language": "javascript"
+    },
+    {
+      "id": "i9mn9",
+      "content": "import React, { CSSProperties, useEffect, useState } from 'react';\nimport {  useRenderAfterLogin, EntityFiltersEnum } from '@bsorrentino/xrmtoolboxweb-core'\n\nconst table_style:CSSProperties = { border: '1px solid black' }\n\n/**\n * \n * @returns \n */\nexport function App() {\n    const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin()\n\n    const [result, setResult] = useState<Partial<Response>>( { EntityMetadata: [] } );\n\n    useEffect(() => {\n        \n        if (account) {\n            acquireTokenSilent() \n            .then( () => Invoke( { EntityFilters: EntityFiltersEnum.Entity, RetrieveAsIfPublished: false }) )\n            .then( setResult )\n            .catch( error => console.error(error))\n            ;\n        }\n    }, [account?.localAccountId, instance]);\n\n    return renderAfterLogin( () => ( \n        <div>\n            <h3>Scope: {scopes[0]}</h3><hr/>\n            <p>Result</p>\n            <div>\n                <table style={table_style}>\n                    <thead>\n                        <tr>\n                            <th style={table_style}>LogicalName</th>\n                            <th style={table_style}>LogicalCollectionName</th>\n                        </tr>\n                    </thead>\n                    <tbody>\n                    { result?.EntityMetadata.map( e => \n                       (\n                            <tr>\n                            <td style={table_style}>{e.LogicalName}</td>\n                            <td style={table_style}>{e.LogicalCollectionName}</td>\n                            </tr>\n                        )\n                    )}\n                    </tbody>\n                </table>\n            </div>\n        </div> \n        ))\n}\n",
+      "type": "code",
+      "language": "typescript",
+      "height": 1266
+    },
+    {
+      "id": "i5eg9",
+      "content": "import React from \"react\";\nimport ReactDOM from \"react-dom\";\nimport { MsalProvider } from \"@azure/msal-react\";\nimport { PCA } from \"@bsorrentino/xrmtoolboxweb-core\";\n\n// Component\nconst AppProvider = () => (\n  <MsalProvider instance={PCA}>\n    <App />\n  </MsalProvider>\n);\n\nshow(<AppProvider />);\n",
+      "type": "code",
+      "language": "typescript",
+      "height": 438
+    }
+  ]
+}
