@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "lerna clean -y && lerna run clean",
+    "cleanall": "npm run clean && zx ./zx-clean.mjs",
     "build": "lerna bootstrap --hoist --strict && lerna run postbuild",
     "start": "lerna run start --stream --scope @bsorrentino/xrmtoolboxweb-cli"
   },
