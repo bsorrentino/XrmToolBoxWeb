@@ -28,6 +28,6 @@
   "dependencies": {
     "xrmtoolboxweb-app": "^1.2.4",
     "@bsorrentino/xrmtoolboxweb-local-pkg": "^1.2.4",
-    "@bsorrentino/jsnotebook-server": "^0.24.0"
+    "@bsorrentino/jsnotebook-server": "^0.24.3"
   }
 }
