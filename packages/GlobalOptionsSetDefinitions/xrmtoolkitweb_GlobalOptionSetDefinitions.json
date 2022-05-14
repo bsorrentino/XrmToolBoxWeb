@@ -1,0 +1,29 @@
+{
+  "language": "typescript",
+  "cells": [
+    {
+      "id": "vd231",
+      "content": "### Fetch Global OptionSets\n\n> [Reference](https://crmtipoftheday.com/532/retrieving-global-optionsets-using-web-api/)",
+      "type": "text",
+      "height": 200
+    },
+    {
+      "id": "4u3sm",
+      "content": "/// <reference types=\"@types/xrm\" />\nimport * as WebApiClient from '@bsorrentino/xrmtoolboxweb-webapiclient'\n\nexport namespace GlobalOptionSetDefinitions {\nclass Request extends WebApiClient.Request {\n    method = 'GET'\n    name = 'GlobalOptionSetDefinitions'\n}\n\nexport type OptionSetType = 'Picklist' | 'Boolean' | string\n\nexport type Metadata = {\n    \"@odata.type\": '#Microsoft.Dynamics.CRM.OptionSetMetadata',\n    ParentOptionSetName: string | null,\n    IsCustomOptionSet: boolean,\n    IsGlobal: boolean,\n    IsManaged: boolean,\n    Name: string,\n    ExternalTypeName: string | null,\n    OptionSetType: OptionSetType,\n    IntroducedVersion: string,\n    MetadataId: string,\n    HasChanged: boolean | null,\n    Options: Array<Xrm.Metadata.OptionMetadata>\n}\n\nexport type Response = {\n    \"@odata.context\": string\n    value: Array<Metadata>\n}\n\nexport const Invoke = () => {\n    const req = new Request()\n    return WebApiClient.Instance.Execute<Response>(req) as Promise<Response>\n}\n}\n",
+      "type": "code",
+      "height": 741
+    },
+    {
+      "id": "ozk39",
+      "content": "import React, { useEffect, useState } from \"react\";\nimport { useRenderAfterLogin } from \"@bsorrentino/xrmtoolboxweb-core\";\n\ntype Result = {\n  Name: string\n}\n\nconst sortCriteria = (a:GlobalOptionSetDefinitions.Metadata, b:GlobalOptionSetDefinitions.Metadata) => {\n    const typeCompare = -(a.OptionSetType.localeCompare(b.OptionSetType))\n    if( typeCompare == 0 )\n        return a.Name.localeCompare(b.Name)\n    return typeCompare\n}\n\nconst processResult = (values:Partial<GlobalOptionSetDefinitions.Response>) => \n  values.value.sort(sortCriteria).map( v => ({ Name: v.Name}) )\n\n\nexport function App() {\n  const { instance, account, scopes, acquireTokenSilent, renderAfterLogin } = useRenderAfterLogin();\n  const [result, setResult] = useState<Array<Result>>([])\n\n  useEffect(() => {\n      if (account) {\n          acquireTokenSilent() \n          .then( () => GlobalOptionSetDefinitions.Invoke() )\n          .then( values => \n              setResult( processResult(values) )\n          )\n          .catch( error => console.error(error))\n          ;\n      }\n  }, [account?.localAccountId, instance]);\n\n  return renderAfterLogin(() => (\n    <div>\n      <h3>Scope: {scopes[0]} </h3>\n      <hr/>\n      <div>\n        <p>Result - #{ result.length }</p>\n        <div>\n          <pre>{JSON.stringify(result, undefined, 2)}</pre>\n        </div>\n      </div>\n    </div>\n  ));\n}\n",
+      "type": "code",
+      "height": 1066
+    },
+    {
+      "id": "u2pqy",
+      "content": "import React from \"react\";\nimport ReactDOM from \"react-dom\";\n\nimport { MsalProvider } from \"@azure/msal-react\";\n\nimport { PCA } from '@bsorrentino/xrmtoolboxweb-core'\n\n// Component\nconst AppProvider = () => (\n    <MsalProvider instance={PCA}>\n        <App />\n    </MsalProvider>\n);\n\nReactDOM.render(<AppProvider />, document.getElementById(\"root\"));",
+      "type": "code",
+      "height": 390
+    }
+  ]
+}
